@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Turtle 데이터 삭제 · Data Deletion</title>
+<style>
+  :root { --bg: #f2f4f6; --card: #ffffff; --text: #191f28; --sub: #6b7684; --line: #e5e8eb; --brand: #14b87a; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #101013; --card: #1c1c21; --text: #eceef0; --sub: #9aa0a8; --line: #2f2f37; }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 15px/1.7 -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", "Segoe UI", sans-serif; }
+  main { max-width: 760px; margin: 0 auto; padding: 32px 16px 64px; }
+  header { margin-bottom: 20px; }
+  .app { color: var(--brand); font-weight: 800; font-size: 22px; letter-spacing: -0.3px; }
+  h1 { font-size: 26px; margin: 4px 0 8px; letter-spacing: -0.4px; }
+  .meta { color: var(--sub); font-size: 13px; }
+  nav { margin: 16px 0 8px; display: flex; gap: 8px; }
+  nav a { padding: 6px 14px; border-radius: 999px; background: var(--card); color: var(--text); text-decoration: none; font-size: 14px; border: 1px solid var(--line); }
+  section.lang { background: var(--card); border-radius: 20px; padding: 8px 22px 22px; margin-top: 16px; }
+  h2 { font-size: 18px; margin: 26px 0 8px; }
+  h2:first-child { margin-top: 18px; }
+  ol, ul { padding-left: 20px; margin: 6px 0; }
+  li { margin: 6px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 8px 0; font-size: 14px; }
+  th, td { text-align: left; padding: 8px 6px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { color: var(--sub); font-weight: 600; }
+  a { color: var(--brand); }
+  .note { color: var(--sub); font-size: 13px; }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <div class="app">Turtle</div>
+    <h1>데이터 삭제 요청 · Data Deletion</h1>
+    <div class="meta">앱 Turtle - 거북목 감지기 · 개발자 XXVION</div>
+    <nav><a href="#ko">한국어</a><a href="#en">English</a></nav>
+  </header>
+
+  <section class="lang" id="ko" lang="ko">
+    <h2>데이터를 지우는 방법</h2>
+    <p>Turtle은 회원가입이 없고, 자세 기록과 설정은 휴대폰 안에만 저장됩니다. 아래 방법으로 직접 지우거나 개발자에게 삭제를 요청할 수 있습니다.</p>
+    <ol>
+      <li><strong>기기에 저장된 데이터 지우기:</strong> 휴대폰의 <strong>설정 › 애플리케이션 › Turtle › 저장공간 › 데이터 삭제</strong>를 누르거나 앱을 삭제하세요. 즉시 삭제됩니다.</li>
+      <li><strong>개발자에게 보낸 정보 삭제 요청:</strong> <a href="mailto:xxvion.studio@gmail.com?subject=%5BTurtle%5D%20%EB%8D%B0%EC%9D%B4%ED%84%B0%20%EC%82%AD%EC%A0%9C%20%EC%9A%94%EC%B2%AD">xxvion.studio@gmail.com</a>으로 제목을 <strong>“[Turtle] 데이터 삭제 요청”</strong>으로 해서 메일을 보내 주세요. 문의할 때 쓴 이메일 주소로 보내 주시면 본인 확인 후 30일 안에 삭제하고 회신합니다.</li>
+      <li><strong>광고 데이터:</strong> 광고는 Google AdMob이 처리합니다. 휴대폰의 <strong>설정 › Google › 광고</strong>(또는 설정 › 개인정보 보호 › 광고)에서 광고 ID를 삭제하거나 재설정할 수 있으며, Google 계정 관련 데이터는 <a href="https://myaccount.google.com/data-and-privacy">Google 계정의 데이터 및 개인 정보 보호</a>에서 관리할 수 있습니다.</li>
+    </ol>
+
+    <h2>삭제되는 데이터와 보관되는 데이터</h2>
+    <table>
+      <tr><th>데이터</th><th>처리</th></tr>
+      <tr><td>자세 통계(날짜·시간대별 기록, 경고 횟수)와 앱 설정</td><td>기기에만 저장되며, 데이터 삭제 또는 앱 삭제 시 즉시 삭제됩니다. 개발자 서버에는 보관하지 않습니다.</td></tr>
+      <tr><td>문의 메일(이메일 주소, 내용, 앱 버전·기기 정보)</td><td>요청 후 30일 안에 삭제합니다. 요청이 없어도 문의 처리 후 1년이 지나면 삭제합니다.</td></tr>
+      <tr><td>후원(인앱 결제) 주문 기록</td><td>결제는 Google Play가 처리하며, 주문 기록은 Google이 관련 법령(예: 전자상거래법상 거래 기록 5년)과 Google 정책에 따라 보관합니다. 개발자는 이 기록을 따로 복사해 보관하지 않습니다.</td></tr>
+      <tr><td>광고 관련 데이터(광고 ID 등)</td><td>Google이 자체 정책에 따라 보관·삭제합니다. 위 3번 방법으로 광고 ID를 삭제하거나 재설정할 수 있습니다.</td></tr>
+    </table>
+    <p class="note">자세한 내용은 <a href="../privacy/">개인정보처리방침</a>을 참고하세요.</p>
+  </section>
+
+  <section class="lang" id="en" lang="en">
+    <h2>How to delete your data</h2>
+    <p>Turtle has no accounts, and your posture records and settings are stored only on your phone. You can delete them yourself or ask us to delete information you sent us.</p>
+    <ol>
+      <li><strong>Delete data on your device:</strong> Go to <strong>Settings › Apps › Turtle › Storage › Clear data</strong>, or uninstall the app. The data is deleted immediately.</li>
+      <li><strong>Ask us to delete information you sent us:</strong> Email <a href="mailto:xxvion.studio@gmail.com?subject=%5BTurtle%5D%20Data%20deletion%20request">xxvion.studio@gmail.com</a> with the subject <strong>“[Turtle] Data deletion request”</strong> from the address you used to contact us. We will verify the request and delete the data within 30 days, then reply to confirm.</li>
+      <li><strong>Advertising data:</strong> Ads are handled by Google AdMob. You can delete or reset your advertising ID in <strong>Settings › Google › Ads</strong> (or Settings › Privacy › Ads), and manage data tied to your Google account at <a href="https://myaccount.google.com/data-and-privacy">Google Account › Data &amp; privacy</a>.</li>
+    </ol>
+
+    <h2>What is deleted and what is kept</h2>
+    <table>
+      <tr><th>Data</th><th>What happens</th></tr>
+      <tr><td>Posture statistics (daily and hourly records, alert counts) and app settings</td><td>Stored only on your device and deleted immediately when you clear the app’s data or uninstall it. We do not keep them on any server.</td></tr>
+      <tr><td>Support emails (email address, message, app version and device info)</td><td>Deleted within 30 days of your request. Without a request, deleted one year after the inquiry is resolved.</td></tr>
+      <tr><td>Donation (in-app purchase) order records</td><td>Payments are processed by Google Play, which keeps order records as required by law (for example, 5 years for transaction records under Korean e-commerce law) and Google’s policies. We do not keep separate copies.</td></tr>
+      <tr><td>Advertising data (such as the advertising ID)</td><td>Kept and deleted by Google under its own policies. You can delete or reset your advertising ID as described in step 3.</td></tr>
+    </table>
+    <p class="note">See the <a href="../privacy/">Privacy Policy</a> for details.</p>
+  </section>
+</main>
+</body>
+</html>
