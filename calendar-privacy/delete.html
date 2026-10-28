@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>계정·데이터 삭제 · Account and Data Deletion — forj. Calendar</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #F5F6FB; --surface: #FFFFFF; --text: #1C1C28; --text-sub: #5A5A6E;
+    --line: #E6E7EF; --accent: #5B5BD6; --code-bg: #F2F3F9;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #101018; --surface: #1A1A24; --text: #F2F2F7; --text-sub: #B4B4C6; --line: #3A3A4E; --accent: #8E8EF0; --code-bg: #22222E; }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    font-size: 16px; line-height: 1.7; word-break: keep-all; }
+  main { max-width: 760px; margin: 0 auto; padding: 32px 16px 64px; }
+  article { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 28px 24px; margin-bottom: 24px; }
+  h1 { font-size: 24px; margin: 0 0 4px; }
+  h2 { font-size: 18px; margin: 28px 0 8px; color: var(--accent); }
+  p, li { color: var(--text); }
+  .sub { color: var(--text-sub); font-size: 14px; margin: 0 0 20px; }
+  ol { padding-left: 22px; }
+  li { margin: 6px 0; }
+  code { background: var(--code-bg); padding: 1px 6px; border-radius: 4px; font-size: 14px; }
+  a { color: var(--accent); }
+  .note { border-left: 3px solid var(--accent); padding: 8px 14px; background: var(--code-bg); border-radius: 0 8px 8px 0; margin: 14px 0; }
+</style>
+</head>
+<body>
+<main>
+<article>
+  <h1>계정·데이터 삭제 안내</h1>
+  <p class="sub">포지 캘린더(forj. Calendar) · 개발자 XXVION Studio · 문의 <a href="mailto:xxvion.studio@gmail.com">xxvion.studio@gmail.com</a></p>
+
+  <p>포지 캘린더는 <strong>개발자 서버에 이용자 데이터를 보관하지 않습니다.</strong> 일정·할 일 데이터는 이용자의 기기와
+  이용자 본인의 Google Drive(앱 전용 폴더)에만 저장됩니다. 따라서 삭제는 이용자가 직접, 즉시 할 수 있습니다.</p>
+
+  <h2>1. 앱 안에서 전부 지우기</h2>
+  <ol>
+    <li>앱 하단 <strong>설정</strong> 탭 › <strong>백업/복원</strong> › <strong>전체 초기화</strong>.</li>
+    <li>확인하면 이 기기의 일정·프로젝트·할 일과 그룹·장소·인물이 모두 지워지고 기본 그룹 하나로 시작합니다. 동기화가 켜져 있으면 같은 계정의 다른 기기도 다음 동기화 때 비워집니다.</li>
+    <li>이어서 <strong>설정</strong> › <strong>정보</strong> › <strong>로그아웃</strong>. 기기에 저장된 계정 정보(이메일·이름)가 지워집니다.</li>
+  </ol>
+  <div class="note">전체 초기화는 실수를 되돌릴 수 있도록 지우기 직전 상태를 이용자의 Google Drive 앱 전용 폴더에 한 번 백업합니다. 그 백업까지 없애려면 아래 2번을 함께 진행하세요.</div>
+
+  <h2>2. Google Drive의 동기화·백업 파일 지우기</h2>
+  <ol>
+    <li>PC 또는 폰 브라우저에서 <a href="https://drive.google.com/drive/settings" target="_blank" rel="noopener">Google Drive 설정</a> › <strong>앱 관리</strong>.</li>
+    <li>목록에서 <strong>forj. Calendar</strong> › 옵션 › <strong>숨겨진 앱 데이터 삭제</strong>.</li>
+    <li>원하면 같은 곳에서 <strong>Drive에서 연결 해제</strong>로 앱의 Drive 접근 권한도 거둘 수 있습니다.</li>
+  </ol>
+  <div class="note">이 폴더는 앱만 읽고 쓰는 전용 폴더라 Drive 화면에는 보이지 않습니다. 위 메뉴에서만 지울 수 있습니다.</div>
+
+  <h2>3. 앱 삭제</h2>
+  <p>앱을 삭제하면 기기의 모든 앱 데이터(일정·설정·알림 예약)가 함께 지워집니다. 기기 설정 › 앱 › forj. Calendar › 저장공간 › <strong>데이터 삭제</strong>로도 됩니다.
+  앱은 Android 자동 백업을 쓰지 않으므로 다시 설치하면 빈 상태로 시작합니다.</p>
+
+  <h2>4. 개발자에게 요청</h2>
+  <p>개발자가 보관하는 이용자 데이터는 없으므로 개발자가 대신 지울 데이터도 없습니다. 위 절차가 어렵거나 궁금한 점이 있으면
+  <a href="mailto:xxvion.studio@gmail.com?subject=forj.%20Calendar%20데이터%20삭제%20문의">xxvion.studio@gmail.com</a>으로 문의해 주세요.
+  구독 결제 기록은 Google Play가 관리하며, 앱 삭제와 무관하게 Play 스토어 › 결제 및 정기 결제에서 해지할 수 있습니다.</p>
+
+  <h2>보관 기간</h2>
+  <ul>
+    <li>지운 항목의 삭제 기록(식별자·시각)은 다른 기기에 삭제를 전파하기 위해 최대 90일 뒤 자동으로 지워집니다.</li>
+    <li>그 밖에 개발자가 보관하는 정보는 없습니다. 자세한 내용은 <a href="./">개인정보처리방침</a>을 보세요.</li>
+  </ul>
+</article>
+
+<article lang="en">
+  <h1>Account and Data Deletion</h1>
+  <p class="sub">forj. Calendar · Developer: XXVION Studio · Contact <a href="mailto:xxvion.studio@gmail.com">xxvion.studio@gmail.com</a></p>
+
+  <p>forj. Calendar <strong>does not store user data on any developer server.</strong> Your schedules and to-dos live only on your device and in
+  your own Google Drive (app-private folder). You can delete everything yourself, immediately.</p>
+
+  <h2>1. Delete everything inside the app</h2>
+  <ol>
+    <li>Bottom <strong>Settings</strong> tab › <strong>Backup &amp; Restore</strong> › <strong>Reset everything</strong>.</li>
+    <li>This erases all schedules, projects, to-dos, groups, places and people on this device and leaves one default group. If sync is on, other devices on the same account are cleared at their next sync.</li>
+    <li>Then <strong>Settings</strong> › <strong>About</strong> › <strong>Sign out</strong> to remove the stored account info (email, name) from the device.</li>
+  </ol>
+  <div class="note">Before erasing, "Reset everything" saves one backup of the current state to your own Google Drive app-private folder so a mistake can be undone. To remove that backup too, follow step 2.</div>
+
+  <h2>2. Delete the sync and backup files in Google Drive</h2>
+  <ol>
+    <li>Open <a href="https://drive.google.com/drive/settings" target="_blank" rel="noopener">Google Drive settings</a> › <strong>Manage apps</strong>.</li>
+    <li>Find <strong>forj. Calendar</strong> › Options › <strong>Delete hidden app data</strong>.</li>
+    <li>Optionally choose <strong>Disconnect from Drive</strong> to revoke the app's Drive access.</li>
+  </ol>
+  <div class="note">This folder is private to the app and is not visible in the Drive file list. It can only be deleted from the menu above.</div>
+
+  <h2>3. Uninstall the app</h2>
+  <p>Uninstalling removes all app data (schedules, settings, scheduled notifications) from the device. Device Settings › Apps › forj. Calendar › Storage › <strong>Clear data</strong> works too.
+  The app does not use Android Auto Backup, so a reinstall starts empty.</p>
+
+  <h2>4. Request to the developer</h2>
+  <p>Because the developer holds no user data, there is nothing for the developer to delete on your behalf. For help with the steps above,
+  email <a href="mailto:xxvion.studio@gmail.com?subject=forj.%20Calendar%20data%20deletion">xxvion.studio@gmail.com</a>.
+  Subscription records are managed by Google Play and can be cancelled in Play Store › Payments &amp; subscriptions.</p>
+
+  <h2>Retention</h2>
+  <ul>
+    <li>Deletion markers (item id and time) used to propagate deletions to other devices are removed automatically after at most 90 days.</li>
+    <li>No other data is retained by the developer. See the <a href="./">Privacy Policy</a> for details.</li>
+  </ul>
+</article>
+</main>
+</body>
+</html>
