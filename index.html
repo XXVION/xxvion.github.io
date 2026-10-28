@@ -4,48 +4,180 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>XXVION</title>
+<meta name="description" content="XXVION — 포지 가계부, 포지 캘린더, Turtle을 만드는 스튜디오">
+<meta property="og:title" content="XXVION">
+<meta property="og:description" content="포지 가계부 · 포지 캘린더 · Turtle">
+<meta name="theme-color" content="#5b5bd6">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%235b5bd6'/%3E%3Cpath d='M20 20l24 24M44 20L20 44' stroke='white' stroke-width='7' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <style>
-  :root { --bg: #f2f4f6; --card: #ffffff; --text: #191f28; --sub: #6b7684; --brand: #14b87a; }
-  @media (prefers-color-scheme: dark) { :root { --bg: #101013; --card: #1c1c21; --text: #eceef0; --sub: #9aa0a8; } }
-  body { margin: 0; background: var(--bg); color: var(--text); font: 15px/1.6 -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", "Segoe UI", sans-serif; }
-  main { max-width: 640px; margin: 0 auto; padding: 48px 16px; }
-  h1 { font-size: 28px; margin: 0 0 24px; }
-  .card { display: block; background: var(--card); border-radius: 20px; padding: 20px 22px; margin-bottom: 12px; color: inherit; text-decoration: none; }
-  .name { color: var(--brand); font-weight: 800; font-size: 20px; }
-  .desc { color: var(--sub); }
-  .links { margin-top: 10px; font-size: 14px; }
-  .links a { color: var(--brand); margin-right: 14px; }
+  :root {
+    --bg: #f6f7fb;
+    --card: #ffffff;
+    --text: #15171c;
+    --sub: #646b78;
+    --line: rgba(20, 24, 40, 0.07);
+    --chip: #f1f2f6;
+    --forj: #5b5bd6;
+    --turtle: #14b87a;
+    --shadow: 0 1px 2px rgba(20, 24, 40, 0.04), 0 10px 28px -14px rgba(20, 24, 40, 0.10);
+    --glow1: rgba(91, 91, 214, 0.18);
+    --glow2: rgba(20, 184, 122, 0.14);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0e0f13;
+      --card: #17181e;
+      --text: #eceef2;
+      --sub: #9aa1ad;
+      --line: rgba(255, 255, 255, 0.07);
+      --chip: #22242c;
+      --forj: #8b8bf0;
+      --turtle: #3fd39b;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 16px 40px -16px rgba(0, 0, 0, 0.6);
+      --glow1: rgba(91, 91, 214, 0.22);
+      --glow2: rgba(20, 184, 122, 0.12);
+    }
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background:
+      radial-gradient(900px 480px at 12% -8%, var(--glow1), transparent 60%),
+      radial-gradient(760px 420px at 100% 4%, var(--glow2), transparent 60%),
+      var(--bg);
+    color: var(--text);
+    font: 16px/1.6 "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", "Segoe UI", sans-serif;
+    letter-spacing: -0.01em;
+    word-break: keep-all;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 20px; }
+
+  header { display: flex; align-items: center; justify-content: space-between; padding: 24px 0; }
+  .logo { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 18px; letter-spacing: 0.04em; text-decoration: none; }
+  .logo-mark { width: 28px; height: 28px; border-radius: 8px; background: var(--forj); display: grid; place-items: center; }
+  .logo-mark svg { width: 16px; height: 16px; }
+  .contact-link { font-size: 14px; font-weight: 600; color: var(--sub); text-decoration: none; padding: 8px 14px; border-radius: 999px; border: 1px solid var(--line); background: var(--card); }
+  .contact-link:hover { color: var(--text); }
+
+  .hero { padding: 56px 0 48px; }
+  .hero h1 { margin: 0 0 16px; font-size: clamp(34px, 6vw, 52px); line-height: 1.15; font-weight: 800; letter-spacing: -0.03em; }
+  .hero h1 em { font-style: normal; background: linear-gradient(90deg, var(--forj), var(--turtle)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .hero p { margin: 0; max-width: 520px; color: var(--sub); font-size: 17px; }
+
+  .section-title { margin: 0 0 16px; font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sub); }
+  .apps { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 16px; padding-bottom: 64px; }
+  .app {
+    position: relative;
+    display: flex; flex-direction: column;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 24px;
+    padding: 24px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .app:hover { transform: translateY(-3px); }
+  .app::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 4px; background: var(--accent); opacity: 0.85; }
+  .app-head { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
+  .app-icon { width: 60px; height: 60px; border-radius: 16px; flex: none; box-shadow: 0 6px 16px -6px var(--accent); }
+  .app-name { margin: 0; font-size: 20px; font-weight: 800; letter-spacing: -0.02em; }
+  .app-en { font-size: 14px; font-weight: 600; color: var(--accent); }
+  .app-desc { margin: 0 0 20px; color: var(--sub); font-size: 15px; flex: 1; }
+  .links { display: flex; flex-wrap: wrap; gap: 8px; }
+  .links a {
+    font-size: 13px; font-weight: 600; text-decoration: none;
+    padding: 7px 12px; border-radius: 999px;
+    background: var(--chip); color: var(--text);
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+  .links a:hover { background: var(--accent); color: #fff; }
+
+  footer { border-top: 1px solid var(--line); padding: 28px 0 40px; color: var(--sub); font-size: 14px; display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; }
+  footer a { text-decoration: none; font-weight: 600; color: var(--text); }
+
+  @media (max-width: 480px) {
+    .wrap { padding: 0 16px; }
+    .hero { padding: 32px 0 36px; }
+    .contact-link { padding: 7px 12px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .app, .links a { transition: none; }
+    .app:hover { transform: none; }
+  }
 </style>
 </head>
 <body>
-<main>
-  <h1>XXVION</h1>
-  <div class="card">
-    <div class="name">forj. Ledger</div>
-    <div class="desc">포지 가계부</div>
-    <div class="links">
-      <a href="ledger-privacy/">개인정보처리방침 · Privacy Policy</a>
-      <a href="ledger-privacy/delete.html">데이터 삭제 · Data Deletion</a>
-      <a href="mailto:xxvion.studio@gmail.com">문의 · Contact</a>
-    </div>
-  </div>
-  <div class="card">
-    <div class="name">forj. Calendar</div>
-    <div class="desc">포지 캘린더</div>
-    <div class="links">
-      <a href="calendar-privacy/">개인정보처리방침 · Privacy Policy</a>
-      <a href="mailto:xxvion.studio@gmail.com">문의 · Contact</a>
-    </div>
-  </div>
-  <div class="card">
-    <div class="name">Turtle</div>
-    <div class="desc">거북목 감지기 · Text Neck Detector</div>
-    <div class="links">
-      <a href="turtle/privacy/">개인정보처리방침 · Privacy Policy</a>
-      <a href="turtle/delete/">데이터 삭제 · Data Deletion</a>
-      <a href="mailto:xxvion.studio@gmail.com">문의 · Contact</a>
-    </div>
-  </div>
-</main>
+<div class="wrap">
+  <header>
+    <a class="logo" href="./">
+      <span class="logo-mark" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M3 3l10 10M13 3L3 13" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/></svg></span>
+      XXVION
+    </a>
+    <a class="contact-link" href="mailto:xxvion.studio@gmail.com">문의하기</a>
+  </header>
+
+  <section class="hero">
+    <h1>매일 쓰는 <em>작은 앱</em>을<br>단단하게 만듭니다</h1>
+    <p>계획형 J를 위한 가계부와 캘린더, 바른 자세를 지켜 주는 거북목 감지기까지. 하루를 조금 더 가볍게 만드는 XXVION의 앱을 소개합니다.</p>
+  </section>
+
+  <h2 class="section-title">Apps</h2>
+  <section class="apps">
+    <article class="app" style="--accent: var(--forj)">
+      <div class="app-head">
+        <img class="app-icon" src="assets/ledger.png" alt="포지 가계부 아이콘" width="60" height="60">
+        <div>
+          <h3 class="app-name">포지 가계부</h3>
+          <div class="app-en">forj. Ledger</div>
+        </div>
+      </div>
+      <p class="app-desc">계획형 J를 위한 가계부. 일일·달력·월별로 내역을 보고, 분석과 자산 관리, Google Drive 백업까지 한곳에서.</p>
+      <div class="links">
+        <a href="ledger-privacy/">개인정보처리방침</a>
+        <a href="ledger-privacy/delete.html">데이터 삭제</a>
+      </div>
+    </article>
+
+    <article class="app" style="--accent: var(--forj)">
+      <div class="app-head">
+        <img class="app-icon" src="assets/calendar.png" alt="포지 캘린더 아이콘" width="60" height="60">
+        <div>
+          <h3 class="app-name">포지 캘린더</h3>
+          <div class="app-en">forj. Calendar</div>
+        </div>
+      </div>
+      <p class="app-desc">계획형 J를 위한 캘린더. 월·주·일 보기에 프로젝트와 할 일, 알림, Google Drive 백업까지 한곳에서.</p>
+      <div class="links">
+        <a href="calendar-privacy/">개인정보처리방침</a>
+      </div>
+    </article>
+
+    <article class="app" style="--accent: var(--turtle)">
+      <div class="app-head">
+        <img class="app-icon" src="assets/turtle.png" alt="Turtle 아이콘" width="60" height="60">
+        <div>
+          <h3 class="app-name">Turtle</h3>
+          <div class="app-en">거북목 감지기</div>
+        </div>
+      </div>
+      <p class="app-desc">스마트폰 기울기로 거북목 자세를 감지해 알려 주는 앱. 바른 자세가 습관이 되도록 곁에서 챙겨 줍니다.</p>
+      <div class="links">
+        <a href="turtle/privacy/">개인정보처리방침</a>
+        <a href="turtle/delete/">데이터 삭제</a>
+      </div>
+    </article>
+  </section>
+
+  <footer>
+    <span>© 2026 XXVION</span>
+    <span>문의 <a href="mailto:xxvion.studio@gmail.com">xxvion.studio@gmail.com</a></span>
+  </footer>
+</div>
 </body>
 </html>
