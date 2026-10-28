@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>개인정보처리방침 · Privacy Policy — 포지 가계부 · forj. Ledger</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #F5F6FB;
+    --surface: #FFFFFF;
+    --text: #1C1C28;
+    --text-sub: #5A5A6E;
+    --line: #E6E7EF;
+    --accent: #5B5BD6;
+    --code-bg: #F2F3F9;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #101018;
+      --surface: #1A1A24;
+      --text: #F2F2F7;
+      --text-sub: #B4B4C6;
+      --line: #3A3A4E;
+      --accent: #8E8EF0;
+      --code-bg: #22222E;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    word-break: keep-all;
+    overflow-wrap: anywhere;
+  }
+  nav {
+    position: sticky;
+    top: 0;
+    background: var(--surface);
+    border-bottom: 1px solid var(--line);
+    padding: 12px 16px;
+    text-align: center;
+    font-weight: 600;
+  }
+  nav a { margin: 0 12px; }
+  main {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 24px 16px 64px;
+  }
+  h1 { font-size: 1.6em; line-height: 1.3; margin: 1.6em 0 0.6em; scroll-margin-top: 64px; }
+  h1:first-child { margin-top: 0.4em; }
+  h2 { font-size: 1.25em; margin: 1.8em 0 0.5em; padding-bottom: 0.3em; border-bottom: 1px solid var(--line); }
+  h3 { font-size: 1.05em; margin: 1.4em 0 0.4em; }
+  p, ul { margin: 0.6em 0; }
+  ul { padding-left: 1.3em; }
+  li { margin: 0.25em 0; }
+  hr { border: 0; border-top: 1px solid var(--line); margin: 2.4em 0; }
+  a { color: var(--accent); }
+  code {
+    font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+    font-size: 0.88em;
+    background: var(--code-bg);
+    padding: 0.1em 0.35em;
+    border-radius: 4px;
+  }
+  .table { overflow-x: auto; margin: 0.8em 0; }
+  table { border-collapse: collapse; width: 100%; font-size: 0.94em; background: var(--surface); }
+  th, td { border: 1px solid var(--line); padding: 8px 10px; text-align: left; vertical-align: top; }
+  th { color: var(--text-sub); font-weight: 600; white-space: nowrap; }
+</style>
+</head>
+<body>
+<nav><a href="#ko">한국어</a> · <a href="#en">English</a></nav>
+<main>
+<h1 id="ko">개인정보처리방침</h1>
+<p><strong>포지 가계부</strong> (이하 "앱")는 이용자의 개인정보를 소중히 다룹니다. 이 방침은 앱이 어떤 정보를 다루고, 어디에 보관하며, 어떻게 지울 수 있는지 설명합니다.</p>
+<ul>
+  <li>시행일: 2026년 11월 11일</li>
+  <li>개발자: XXVION Studio</li>
+  <li>문의: xxvion.studio@gmail.com</li>
+</ul>
+<hr>
+<h2>1. 핵심 요약</h2>
+<ul>
+  <li>앱 개발자는 <strong>별도의 서버를 운영하지 않습니다.</strong> 이용자의 가계부 데이터는 개발자에게 전송되지 않습니다.</li>
+  <li>수입·지출 내역, 자산, 분류 등 이용자가 입력한 내용은 <strong>이용자의 기기</strong>에 저장되고, 동기화나 백업을 켜면 <strong>이용자 본인의 Google Drive "앱 전용 폴더"</strong> 에만 저장됩니다.</li>
+  <li>앱은 이용자 Google Drive의 다른 파일에는 접근할 수 없습니다(앱 전용 폴더 권한만 요청).</li>
+  <li>외화 환율은 공개 환율 서비스에서 받아 오며, 이때 화폐 코드와 날짜만 보내고 이용자의 금액이나 개인정보는 보내지 않습니다.</li>
+</ul>
+<h2>2. 처리하는 정보</h2>
+<h3>2-1. Google 계정 정보 (로그인)</h3>
+<p>Google 로그인(Android Credential Manager)을 통해 다음을 받습니다.</p>
+<div class="table"><table><thead><tr><th>항목</th><th>용도</th><th>보관 위치</th></tr></thead><tbody>
+<tr><td>이메일 주소</td><td>로그인한 계정 식별, 설정 화면에 계정 표시</td><td>이용자 기기</td></tr>
+<tr><td>이름(표시 이름)</td><td>설정 화면에 계정 표시</td><td>이용자 기기</td></tr>
+</tbody></table></div>
+<ul>
+  <li>프로필 사진은 받지 않습니다.</li>
+  <li>로그인 과정에서 Google이 발급하는 인증 토큰은 기기 안에서만 쓰며, 저장하거나 개발자에게 보내지 않습니다.</li>
+  <li>위 정보는 개발자에게 전송되지 않습니다.</li>
+</ul>
+<h3>2-2. 이용자가 입력한 내용</h3>
+<div class="table"><table><thead><tr><th>항목</th><th>예시</th></tr></thead><tbody>
+<tr><td>내역</td><td>수입·지출·이체·환전의 날짜·시각, 금액, 수수료, 자산, 분류, 내용, 메모</td></tr>
+<tr><td>자산·자산 그룹</td><td>이름, 종류(일반·체크카드·신용카드), 화폐, 시작 잔액, 정산일·결제일, 카드 이용실적 설정, 메모</td></tr>
+<tr><td>분류</td><td>수입·지출 대분류·소분류 이름</td></tr>
+<tr><td>장소</td><td>이용자가 입력한 장소 이름</td></tr>
+<tr><td>인물</td><td>이용자가 직접 등록한 사람의 이름</td></tr>
+</tbody></table></div>
+<ul>
+  <li>이 내용은 이용자 기기의 앱 저장 공간에 저장됩니다.</li>
+  <li><strong>동기화</strong> 또는 <strong>백업</strong>을 켜면 이용자 본인의 Google Drive 앱 전용 폴더에 파일로 저장됩니다 (동기화 파일 1개, 백업 파일 2개). 이 파일에는 위 내용과 계산 설정(주 화폐, 주 시작 요일 등)과 함께, 앱이 기기마다 무작위로 만드는 <strong>기기 식별자</strong>(어느 기기에서 올렸는지 구분하는 값)가 들어갑니다.</li>
+  <li>개발자는 이 내용에 접근할 수 없습니다.</li>
+</ul>
+<h3>2-3. 앱 설정과 환율</h3>
+<ul>
+  <li>시간 표시 형식, 테마, 입력 항목 표시 여부, 광고 보상 진행 상황 등은 이용자 기기에만 저장됩니다.</li>
+  <li>외화 자산이나 외화 내역이 있을 때 앱은 공개 환율 서비스(Frankfurter — 유럽중앙은행 고시 환율, 보조로 jsDelivr CDN에 공개된 환율 자료)에 <strong>화폐 코드와 날짜만</strong> 보내 환율을 받아 오고, 받은 환율은 기기에 저장해 다시 씁니다. 이용자의 금액·계정 정보는 보내지 않습니다. 이 서비스들은 일반 웹 요청처럼 IP 주소를 받을 수 있습니다.</li>
+</ul>
+<h3>2-4. 광고</h3>
+<p>앱은 무료 이용을 위해 Google AdMob 광고(하단 배너, 이용자가 직접 누르는 보상형 광고)를 표시합니다. AdMob은 광고 제공·측정·부정 방지를 위해 기기의 <strong>광고 ID</strong>, 광고 노출·클릭 정보, 기기·앱 진단 정보, IP 주소 등을 수집해 Google에 보낼 수 있습니다. 앱 개발자는 이 정보를 직접 받거나 저장하지 않습니다. 자세한 내용은 Google의 개인정보처리방침(<a href="https://policies.google.com/privacy">https://policies.google.com/privacy</a>)과 광고 기술 안내(<a href="https://policies.google.com/technologies/ads">https://policies.google.com/technologies/ads</a>)를 참고하세요. 이용자는 기기 설정에서 광고 ID를 재설정하거나 삭제할 수 있습니다. 프리미엄을 구독 중이거나 보상형 광고로 받은 광고 제거 시간이 남아 있는 동안에는 배너 광고를 표시하지 않습니다. 이 앱은 현재 대한민국에서만 배포됩니다. 유럽(EEA·영국·스위스)으로 배포를 넓힐 때는 그 지역 이용자에게 맞춤 광고 동의 화면을 먼저 보여 주도록 이 방침을 개정합니다.</p>
+<h3>2-5. 결제</h3>
+<p>유료 상품("프리미엄" 월·연 구독)은 Google Play 결제로 처리됩니다. 결제 정보(카드 번호 등)는 Google이 처리하며 앱 개발자는 받지 않습니다. 앱은 구독 여부만 기기에 저장하고, 앱을 시작하거나 다시 열 때 Google Play에서 구매 내역을 확인해 재설치·해지·환불을 반영합니다. 앱은 구매 정보를 별도 서버로 보내지 않습니다.</p>
+<h3>2-6. 알림 접근 (자동 입력, 이용자가 켠 경우에만)</h3>
+<p>이용자가 설정에서 <strong>자동 입력</strong>을 켜고 Android "알림 접근"을 허용하면, 앱은 기기에 표시되는 알림(카드사·은행·결제 앱의 결제 알림, 문자 알림 등)의 제목과 본문을 읽어 금액·가맹점·날짜 등을 뽑아 가계부 내역 후보로 만듭니다.</p>
+<ul>
+  <li>읽은 알림 내용은 <strong>기기 안에서만</strong> 처리되고, 개발자나 다른 곳으로 전송되지 않습니다.</li>
+  <li>결제 알림으로 보이지 않는 알림은 저장하지 않습니다. 후보로 남긴 알림은 이용자가 등록하거나 지울 때까지 기기에 보관됩니다.</li>
+  <li>이용자는 언제든지 설정에서 자동 입력을 끄거나, 기기 설정 › 알림 접근에서 앱의 권한을 끌 수 있습니다. 끄면 즉시 읽기를 멈춥니다.</li>
+</ul>
+<h2>3. 앱이 요청하는 권한</h2>
+<div class="table"><table><thead><tr><th>권한</th><th>용도</th></tr></thead><tbody>
+<tr><td>인터넷 (<code>INTERNET</code>)</td><td>Google 로그인, Google Drive 동기화·백업, 환율 조회, 광고</td></tr>
+<tr><td>네트워크 상태 (<code>ACCESS_NETWORK_STATE</code>)</td><td>인터넷이 연결됐을 때 자동 동기화를 보내기 위해 연결 여부 확인</td></tr>
+<tr><td>광고 ID (<code>com.google.android.gms.permission.AD_ID</code>)</td><td>AdMob 광고 표시·측정. 광고 SDK가 추가합니다</td></tr>
+<tr><td>Google Play 결제 (<code>com.android.vending.BILLING</code>)</td><td>프리미엄 구독. Google Play 결제 라이브러리가 추가합니다</td></tr>
+<tr><td>알림 접근 (<code>BIND_NOTIFICATION_LISTENER_SERVICE</code>)</td><td>자동 입력(2-6). 이용자가 설정에서 켜고 시스템 화면에서 허용할 때만 동작합니다</td></tr>
+</tbody></table></div>
+<ul>
+  <li>기기에 Google 계정이 없을 때 "계정 추가" 시스템 화면을 열어 드립니다. 이는 별도 권한이 아니며, 앱이 계정 정보를 읽지 않습니다.</li>
+  <li>문자(SMS) 읽기, 위치, 연락처, 카메라, 마이크, 저장소 권한은 요청하지 않습니다.</li>
+</ul>
+<h2>4. 제3자 서비스</h2>
+<div class="table"><table><thead><tr><th>서비스</th><th>제공자</th><th>처리 내용</th></tr></thead><tbody>
+<tr><td>Google 로그인 (Credential Manager · Identity Services)</td><td>Google LLC</td><td>계정 확인</td></tr>
+<tr><td>Google Drive API</td><td>Google LLC</td><td>이용자 본인 Drive 앱 전용 폴더에 동기화·백업 파일 저장 (이용자가 켰을 때만)</td></tr>
+<tr><td>Google AdMob</td><td>Google LLC</td><td>광고 표시·측정 (광고 ID 등 수집)</td></tr>
+<tr><td>Google Play 결제</td><td>Google LLC</td><td>프리미엄 구독 결제, 구매 내역 확인</td></tr>
+<tr><td>Frankfurter (api.frankfurter.app)</td><td>공개 환율 API</td><td>유럽중앙은행 고시 환율 조회 (화폐 코드·날짜만 전송)</td></tr>
+<tr><td>jsDelivr CDN (cdn.jsdelivr.net)</td><td>Prospect One</td><td>Frankfurter에 없는 화폐의 공개 환율 자료 조회 (화폐 코드·날짜만 전송)</td></tr>
+</tbody></table></div>
+<p>앱은 위 서비스 외에 별도의 분석·충돌 보고 도구를 쓰지 않습니다.</p>
+<p>모든 통신은 HTTPS로 암호화됩니다.</p>
+<h2>5. 보관 기간과 삭제</h2>
+<div class="table"><table><thead><tr><th>정보</th><th>삭제 방법</th></tr></thead><tbody>
+<tr><td>기기의 계정 정보(이메일·이름)</td><td>앱에서 <strong>로그아웃</strong>하면 기기에서 지워집니다</td></tr>
+<tr><td>기기의 가계부 데이터</td><td>로그아웃해도 기기에 남습니다. 앱의 <strong>전체 초기화</strong>, <strong>앱 삭제</strong>, 또는 기기 설정 › 앱 › 포지 가계부 › 저장공간 › <strong>데이터 삭제</strong>로 지울 수 있습니다</td></tr>
+<tr><td>Google Drive의 동기화·백업 파일</td><td>이용자의 Google 계정에서 지울 수 있습니다: Google Drive(웹) › 설정 › <strong>앱 관리</strong> › 포지 가계부 › <strong>숨겨진 앱 데이터 삭제</strong></td></tr>
+<tr><td>지운 항목의 삭제 기록</td><td>다른 기기에 삭제를 알리기 위해 지운 항목의 식별자와 시각만 최대 90일 보관 후 자동으로 지웁니다</td></tr>
+<tr><td>자동 입력 후보(알림에서 뽑은 값)</td><td>이용자가 등록하거나 지우면 사라지고, 자동 입력을 끄면 더 만들지 않습니다</td></tr>
+</tbody></table></div>
+<ul>
+  <li>앱은 Android 자동 백업과 기기 간 데이터 이전을 사용하지 않습니다. 앱을 다시 설치하면 빈 상태로 시작하며, 이전 데이터는 이용자가 직접 동기화를 켜거나 "복원"을 해야 돌아옵니다.</li>
+  <li>개발자 서버에 보관하는 정보가 없으므로, 개발자에게 별도로 삭제를 요청할 정보는 없습니다. 궁금한 점은 xxvion.studio@gmail.com로 문의해 주세요.</li>
+</ul>
+<h2>6. 아동</h2>
+<p>이 앱은 만 14세 미만 아동(국외 이용자의 경우 만 13세 미만)을 대상으로 하지 않으며, 해당 연령의 개인정보를 의도적으로 수집하지 않습니다.</p>
+<h2>7. 이용자의 권리</h2>
+<p>이용자는 언제든지 앱 안에서 내역·자산·분류·장소·인물을 수정하거나 삭제할 수 있고, 동기화나 자동 입력을 끄거나 로그아웃할 수 있습니다. 위 5절의 방법으로 기기와 Google Drive의 데이터를 모두 지울 수 있습니다.</p>
+<h2>8. 방침의 변경</h2>
+<p>이 방침이 바뀌면 앱 또는 이 페이지에 알리고, 시행일을 갱신합니다.</p>
+<hr>
+<div lang="en">
+<h1 id="en">Privacy Policy (English)</h1>
+<p><strong>forj. Ledger</strong> ("the App") respects your privacy. This policy explains what information the App handles, where it is stored, and how you can delete it.</p>
+<ul>
+  <li>Effective date: November 11, 2026</li>
+  <li>Developer: XXVION Studio</li>
+  <li>Contact: xxvion.studio@gmail.com</li>
+</ul>
+<h2>1. Summary</h2>
+<ul>
+  <li>The developer does <strong>not operate any server.</strong> Your ledger data is never sent to the developer.</li>
+  <li>What you enter (transactions, assets, categories, etc.) is stored <strong>on your device</strong>, and, if you turn on sync or backup, only in the <strong>app-specific folder of your own Google Drive</strong>.</li>
+  <li>The App cannot access any other files in your Google Drive (it requests the app-data folder scope only).</li>
+  <li>Exchange rates are fetched from public rate services; only currency codes and dates are sent, never your amounts or personal data.</li>
+</ul>
+<h2>2. Information we handle</h2>
+<h3>2-1. Google account information (sign-in)</h3>
+<p>Through Google Sign-In (Android Credential Manager), the App receives:</p>
+<div class="table"><table><thead><tr><th>Item</th><th>Purpose</th><th>Stored</th></tr></thead><tbody>
+<tr><td>Email address</td><td>Identify the signed-in account, show it in Settings</td><td>On your device</td></tr>
+<tr><td>Name (display name)</td><td>Show the account in Settings</td><td>On your device</td></tr>
+</tbody></table></div>
+<ul>
+  <li>The App does not receive your profile photo.</li>
+  <li>The authentication token issued by Google is used only on the device; it is not stored or sent to the developer.</li>
+  <li>This information is not sent to the developer.</li>
+</ul>
+<h3>2-2. Content you enter</h3>
+<p>Transactions (income, expense, transfer, exchange: date and time, amount, fee, asset, category, content, memo), assets and asset groups (name, kind, currency, opening balance, settlement and payment days, card performance settings, memo), categories, places you type (name) and people you register (name only).</p>
+<ul>
+  <li>Stored in the App's private storage on your device.</li>
+  <li>If you turn on <strong>sync</strong> or <strong>backup</strong>, it is saved as files (one sync file, two backup files) in the app-data folder of your own Google Drive, together with calculation settings (main currency, start of week) and a random <strong>device identifier</strong> generated by the App to tell devices apart.</li>
+  <li>The developer cannot access this content.</li>
+</ul>
+<h3>2-3. App settings and exchange rates</h3>
+<ul>
+  <li>Time format, theme, which input fields are shown, and rewarded-ad progress are stored only on your device.</li>
+  <li>When you have foreign-currency assets or transactions, the App requests exchange rates from public services (Frankfurter — European Central Bank reference rates; as a fallback, public rate data on the jsDelivr CDN), sending <strong>only currency codes and dates</strong>, and caches the rates on your device. Your amounts and account information are never sent. Like any web request, these services may see your IP address.</li>
+</ul>
+<h3>2-4. Ads</h3>
+<p>The App shows Google AdMob ads (a bottom banner and rewarded ads you choose to watch). To serve, measure and prevent fraud, AdMob may collect your device's <strong>advertising ID</strong>, ad impressions and clicks, device and diagnostic information and IP address, and send them to Google. The developer does not receive or store this information. See Google's Privacy Policy (<a href="https://policies.google.com/privacy">https://policies.google.com/privacy</a>) and How Google uses information from sites or apps that use its services (<a href="https://policies.google.com/technologies/ads">https://policies.google.com/technologies/ads</a>). You can reset or delete your advertising ID in your device settings. While you have an active Premium subscription or remaining ad-free time earned from a rewarded ad, the App does not show banner ads. The App is currently distributed in the Republic of Korea only; if distribution expands to the EEA, the UK or Switzerland, users there will be shown a personalized-ads consent screen first and this policy will be updated.</p>
+<h3>2-5. Payments</h3>
+<p>Purchases (the "Premium" monthly or yearly subscription) are processed by Google Play. Payment details are handled by Google and are not received by the developer. The App stores only whether your subscription is active on your device, and checks your purchases with Google Play when it starts or comes back to the foreground to reflect reinstalls, cancellations and refunds. The App does not send purchase data to any server of its own.</p>
+<h3>2-6. Notification access (Auto-entry, only if you turn it on)</h3>
+<p>If you turn on <strong>Auto-entry</strong> in Settings and grant Android "Notification access", the App reads the title and text of notifications shown on your device (payment notifications from card, bank and payment apps, SMS notifications) to extract the amount, merchant and date as a draft transaction.</p>
+<ul>
+  <li>Notification content is processed <strong>on your device only</strong> and is never sent to the developer or anyone else.</li>
+  <li>Notifications that do not look like payment notifications are not stored. Drafts are kept on your device until you register or delete them.</li>
+  <li>You can turn Auto-entry off in Settings at any time, or revoke the permission in your device's Notification access settings; reading stops immediately.</li>
+</ul>
+<h2>3. Permissions</h2>
+<div class="table"><table><thead><tr><th>Permission</th><th>Purpose</th></tr></thead><tbody>
+<tr><td>Internet</td><td>Google sign-in, Google Drive sync and backup, exchange rates, ads</td></tr>
+<tr><td>Network state</td><td>Check connectivity so automatic sync is sent when online</td></tr>
+<tr><td>Advertising ID (<code>com.google.android.gms.permission.AD_ID</code>)</td><td>Serve and measure AdMob ads; added by the ads SDK</td></tr>
+<tr><td>Google Play Billing (<code>com.android.vending.BILLING</code>)</td><td>Premium subscription; added by the Google Play Billing Library</td></tr>
+<tr><td>Notification access (<code>BIND_NOTIFICATION_LISTENER_SERVICE</code>)</td><td>Auto-entry (2-6); works only after you turn it on in Settings and allow it in the system screen</td></tr>
+</tbody></table></div>
+<p>The App may open the system "Add account" screen when no Google account is on the device; this is not a permission and the App does not read account data. The App does not request SMS, location, contacts, camera, microphone or storage permissions.</p>
+<h2>4. Third-party services</h2>
+<p>Google Sign-In (Credential Manager / Identity Services), Google Drive API (only when you turn on sync or backup), Google AdMob (ads; collects the advertising ID and related data), Google Play Billing (subscription and purchase checks), all provided by Google LLC; Frankfurter (api.frankfurter.app, public exchange-rate API, ECB reference rates) and the jsDelivr CDN (cdn.jsdelivr.net, Prospect One) for public exchange-rate data — only currency codes and dates are sent. The App uses no other analytics or crash-reporting tools. All network traffic is encrypted with HTTPS.</p>
+<h2>5. Retention and deletion</h2>
+<ul>
+  <li>Account info on the device (email, name): removed when you <strong>sign out</strong>.</li>
+  <li>Ledger data on the device: stays after sign-out; removed by the App's <strong>Reset all</strong>, by <strong>uninstalling the App</strong>, or by clearing its data (Settings › Apps › forj. Ledger › Storage › Clear data).</li>
+  <li>Sync and backup files in Google Drive: delete them from your Google account — Google Drive (web) › Settings › <strong>Manage apps</strong> › forj. Ledger › <strong>Delete hidden app data</strong>.</li>
+  <li>Deletion records: to tell your other devices about a deletion, only the item's identifier and time are kept for up to 90 days, then removed automatically.</li>
+  <li>Auto-entry drafts: removed when you register or delete them; none are created once Auto-entry is off.</li>
+  <li>The App does not use Android Auto Backup or device-to-device transfer; a reinstall starts empty until you turn on sync or choose "Restore".</li>
+  <li>The developer stores no data on any server, so there is nothing to request deletion of from the developer. Questions: xxvion.studio@gmail.com</li>
+</ul>
+<h2>6. Children</h2>
+<p>The App is not directed to children under 14 (under 13 for users outside Korea) and does not knowingly collect personal information from them.</p>
+<h2>7. Changes</h2>
+<p>If this policy changes, we will announce it in the App or on this page and update the effective date.</p>
+</div>
+</main>
+</body>
+</html>

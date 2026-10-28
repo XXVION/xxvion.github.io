@@ -1,6 +1,4 @@
 # xxvion.github.io
 
-XXVION 앱들의 웹 페이지.
-
-- `turtle/privacy/` — Turtle 개인정보처리방침
-- `app-ads.txt` — AdMob 판매자 인증 (도메인 루트에 있어야 함)
+자동 배포 전용 레포입니다. 직접 고치지 마세요.
+원본은 비공개 레포 XXVION/xxvion-document이며, 그 레포의 main에 푸시하면 여기로 배포됩니다.
