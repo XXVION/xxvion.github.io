@@ -28,6 +28,7 @@
   code { background: var(--code-bg); padding: 1px 6px; border-radius: 4px; font-size: 14px; }
   a { color: var(--accent); }
   .note { border-left: 3px solid var(--accent); padding: 8px 14px; background: var(--code-bg); border-radius: 0 8px 8px 0; margin: 14px 0; }
+  :lang(ja), :lang(zh) { word-break: normal; }
 </style>
 </head>
 <body>
@@ -36,16 +37,17 @@
   <h1>계정·데이터 삭제 안내</h1>
   <p class="sub">포지 캘린더(forj. Calendar) · 개발자 XXVION Studio · 문의 <a href="mailto:xxvion.studio@gmail.com">xxvion.studio@gmail.com</a></p>
 
-  <p>포지 캘린더는 <strong>개발자 서버에 이용자 데이터를 보관하지 않습니다.</strong> 일정·할 일 데이터는 이용자의 기기와
+  <p>포지 캘린더는 <strong>개발자 서버에 이용자 데이터를 보관하지 않습니다.</strong> 일정·TODO 데이터는 이용자의 기기와
   이용자 본인의 Google Drive(앱 전용 폴더)에만 저장됩니다. 따라서 삭제는 이용자가 직접, 즉시 할 수 있습니다.</p>
 
   <h2>1. 앱 안에서 전부 지우기</h2>
   <ol>
-    <li>앱 하단 <strong>설정</strong> 탭 › <strong>백업/복원</strong> › <strong>전체 초기화</strong>.</li>
-    <li>확인하면 이 기기의 일정·프로젝트·할 일과 그룹·장소·인물이 모두 지워지고 기본 그룹 하나로 시작합니다. 동기화가 켜져 있으면 같은 계정의 다른 기기도 다음 동기화 때 비워집니다.</li>
-    <li>이어서 <strong>설정</strong> › <strong>정보</strong> › <strong>로그아웃</strong>. 기기에 저장된 계정 정보(이메일·이름)가 지워집니다.</li>
+    <li>앱 하단 <strong>설정</strong> 탭 › <strong>데이터</strong> › <strong>전체 초기화</strong>.</li>
+    <li>항목이 모두 선택된 창에서 <strong>전체 초기화</strong>를 누르고 한 번 더 확인하면 이 기기의 일정·프로젝트·TODO와 그룹·장소·인물이 모두 지워지고 기본 그룹 하나로 시작합니다. 실시간 동기화가 켜져 있으면 같은 계정의 다른 기기도 다음 동기화 때 비워집니다.</li>
+    <li>이어서 <strong>설정</strong> 탭 맨 위의 계정 카드 › <strong>로그아웃</strong>. 기기에 저장된 계정 정보(이메일·이름)가 지워집니다.</li>
   </ol>
-  <div class="note">전체 초기화는 실수를 되돌릴 수 있도록 지우기 직전 상태를 이용자의 Google Drive 앱 전용 폴더에 한 번 백업합니다. 그 백업까지 없애려면 아래 2번을 함께 진행하세요.</div>
+  <div class="note">Google Drive에 연결되어 있으면 전체 초기화는 실수를 되돌릴 수 있도록 지우기 직전 상태를 이용자의 Google Drive 앱 전용 폴더에 한 번 백업합니다. 그 백업까지 없애려면 아래 2번을 함께 진행하세요.</div>
+  <div class="note">앱 안에서 지운 항목은 화면에서 바로 사라지지만, 다른 기기에 삭제를 알리기 위해 기기의 앱 저장 공간에는 보이지 않는 상태로 남습니다(아래 보관 기간 참고). 기기에서 바로 완전히 지우려면 아래 3번을 진행하세요.</div>
 
   <h2>2. Google Drive의 동기화·백업 파일 지우기</h2>
   <ol>
@@ -56,18 +58,19 @@
   <div class="note">이 폴더는 앱만 읽고 쓰는 전용 폴더라 Drive 화면에는 보이지 않습니다. 위 메뉴에서만 지울 수 있습니다.</div>
 
   <h2>3. 앱 삭제</h2>
-  <p>앱을 삭제하면 기기의 모든 앱 데이터(일정·설정·알림 예약)가 함께 지워집니다. 기기 설정 › 앱 › forj. Calendar › 저장공간 › <strong>데이터 삭제</strong>로도 됩니다.
+  <p>앱을 삭제하면 기기의 모든 앱 데이터(일정·설정·알림 예약)가 함께 지워집니다. 기기 설정 › 앱 › 포지 캘린더 › 저장공간 › <strong>데이터 삭제</strong>로도 됩니다.
   앱은 Android 자동 백업을 쓰지 않으므로 다시 설치하면 빈 상태로 시작합니다.</p>
 
   <h2>4. 개발자에게 요청</h2>
-  <p>개발자가 보관하는 이용자 데이터는 없으므로 개발자가 대신 지울 데이터도 없습니다. 위 절차가 어렵거나 궁금한 점이 있으면
+  <p>개발자가 보관하는 이용자 데이터는 없으므로 개발자가 대신 지울 데이터도 없습니다. 다만 개발자가 프리미엄을 부여한 계정은 이메일 주소를 변환한 값(해시)이 프리미엄 허용 목록에 들어 있으며, 목록에서 빼기를 원하면 아래 주소로 문의해 주세요.
+  위 절차가 어렵거나 궁금한 점이 있으면
   <a href="mailto:xxvion.studio@gmail.com?subject=forj.%20Calendar%20데이터%20삭제%20문의">xxvion.studio@gmail.com</a>으로 문의해 주세요.
   구독 결제 기록은 Google Play가 관리하며, 앱 삭제와 무관하게 Play 스토어 › 결제 및 정기 결제에서 해지할 수 있습니다.</p>
 
   <h2>보관 기간</h2>
   <ul>
-    <li>지운 항목의 삭제 기록(식별자·시각)은 다른 기기에 삭제를 전파하기 위해 최대 90일 뒤 자동으로 지워집니다.</li>
-    <li>그 밖에 개발자가 보관하는 정보는 없습니다. 자세한 내용은 <a href="./">개인정보처리방침</a>을 보세요.</li>
+    <li>앱 안에서 지운 항목은 다른 기기에 삭제를 전파하기 위해 삭제 시각과 함께 기기에 보이지 않는 상태로 남고, 실시간 동기화가 성공한 뒤 하루에 한 번, 지운 지 90일이 지난 것이 기기에서 완전히 지워집니다. 실시간 동기화를 쓰지 않으면 이 정리가 실행되지 않으므로 위 3번으로 지우세요. Google Drive의 동기화·백업 파일에는 지운 항목의 내용 없이 식별자와 삭제 시각만 들어갑니다.</li>
+    <li>개발자가 보관하는 이용자 데이터는 위 4번의 프리미엄 허용 목록 말고는 없습니다. 자세한 내용은 <a href="./">개인정보처리방침</a>을 보세요.</li>
   </ul>
 </article>
 
@@ -75,16 +78,17 @@
   <h1>Account and Data Deletion</h1>
   <p class="sub">forj. Calendar · Developer: XXVION Studio · Contact <a href="mailto:xxvion.studio@gmail.com">xxvion.studio@gmail.com</a></p>
 
-  <p>forj. Calendar <strong>does not store user data on any developer server.</strong> Your schedules and to-dos live only on your device and in
+  <p>forj. Calendar <strong>does not store user data on any developer server.</strong> Your events and TODOs live only on your device and in
   your own Google Drive (app-private folder). You can delete everything yourself, immediately.</p>
 
   <h2>1. Delete everything inside the app</h2>
   <ol>
-    <li>Bottom <strong>Settings</strong> tab › <strong>Backup &amp; Restore</strong> › <strong>Reset everything</strong>.</li>
-    <li>This erases all schedules, projects, to-dos, groups, places and people on this device and leaves one default group. If sync is on, other devices on the same account are cleared at their next sync.</li>
-    <li>Then <strong>Settings</strong> › <strong>About</strong> › <strong>Sign out</strong> to remove the stored account info (email, name) from the device.</li>
+    <li>Bottom <strong>Settings</strong> tab › <strong>Data</strong> › <strong>Reset all</strong>.</li>
+    <li>In the dialog, where every item is selected, tap <strong>Reset all</strong> and confirm once more. This erases all events, projects, TODOs, groups, places and people on this device and leaves one default group. If real-time sync is on, other devices on the same account are cleared at their next sync.</li>
+    <li>Then tap the account card at the top of the <strong>Settings</strong> tab › <strong>Sign out</strong> to remove the stored account info (email, name) from the device.</li>
   </ol>
-  <div class="note">Before erasing, "Reset everything" saves one backup of the current state to your own Google Drive app-private folder so a mistake can be undone. To remove that backup too, follow step 2.</div>
+  <div class="note">If the app is connected to Google Drive, "Reset all" first saves one backup of the current state to your own Google Drive app-private folder so a mistake can be undone. To remove that backup too, follow step 2.</div>
+  <div class="note">Items you delete in the app disappear from the screen right away, but to tell your other devices about the deletion they remain, hidden, in the app's storage on the device (see Retention below). To remove them from the device completely right away, follow step 3.</div>
 
   <h2>2. Delete the sync and backup files in Google Drive</h2>
   <ol>
@@ -95,18 +99,291 @@
   <div class="note">This folder is private to the app and is not visible in the Drive file list. It can only be deleted from the menu above.</div>
 
   <h2>3. Uninstall the app</h2>
-  <p>Uninstalling removes all app data (schedules, settings, scheduled notifications) from the device. Device Settings › Apps › forj. Calendar › Storage › <strong>Clear data</strong> works too.
+  <p>Uninstalling removes all app data (events, settings, scheduled notifications) from the device. Device Settings › Apps › forj. Calendar › Storage › <strong>Clear data</strong> works too.
   The app does not use Android Auto Backup, so a reinstall starts empty.</p>
 
   <h2>4. Request to the developer</h2>
-  <p>Because the developer holds no user data, there is nothing for the developer to delete on your behalf. For help with the steps above,
+  <p>Because the developer holds no user data, there is nothing for the developer to delete on your behalf. However, if the developer has granted Premium to your account, a converted value (hash) of your email address is in the Premium allow-list; to have it removed from the list, contact the address below.
+  For help with the steps above,
   email <a href="mailto:xxvion.studio@gmail.com?subject=forj.%20Calendar%20data%20deletion">xxvion.studio@gmail.com</a>.
   Subscription records are managed by Google Play and can be cancelled in Play Store › Payments &amp; subscriptions.</p>
 
   <h2>Retention</h2>
   <ul>
-    <li>Deletion markers (item id and time) used to propagate deletions to other devices are removed automatically after at most 90 days.</li>
-    <li>No other data is retained by the developer. See the <a href="./">Privacy Policy</a> for details.</li>
+    <li>Items you delete in the app remain on the device, hidden, together with the deletion time, so that the deletion can be propagated to your other devices. Once a day after a successful real-time sync, items deleted more than 90 days ago are permanently removed from the device. If you do not use real-time sync, this cleanup does not run, so use step 3 to remove them. In the sync and backup files in Google Drive, a deleted item is kept only as its identifier and deletion time, without its content.</li>
+    <li>Apart from the Premium allow-list mentioned in step 4, the developer holds no user data. See the <a href="./">Privacy Policy</a> for details.</li>
+  </ul>
+</article>
+
+<article lang="ja">
+  <h1>アカウントとデータの削除</h1>
+  <p class="sub">forj. Calendar · 開発者：XXVION Studio · お問い合わせ <a href="mailto:xxvion.studio@gmail.com">xxvion.studio@gmail.com</a></p>
+
+  <p>forj. Calendar は<strong>開発者のサーバーにユーザーデータを一切保存しません。</strong>予定と ToDo は、お使いのデバイスとご自身の Google Drive（アプリ専用フォルダ）にのみ保存されます。すべてご自身で、すぐに削除できます。</p>
+
+  <h2>1. アプリ内ですべて削除する</h2>
+  <ol>
+    <li>下部の<strong>設定</strong>タブ › <strong>データ</strong> › <strong>すべて初期化</strong>。</li>
+    <li>すべての項目が選択された状態のダイアログで<strong>すべて初期化</strong>をタップし、もう一度確認します。このデバイス上のすべての予定、プロジェクト、ToDo、グループ、場所、人物が消去され、デフォルトのグループが 1 つ残ります。リアルタイム同期がオンの場合、同じアカウントのほかのデバイスも次回の同期時に消去されます。</li>
+    <li>続いて、<strong>設定</strong>タブの一番上にあるアカウントカード › <strong>ログアウト</strong>をタップすると、保存されているアカウント情報（メールアドレス、名前）がデバイスから削除されます。</li>
+  </ol>
+  <div class="note">アプリが Google Drive に接続されている場合、「すべて初期化」は、誤操作を元に戻せるよう、まず現在の状態のバックアップを 1 つ、ご自身の Google Drive のアプリ専用フォルダに保存します。このバックアップも削除するには、手順 2 を行ってください。</div>
+  <div class="note">アプリ内で削除した項目は画面からすぐに消えますが、ほかのデバイスに削除を伝えるため、非表示の状態でデバイス上のアプリのストレージに残ります（下記の「保存期間」を参照）。デバイスからすぐに完全に削除するには、手順 3 を行ってください。</div>
+
+  <h2>2. Google Drive の同期ファイルとバックアップファイルを削除する</h2>
+  <ol>
+    <li><a href="https://drive.google.com/drive/settings" target="_blank" rel="noopener">Google Drive の設定</a> › <strong>アプリの管理</strong>を開きます。</li>
+    <li><strong>forj. Calendar</strong> を見つけ › オプション › <strong>非表示のアプリデータを削除</strong>（Delete hidden app data）。</li>
+    <li>必要に応じて<strong>ドライブから切断</strong>を選ぶと、アプリの Drive へのアクセス権を取り消せます。</li>
+  </ol>
+  <div class="note">このフォルダはアプリ専用で、Drive のファイル一覧には表示されません。上記のメニューからのみ削除できます。</div>
+
+  <h2>3. アプリをアンインストールする</h2>
+  <p>アンインストールすると、すべてのアプリデータ（予定、設定、予約済みの通知）がデバイスから削除されます。デバイスの設定 › アプリ › forj. Calendar › ストレージ › <strong>データを削除</strong>でも同じことができます。アプリは Android Auto Backup を使用しないため、再インストールすると空の状態で始まります。</p>
+
+  <h2>4. 開発者への依頼</h2>
+  <p>開発者はユーザーデータを保有していないため、開発者が代わりに削除するものはありません。ただし、開発者がお使いのアカウントにプレミアムを付与している場合は、メールアドレスを変換した値（ハッシュ）がプレミアム許可リストに含まれています。リストからの削除をご希望の場合は、下記のアドレスまでご連絡ください。上記の手順についてサポートが必要な場合は、<a href="mailto:xxvion.studio@gmail.com?subject=forj.%20Calendar%20データ削除">xxvion.studio@gmail.com</a> までメールでご連絡ください。定期購入の記録は Google Play が管理しており、Play ストア › お支払いと定期購入で解約できます。</p>
+
+  <h2>保存期間</h2>
+  <ul>
+    <li>アプリ内で削除した項目は、ほかのデバイスに削除を伝えられるよう、削除時刻とともに、非表示の状態でデバイスに残ります。リアルタイム同期が成功した後、1 日に 1 回、削除から 90 日を超えた項目がデバイスから完全に削除されます。リアルタイム同期を使用していない場合、このクリーンアップは実行されないため、手順 3 で削除してください。Google Drive 内の同期ファイルとバックアップファイルでは、削除した項目は内容を含まず、識別子と削除時刻のみが保持されます。</li>
+    <li>手順 4 で触れたプレミアム許可リストを除き、開発者はユーザーデータを保有していません。詳しくは<a href="./">プライバシーポリシー</a>をご覧ください。</li>
+  </ul>
+</article>
+
+<article lang="zh-Hans">
+  <h1>账号和数据删除</h1>
+  <p class="sub">forj. Calendar · 开发者：XXVION Studio · 联系方式 <a href="mailto:xxvion.studio@gmail.com">xxvion.studio@gmail.com</a></p>
+
+  <p>forj. Calendar <strong>不在任何开发者服务器上存储用户数据。</strong>你的日程和待办仅保存在你的设备和你自己的 Google Drive（应用专用文件夹）中。你可以自行立即删除全部内容。</p>
+
+  <h2>1. 在应用内删除全部内容</h2>
+  <ol>
+    <li>底部<strong>设置</strong>标签页 › <strong>数据</strong> › <strong>全部重置</strong>。</li>
+    <li>在所有项目均已选中的对话框中，点按<strong>全部重置</strong>并再次确认。这会清除此设备上的所有日程、项目、待办、分组、地点和人物，并保留一个默认分组。如果已开启实时同步，同一账号下的其他设备会在下次同步时被清空。</li>
+    <li>然后点按<strong>设置</strong>标签页顶部的账号卡片 › <strong>退出登录</strong>，即可从设备中移除已存储的账号信息（电子邮件、姓名）。</li>
+  </ol>
+  <div class="note">如果应用已连接到 Google Drive，“全部重置”会先将当前状态的一份备份保存到你自己的 Google Drive 应用专用文件夹，以便在误操作时可以撤销。如果还要移除这份备份，请按照第 2 步操作。</div>
+  <div class="note">你在应用内删除的项目会立即从界面上消失，但为了将删除操作告知你的其他设备，它们会以隐藏状态保留在设备上应用的存储空间中（参见下文“保留期限”）。如果要立即从设备上彻底移除它们，请按照第 3 步操作。</div>
+
+  <h2>2. 删除 Google Drive 中的同步和备份文件</h2>
+  <ol>
+    <li>打开 <a href="https://drive.google.com/drive/settings" target="_blank" rel="noopener">Google Drive 设置</a> › <strong>管理应用</strong>。</li>
+    <li>找到 <strong>forj. Calendar</strong> › 选项 › <strong>删除隐藏的应用数据</strong>（Delete hidden app data）。</li>
+    <li>还可以选择<strong>取消与云端硬盘的关联</strong>，以撤销应用对 Drive 的访问权限。</li>
+  </ol>
+  <div class="note">此文件夹为应用专用，不会显示在 Drive 文件列表中。只能通过上述菜单删除。</div>
+
+  <h2>3. 卸载应用</h2>
+  <p>卸载会从设备中移除所有应用数据（日程、设置、已安排的通知）。也可以通过设备的设置 › 应用 › forj. Calendar › 存储 › <strong>清除数据</strong>来完成。应用不使用 Android Auto Backup，因此重新安装后会从空白状态开始。</p>
+
+  <h2>4. 向开发者提出请求</h2>
+  <p>由于开发者不持有任何用户数据，因此没有需要开发者代为删除的内容。但是，如果开发者已向你的账号授予高级版，你的电子邮件地址的转换值（哈希值）会包含在高级版许可名单中；如需从名单中移除，请联系下方的地址。如需有关上述步骤的帮助，请发送电子邮件至 <a href="mailto:xxvion.studio@gmail.com?subject=forj.%20Calendar%20数据删除">xxvion.studio@gmail.com</a>。订阅记录由 Google Play 管理，可在 Play 商店 › 付款和订阅中取消。</p>
+
+  <h2>保留期限</h2>
+  <ul>
+    <li>你在应用内删除的项目会连同删除时间一起以隐藏状态保留在设备上，以便将删除操作同步到你的其他设备。实时同步成功后，每天一次从设备上永久移除删除已超过 90 天的项目。如果你不使用实时同步，这项清理不会运行，请按照第 3 步移除它们。在 Google Drive 的同步和备份文件中，已删除的项目仅保留其标识符和删除时间，不含其内容。</li>
+    <li>除第 4 步提到的高级版许可名单外，开发者不持有任何用户数据。详情请参阅<a href="./">隐私政策</a>。</li>
+  </ul>
+</article>
+
+<article lang="zh-Hant">
+  <h1>帳戶和資料刪除</h1>
+  <p class="sub">forj. Calendar · 開發者：XXVION Studio · 聯絡方式 <a href="mailto:xxvion.studio@gmail.com">xxvion.studio@gmail.com</a></p>
+
+  <p>forj. Calendar <strong>不在任何開發者伺服器上儲存使用者資料。</strong>你的行程和待辦僅儲存在你的裝置和你自己的 Google Drive（應用程式專用資料夾）中。你可以自行立即刪除全部內容。</p>
+
+  <h2>1. 在應用程式內刪除全部內容</h2>
+  <ol>
+    <li>底部<strong>設定</strong>分頁 › <strong>資料</strong> › <strong>全部重設</strong>。</li>
+    <li>在所有項目均已選取的對話方塊中，輕觸<strong>全部重設</strong>並再次確認。這會清除此裝置上的所有行程、專案、待辦、群組、地點和人物，並保留一個預設群組。如果已開啟即時同步，同一帳戶下的其他裝置會在下次同步時被清空。</li>
+    <li>接著輕觸<strong>設定</strong>分頁頂端的帳戶卡片 › <strong>登出</strong>，即可從裝置中移除已儲存的帳戶資訊（電子郵件、姓名）。</li>
+  </ol>
+  <div class="note">如果應用程式已連結到 Google Drive，「全部重設」會先將目前狀態的一份備份儲存到你自己的 Google Drive 應用程式專用資料夾，以便在誤操作時可以復原。如果也要移除這份備份，請依照步驟 2 操作。</div>
+  <div class="note">你在應用程式內刪除的項目會立即從畫面上消失，但為了將刪除操作告知你的其他裝置，它們會以隱藏狀態保留在裝置上應用程式的儲存空間中（請參閱下文「保留期限」）。如果要立即從裝置上徹底移除它們，請依照步驟 3 操作。</div>
+
+  <h2>2. 刪除 Google Drive 中的同步和備份檔案</h2>
+  <ol>
+    <li>開啟 <a href="https://drive.google.com/drive/settings" target="_blank" rel="noopener">Google Drive 設定</a> › <strong>管理應用程式</strong>。</li>
+    <li>找到 <strong>forj. Calendar</strong> › 選項 › <strong>刪除隱藏的應用程式資料</strong>（Delete hidden app data）。</li>
+    <li>也可以選擇<strong>取消雲端硬碟的連結</strong>，以撤銷應用程式對 Drive 的存取權。</li>
+  </ol>
+  <div class="note">此資料夾為應用程式專用，不會顯示在 Drive 檔案清單中。只能透過上述選單刪除。</div>
+
+  <h2>3. 解除安裝應用程式</h2>
+  <p>解除安裝會從裝置中移除所有應用程式資料（行程、設定、已排定的通知）。也可以透過裝置的設定 › 應用程式 › forj. Calendar › 儲存空間 › <strong>清除資料</strong>來完成。應用程式不使用 Android Auto Backup，因此重新安裝後會從空白狀態開始。</p>
+
+  <h2>4. 向開發者提出要求</h2>
+  <p>由於開發者未持有任何使用者資料，因此沒有需要開發者代為刪除的內容。不過，如果開發者已向你的帳戶授予進階版，你的電子郵件地址的轉換值（雜湊值）會包含在進階版許可名單中；如需從名單中移除，請聯絡下方的地址。如需有關上述步驟的協助，請傳送電子郵件至 <a href="mailto:xxvion.studio@gmail.com?subject=forj.%20Calendar%20資料刪除">xxvion.studio@gmail.com</a>。訂閱記錄由 Google Play 管理，可在 Play 商店 › 付款與訂閱中取消。</p>
+
+  <h2>保留期限</h2>
+  <ul>
+    <li>你在應用程式內刪除的項目會連同刪除時間一起以隱藏狀態保留在裝置上，以便將刪除操作同步到你的其他裝置。即時同步成功後，每天一次從裝置上永久移除刪除已超過 90 天的項目。如果你不使用即時同步，這項清理不會執行，請依照步驟 3 移除它們。在 Google Drive 的同步和備份檔案中，已刪除的項目僅保留其識別碼和刪除時間，不含其內容。</li>
+    <li>除步驟 4 提到的進階版許可名單外，開發者未持有任何使用者資料。詳情請參閱<a href="./">隱私權政策</a>。</li>
+  </ul>
+</article>
+
+<article lang="es">
+  <h1>Eliminación de la cuenta y los datos</h1>
+  <p class="sub">forj. Calendar · Desarrollador: XXVION Studio · Contacto <a href="mailto:xxvion.studio@gmail.com">xxvion.studio@gmail.com</a></p>
+
+  <p>forj. Calendar <strong>no almacena datos de usuario en ningún servidor del desarrollador.</strong> Tus eventos y tareas solo están en tu dispositivo y en
+  tu propio Google Drive (carpeta privada de la app). Puedes eliminarlo todo tú mismo, de inmediato.</p>
+
+  <h2>1. Eliminar todo desde la app</h2>
+  <ol>
+    <li>Pestaña inferior <strong>Ajustes</strong> › <strong>Datos</strong> › <strong>Restablecer todo</strong>.</li>
+    <li>En el cuadro de diálogo, donde todos los elementos están seleccionados, toca <strong>Restablecer todo</strong> y confirma una vez más. Esto borra todos los eventos, proyectos, tareas, grupos, lugares y personas de este dispositivo y deja un grupo predeterminado. Si la sincronización en tiempo real está activada, los demás dispositivos de la misma cuenta se vacían en su siguiente sincronización.</li>
+    <li>Después, toca la tarjeta de la cuenta situada en la parte superior de la pestaña <strong>Ajustes</strong> › <strong>Cerrar sesión</strong> para eliminar del dispositivo la información de la cuenta almacenada (correo electrónico, nombre).</li>
+  </ol>
+  <div class="note">Si la app está conectada a Google Drive, “Restablecer todo” guarda primero una copia de seguridad del estado actual en la carpeta privada de la app de tu propio Google Drive para que se pueda deshacer un error. Para eliminar también esa copia de seguridad, sigue el paso 2.</div>
+  <div class="note">Los elementos que eliminas en la app desaparecen de la pantalla de inmediato, pero, para informar a tus otros dispositivos de la eliminación, permanecen ocultos en el almacenamiento de la app en el dispositivo (consulta Conservación más abajo). Para eliminarlos por completo del dispositivo de inmediato, sigue el paso 3.</div>
+
+  <h2>2. Eliminar los archivos de sincronización y de copia de seguridad en Google Drive</h2>
+  <ol>
+    <li>Abre la <a href="https://drive.google.com/drive/settings" target="_blank" rel="noopener">configuración de Google Drive</a> › <strong>Gestionar aplicaciones</strong>.</li>
+    <li>Busca <strong>forj. Calendar</strong> › Opciones › <strong>Eliminar datos de aplicaciones ocultos</strong> (Delete hidden app data).</li>
+    <li>Si quieres, elige <strong>Desconectar de Drive</strong> para revocar el acceso de la app a Drive.</li>
+  </ol>
+  <div class="note">Esta carpeta es privada de la app y no aparece en la lista de archivos de Drive. Solo se puede eliminar desde el menú anterior.</div>
+
+  <h2>3. Desinstalar la app</h2>
+  <p>Al desinstalarla, se eliminan del dispositivo todos los datos de la app (eventos, ajustes, notificaciones programadas). Ajustes del dispositivo › Aplicaciones › forj. Calendar › Almacenamiento › <strong>Borrar datos</strong> también sirve.
+  La app no utiliza Android Auto Backup, por lo que tras una reinstalación empieza vacía.</p>
+
+  <h2>4. Solicitud al desarrollador</h2>
+  <p>Como el desarrollador no conserva ningún dato de usuario, no hay nada que el desarrollador pueda eliminar en tu nombre. No obstante, si el desarrollador ha concedido Premium a tu cuenta, un valor convertido (hash) de tu dirección de correo electrónico figura en la lista de permitidos de Premium; para que se elimine de la lista, escribe a la dirección que aparece más abajo.
+  Si necesitas ayuda con los pasos anteriores,
+  escribe a <a href="mailto:xxvion.studio@gmail.com?subject=forj.%20Calendar%20eliminación%20de%20datos">xxvion.studio@gmail.com</a>.
+  Los registros de suscripción los gestiona Google Play y se pueden cancelar en Play Store › Pagos y suscripciones.</p>
+
+  <h2>Conservación</h2>
+  <ul>
+    <li>Los elementos que eliminas en la app permanecen ocultos en el dispositivo, junto con la hora de eliminación, para que la eliminación se pueda propagar a tus otros dispositivos. Una vez al día, tras una sincronización en tiempo real correcta, los elementos eliminados hace más de 90 días se eliminan definitivamente del dispositivo. Si no usas la sincronización en tiempo real, esta limpieza no se ejecuta, así que sigue el paso 3 para eliminarlos. En los archivos de sincronización y de copia de seguridad de Google Drive, un elemento eliminado se conserva únicamente como su identificador y su hora de eliminación, sin su contenido.</li>
+    <li>Aparte de la lista de permitidos de Premium mencionada en el paso 4, el desarrollador no conserva ningún dato de usuario. Consulta la <a href="./">Política de privacidad</a> para obtener más información.</li>
+  </ul>
+</article>
+
+<article lang="de">
+  <h1>Konto- und Datenlöschung</h1>
+  <p class="sub">forj. Calendar · Entwickler: XXVION Studio · Kontakt <a href="mailto:xxvion.studio@gmail.com">xxvion.studio@gmail.com</a></p>
+
+  <p>forj. Calendar <strong>speichert keine Nutzerdaten auf einem Server des Entwicklers.</strong> Deine Termine und To-dos befinden sich nur auf deinem Gerät und in
+  deinem eigenen Google Drive (App-eigener Ordner). Du kannst alles selbst und sofort löschen.</p>
+
+  <h2>1. Alles in der App löschen</h2>
+  <ol>
+    <li>Unten der Tab <strong>Einstellungen</strong> › <strong>Daten</strong> › <strong>Alles zurücksetzen</strong>.</li>
+    <li>Tippe im Dialog, in dem alle Einträge ausgewählt sind, auf <strong>Alles zurücksetzen</strong> und bestätige noch einmal. Dadurch werden alle Termine, Projekte, To-dos, Gruppen, Orte und Personen auf diesem Gerät gelöscht, und es bleibt eine Standardgruppe übrig. Ist die Echtzeit-Synchronisierung aktiviert, werden andere Geräte desselben Kontos bei ihrer nächsten Synchronisierung geleert.</li>
+    <li>Tippe anschließend auf die Kontokarte oben im Tab <strong>Einstellungen</strong> › <strong>Abmelden</strong>, um die gespeicherten Kontoinformationen (E-Mail-Adresse, Name) vom Gerät zu entfernen.</li>
+  </ol>
+  <div class="note">Wenn die App mit Google Drive verbunden ist, speichert „Alles zurücksetzen“ zuerst eine Sicherung des aktuellen Stands im App-eigenen Ordner deines eigenen Google Drive, damit sich ein Versehen rückgängig machen lässt. Um auch diese Sicherung zu entfernen, folge Schritt 2.</div>
+  <div class="note">Elemente, die du in der App löschst, verschwinden sofort vom Bildschirm, bleiben aber, um deine anderen Geräte über die Löschung zu informieren, ausgeblendet im Speicher der App auf dem Gerät (siehe „Aufbewahrung“ unten). Um sie sofort vollständig vom Gerät zu entfernen, folge Schritt 3.</div>
+
+  <h2>2. Die Synchronisierungs- und Sicherungsdateien in Google Drive löschen</h2>
+  <ol>
+    <li>Öffne die <a href="https://drive.google.com/drive/settings" target="_blank" rel="noopener">Google Drive-Einstellungen</a> › <strong>Apps verwalten</strong>.</li>
+    <li>Suche <strong>forj. Calendar</strong> › Optionen › <strong>Verborgene App-Daten löschen</strong> (Delete hidden app data).</li>
+    <li>Optional kannst du <strong>Verbindung zu Google Drive aufheben</strong> wählen, um der App den Zugriff auf Drive zu entziehen.</li>
+  </ol>
+  <div class="note">Dieser Ordner ist nur für die App zugänglich und in der Drive-Dateiliste nicht sichtbar. Er kann nur über das oben genannte Menü gelöscht werden.</div>
+
+  <h2>3. Die App deinstallieren</h2>
+  <p>Beim Deinstallieren werden alle App-Daten (Termine, Einstellungen, geplante Benachrichtigungen) vom Gerät entfernt. Geräteeinstellungen › Apps › forj. Calendar › Speicher › <strong>Daten löschen</strong> funktioniert ebenfalls.
+  Die App verwendet kein Android Auto Backup, daher startet sie nach einer Neuinstallation leer.</p>
+
+  <h2>4. Anfrage an den Entwickler</h2>
+  <p>Da der Entwickler keine Nutzerdaten hält, gibt es nichts, was der Entwickler in deinem Namen löschen könnte. Wenn der Entwickler deinem Konto jedoch Premium gewährt hat, steht ein umgewandelter Wert (Hash) deiner E-Mail-Adresse in der Premium-Freigabeliste; wenn du möchtest, dass er aus der Liste entfernt wird, wende dich an die unten stehende Adresse.
+  Wenn du Hilfe bei den oben genannten Schritten brauchst,
+  schreibe eine E-Mail an <a href="mailto:xxvion.studio@gmail.com?subject=forj.%20Calendar%20Datenlöschung">xxvion.studio@gmail.com</a>.
+  Abodaten werden von Google Play verwaltet und können im Play Store › Zahlungen &amp; Abos gekündigt werden.</p>
+
+  <h2>Aufbewahrung</h2>
+  <ul>
+    <li>Elemente, die du in der App löschst, bleiben zusammen mit dem Löschzeitpunkt ausgeblendet auf dem Gerät, damit die Löschung an deine anderen Geräte weitergegeben werden kann. Einmal täglich nach einer erfolgreichen Echtzeit-Synchronisierung werden Elemente, die vor mehr als 90 Tagen gelöscht wurden, endgültig vom Gerät entfernt. Wenn du die Echtzeit-Synchronisierung nicht verwendest, läuft diese Bereinigung nicht; entferne sie dann mit Schritt 3. In den Synchronisierungs- und Sicherungsdateien in Google Drive wird ein gelöschtes Element nur als seine Kennung und sein Löschzeitpunkt aufbewahrt, ohne seinen Inhalt.</li>
+    <li>Abgesehen von der in Schritt 4 genannten Premium-Freigabeliste hält der Entwickler keine Nutzerdaten. Einzelheiten findest du in der <a href="./">Datenschutzerklärung</a>.</li>
+  </ul>
+</article>
+
+<article lang="fr">
+  <h1>Suppression du compte et des données</h1>
+  <p class="sub">forj. Calendar · Développeur : XXVION Studio · Contact <a href="mailto:xxvion.studio@gmail.com">xxvion.studio@gmail.com</a></p>
+
+  <p>forj. Calendar <strong>ne stocke aucune donnée utilisateur sur un serveur du développeur.</strong> Vos événements et vos tâches se trouvent uniquement sur votre appareil et dans
+  votre propre Google Drive (dossier privé de l'application). Vous pouvez tout supprimer vous-même, immédiatement.</p>
+
+  <h2>1. Tout supprimer depuis l'application</h2>
+  <ol>
+    <li>Onglet <strong>Paramètres</strong> en bas › <strong>Données</strong> › <strong>Tout réinitialiser</strong>.</li>
+    <li>Dans la boîte de dialogue, où tous les éléments sont sélectionnés, appuyez sur <strong>Tout réinitialiser</strong> et confirmez une nouvelle fois. Cette action efface tous les événements, projets, tâches, groupes, lieux et personnes de cet appareil et laisse un groupe par défaut. Si la synchronisation en temps réel est activée, les autres appareils du même compte sont vidés lors de leur prochaine synchronisation.</li>
+    <li>Appuyez ensuite sur la carte du compte en haut de l'onglet <strong>Paramètres</strong> › <strong>Se déconnecter</strong> pour supprimer de l'appareil les informations de compte stockées (e-mail, nom).</li>
+  </ol>
+  <div class="note">Si l'application est connectée à Google Drive, « Tout réinitialiser » enregistre d'abord une sauvegarde de l'état actuel dans le dossier privé de l'application de votre propre Google Drive, afin qu'une erreur puisse être annulée. Pour supprimer également cette sauvegarde, suivez l'étape 2.</div>
+  <div class="note">Les éléments que vous supprimez dans l'application disparaissent immédiatement de l'écran, mais, afin d'informer vos autres appareils de la suppression, ils restent masqués dans le stockage de l'application sur l'appareil (voir Conservation ci-dessous). Pour les supprimer complètement de l'appareil sans attendre, suivez l'étape 3.</div>
+
+  <h2>2. Supprimer les fichiers de synchronisation et de sauvegarde dans Google Drive</h2>
+  <ol>
+    <li>Ouvrez les <a href="https://drive.google.com/drive/settings" target="_blank" rel="noopener">paramètres de Google Drive</a> › <strong>Gérer les applications</strong>.</li>
+    <li>Recherchez <strong>forj. Calendar</strong> › Options › <strong>Supprimer les données d'applications masquées</strong> (Delete hidden app data).</li>
+    <li>Vous pouvez aussi choisir <strong>Déconnecter de Drive</strong> pour révoquer l'accès de l'application à Drive.</li>
+  </ol>
+  <div class="note">Ce dossier est réservé à l'application et n'apparaît pas dans la liste des fichiers de Drive. Il ne peut être supprimé que depuis le menu ci-dessus.</div>
+
+  <h2>3. Désinstaller l'application</h2>
+  <p>La désinstallation supprime de l'appareil toutes les données de l'application (événements, paramètres, notifications programmées). Paramètres de l'appareil › Applications › forj. Calendar › Stockage › <strong>Effacer les données</strong> fonctionne également.
+  L'application n'utilise pas Android Auto Backup ; après une réinstallation, elle démarre donc vide.</p>
+
+  <h2>4. Demande au développeur</h2>
+  <p>Le développeur ne détenant aucune donnée utilisateur, il n'y a rien que le développeur puisse supprimer à votre place. Toutefois, si le développeur a accordé Premium à votre compte, une valeur convertie (hachage) de votre adresse e-mail figure dans la liste d'autorisation Premium ; pour la faire retirer de la liste, écrivez à l'adresse ci-dessous.
+  Pour obtenir de l'aide concernant les étapes ci-dessus,
+  écrivez à <a href="mailto:xxvion.studio@gmail.com?subject=forj.%20Calendar%20suppression%20des%20données">xxvion.studio@gmail.com</a>.
+  Les données d'abonnement sont gérées par Google Play et peuvent être résiliées dans Play Store › Paiements et abonnements.</p>
+
+  <h2>Conservation</h2>
+  <ul>
+    <li>Les éléments que vous supprimez dans l'application restent masqués sur l'appareil, avec l'heure de suppression, afin que la suppression puisse être propagée à vos autres appareils. Une fois par jour, après une synchronisation en temps réel réussie, les éléments supprimés depuis plus de 90 jours sont définitivement supprimés de l'appareil. Si vous n'utilisez pas la synchronisation en temps réel, ce nettoyage ne s'exécute pas ; suivez alors l'étape 3 pour les supprimer. Dans les fichiers de synchronisation et de sauvegarde de Google Drive, un élément supprimé n'est conservé que sous la forme de son identifiant et de son heure de suppression, sans son contenu.</li>
+    <li>Hormis la liste d'autorisation Premium mentionnée à l'étape 4, le développeur ne détient aucune donnée utilisateur. Consultez la <a href="./">Politique de confidentialité</a> pour en savoir plus.</li>
+  </ul>
+</article>
+
+<article lang="pt-BR">
+  <h1>Exclusão da conta e dos dados</h1>
+  <p class="sub">forj. Calendar · Desenvolvedor: XXVION Studio · Contato <a href="mailto:xxvion.studio@gmail.com">xxvion.studio@gmail.com</a></p>
+
+  <p>O forj. Calendar <strong>não armazena dados de usuários em nenhum servidor do desenvolvedor.</strong> Seus eventos e tarefas ficam somente no seu dispositivo e no
+  seu próprio Google Drive (pasta privada do app). Você mesmo pode excluir tudo, imediatamente.</p>
+
+  <h2>1. Excluir tudo dentro do app</h2>
+  <ol>
+    <li>Guia <strong>Ajustes</strong> na parte inferior › <strong>Dados</strong> › <strong>Redefinir tudo</strong>.</li>
+    <li>Na caixa de diálogo, em que todos os itens estão selecionados, toque em <strong>Redefinir tudo</strong> e confirme mais uma vez. Isso apaga todos os eventos, projetos, tarefas, grupos, locais e pessoas deste dispositivo e deixa um grupo padrão. Se a sincronização em tempo real estiver ativada, os outros dispositivos da mesma conta serão esvaziados na próxima sincronização deles.</li>
+    <li>Depois, toque no cartão da conta no topo da guia <strong>Ajustes</strong> › <strong>Sair</strong> para remover do dispositivo as informações da conta armazenadas (e-mail, nome).</li>
+  </ol>
+  <div class="note">Se o app estiver conectado ao Google Drive, “Redefinir tudo” primeiro salva um backup do estado atual na pasta privada do app no seu próprio Google Drive, para que um engano possa ser desfeito. Para remover também esse backup, siga a etapa 2.</div>
+  <div class="note">Os itens que você exclui no app desaparecem da tela na hora, mas, para informar os seus outros dispositivos sobre a exclusão, permanecem ocultos no armazenamento do app no dispositivo (consulte Retenção abaixo). Para removê-los completamente do dispositivo na hora, siga a etapa 3.</div>
+
+  <h2>2. Excluir os arquivos de sincronização e de backup no Google Drive</h2>
+  <ol>
+    <li>Abra as <a href="https://drive.google.com/drive/settings" target="_blank" rel="noopener">configurações do Google Drive</a> › <strong>Gerenciar aplicativos</strong>.</li>
+    <li>Encontre <strong>forj. Calendar</strong> › Opções › <strong>Excluir dados ocultos de apps</strong> (Delete hidden app data).</li>
+    <li>Se quiser, escolha <strong>Desconectar do Google Drive</strong> para revogar o acesso do app ao Drive.</li>
+  </ol>
+  <div class="note">Essa pasta é privada do app e não aparece na lista de arquivos do Drive. Ela só pode ser excluída pelo menu acima.</div>
+
+  <h2>3. Desinstalar o app</h2>
+  <p>A desinstalação remove do dispositivo todos os dados do app (eventos, ajustes, notificações programadas). Configurações do dispositivo › Apps › forj. Calendar › Armazenamento › <strong>Limpar dados</strong> também funciona.
+  O app não usa o Android Auto Backup, portanto começa vazio após uma reinstalação.</p>
+
+  <h2>4. Solicitação ao desenvolvedor</h2>
+  <p>Como o desenvolvedor não mantém nenhum dado de usuário, não há nada que o desenvolvedor possa excluir em seu nome. No entanto, se o desenvolvedor concedeu o Premium à sua conta, um valor convertido (hash) do seu endereço de e-mail está na lista de permissão do Premium; para que ele seja removido da lista, entre em contato pelo endereço abaixo.
+  Se precisar de ajuda com as etapas acima,
+  envie um e-mail para <a href="mailto:xxvion.studio@gmail.com?subject=forj.%20Calendar%20exclusão%20de%20dados">xxvion.studio@gmail.com</a>.
+  Os registros de assinatura são gerenciados pelo Google Play e podem ser cancelados em Play Store › Pagamentos e assinaturas.</p>
+
+  <h2>Retenção</h2>
+  <ul>
+    <li>Os itens que você exclui no app permanecem ocultos no dispositivo, junto com o horário da exclusão, para que a exclusão possa ser propagada aos seus outros dispositivos. Uma vez por dia, após uma sincronização em tempo real bem-sucedida, os itens excluídos há mais de 90 dias são removidos definitivamente do dispositivo. Se você não usa a sincronização em tempo real, essa limpeza não é executada; nesse caso, use a etapa 3 para removê-los. Nos arquivos de sincronização e de backup no Google Drive, um item excluído é mantido somente como o seu identificador e o horário da exclusão, sem o seu conteúdo.</li>
+    <li>Além da lista de permissão do Premium mencionada na etapa 4, o desenvolvedor não mantém nenhum dado de usuário. Consulte a <a href="./">Política de privacidade</a> para mais detalhes.</li>
   </ul>
 </article>
 </main>

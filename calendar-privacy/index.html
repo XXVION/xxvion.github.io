@@ -73,160 +73,769 @@
   table { border-collapse: collapse; width: 100%; font-size: 0.94em; background: var(--surface); }
   th, td { border: 1px solid var(--line); padding: 8px 10px; text-align: left; vertical-align: top; }
   th { color: var(--text-sub); font-weight: 600; white-space: nowrap; }
+  :lang(ja), :lang(zh) { word-break: normal; }
 </style>
 </head>
 <body>
-<nav><a href="#ko">한국어</a> · <a href="#en">English</a></nav>
+<nav><a href="#ko">한국어</a> · <a href="#en">English</a> · <a href="#ja">日本語</a> · <a href="#zh-Hans">简体中文</a> · <a href="#zh-Hant">繁體中文</a> · <a href="#es">Español</a> · <a href="#de">Deutsch</a> · <a href="#fr">Français</a> · <a href="#pt-BR">Português (Brasil)</a></nav>
 <main>
 <h1 id="ko">개인정보처리방침</h1>
 <p><strong>포지 캘린더(forj. Calendar)</strong> (이하 "앱")는 이용자의 개인정보를 소중히 다룹니다. 이 방침은 앱이 어떤 정보를 다루고, 어디에 보관하며, 어떻게 지울 수 있는지 설명합니다.</p>
 <ul>
   <li>시행일: 2026-11-11</li>
+  <li>최종 개정일: 2026-11-14</li>
   <li>개발자: XXVION Studio</li>
   <li>문의: xxvion.studio@gmail.com</li>
 </ul>
 <hr>
 <h2>1. 핵심 요약</h2>
 <ul>
-  <li>앱 개발자는 <strong>별도의 서버를 운영하지 않습니다.</strong> 이용자의 일정 데이터는 개발자에게 전송되지 않습니다.</li>
-  <li>일정·할 일 등 이용자가 입력한 내용은 <strong>이용자의 기기</strong>에 저장되고, 동기화나 백업을 켜면 <strong>이용자 본인의 Google Drive "앱 전용 폴더"</strong> 에만 저장됩니다.</li>
+  <li>앱 개발자는 이용자의 정보를 받거나 보관하는 <strong>서버를 운영하지 않습니다.</strong> 이용자의 일정 데이터는 개발자에게 전송되지 않습니다.</li>
+  <li>일정·TODO 등 이용자가 입력한 내용은 <strong>이용자의 기기</strong>에 저장되고, 실시간 동기화를 켜거나 백업을 하면 <strong>이용자 본인의 Google Drive "앱 전용 폴더"</strong> 에만 저장됩니다.</li>
   <li>앱은 이용자 Google Drive의 다른 파일에는 접근할 수 없습니다(앱 전용 폴더 권한만 요청).</li>
 </ul>
 <h2>2. 처리하는 정보</h2>
 <h3>2-1. Google 계정 정보 (로그인)</h3>
-<p>Google 로그인(Android Credential Manager)을 통해 다음을 받습니다.</p>
+<p>Google 로그인(Google Play 서비스의 Google 계정 선택 창. 이 창을 열 수 없을 때만 Android Credential Manager)을 통해 다음을 받습니다.</p>
 <div class="table"><table><thead><tr><th>항목</th><th>용도</th><th>보관 위치</th></tr></thead><tbody>
-<tr><td>이메일 주소</td><td>로그인한 계정 식별, 설정 화면에 계정 표시</td><td>이용자 기기</td></tr>
+<tr><td>이메일 주소</td><td>로그인한 계정 식별, 설정 화면에 계정 표시, 프리미엄 허용 목록 확인(2-6)</td><td>이용자 기기</td></tr>
 <tr><td>이름(표시 이름)</td><td>설정 화면에 계정 표시</td><td>이용자 기기</td></tr>
 </tbody></table></div>
 <ul>
-  <li>프로필 사진은 받지 않습니다.</li>
-  <li>로그인 과정에서 Google이 발급하는 인증 토큰은 기기 안에서만 쓰며, 저장하거나 개발자에게 보내지 않습니다.</li>
+  <li>이용자가 계정 화면에서 표시 이름을 바꾸면 바꾼 이름도 기기에만 저장되고, 로그아웃하면 지워집니다.</li>
+  <li>앱은 프로필 사진을 사용하거나 저장하지 않습니다.</li>
+  <li>앱은 로그인용 인증 토큰(ID 토큰)을 사용하거나 저장하지 않습니다. Google Drive 접근 토큰은 실시간 동기화·백업·복원을 처음 쓸 때 따로 동의를 받아 발급되며, Google Drive와 통신하는 데만 쓰고 기기 저장 공간에 저장하거나 개발자에게 보내지 않습니다.</li>
   <li>위 정보는 개발자에게 전송되지 않습니다.</li>
 </ul>
 <h3>2-2. 이용자가 입력한 내용</h3>
 <div class="table"><table><thead><tr><th>항목</th><th>예시</th></tr></thead><tbody>
-<tr><td>일정</td><td>제목, 날짜·시간, 반복 규칙, 메모, 알림 설정, 세부 일정, 완료 여부</td></tr>
-<tr><td>할 일</td><td>제목, 날짜·시간, 메모, 완료 여부</td></tr>
+<tr><td>일정</td><td>제목, 날짜·시간, 반복 규칙, 장소, 메모, 알림 설정, 완료 여부</td></tr>
+<tr><td>TODO</td><td>제목, 날짜·시간, 반복 규칙, 장소, 메모, 알림 설정, 완료 여부</td></tr>
 <tr><td>그룹</td><td>이름, 색</td></tr>
-<tr><td>인물</td><td>이용자가 직접 등록한 사람의 이름</td></tr>
+<tr><td>프로젝트</td><td>이름, 색, 메모, 기간, 보관·표시 여부</td></tr>
 <tr><td>장소</td><td>이용자가 입력한 장소 이름</td></tr>
 </tbody></table></div>
 <ul>
   <li>이 내용은 이용자 기기의 앱 저장 공간에 저장됩니다.</li>
-  <li><strong>동기화</strong> 또는 <strong>백업</strong>을 켜면 이용자 본인의 Google Drive 앱 전용 폴더에 파일로 저장됩니다 (동기화 파일 1개, 백업 파일 1개). 이 파일에는 위 내용과 함께, 앱이 기기마다 무작위로 만드는 <strong>기기 식별자</strong>(어느 기기에서 올렸는지 구분하는 값)가 들어갑니다.</li>
+  <li><strong>실시간 동기화</strong>를 켜거나 <strong>백업</strong>을 하면 이용자 본인의 Google Drive 앱 전용 폴더에 파일로 저장됩니다 (동기화 파일 1개, 백업 파일 1개, 초기화할 때 만드는 초기화 전 백업 파일 1개). 이 파일에는 위 내용과 함께, 앱이 기기마다 무작위로 만드는 <strong>기기 식별자</strong>(어느 기기에서 올렸는지 구분하는 값)가 들어갑니다. 앱 설정(2-3)과 계정 정보(2-1)는 이 파일에 들어가지 않습니다.</li>
+  <li>예전 버전에서 등록한 인물(이름)이 있으면 기기와 위 파일에 남아 있을 수 있습니다. 지금 버전에는 인물을 입력하는 화면이 없으며, 초기화의 "인물" 항목으로 지울 수 있습니다.</li>
+  <li>일정·TODO 알림과 홈 화면 위젯은 기기에 저장된 일정·TODO의 제목 등을 기기 화면(알림, 홈 화면)에 표시합니다.</li>
   <li>개발자는 이 내용에 접근할 수 없습니다.</li>
 </ul>
 <h3>2-3. 앱 설정</h3>
-<p>시작 요일, 테마, 언어, 알림 설정, 광고 미션 진행 상황 등은 이용자 기기에만 저장됩니다.</p>
+<p>주 시작 요일, 시간 표시 형식, 모드(라이트·다크), 강조색, 언어, 알림 설정, 화면 표시·입력 항목 설정, 위젯 설정, 동기화 설정, 보상형 광고로 받은 광고 제거 시간과 그날 시청 횟수 등은 이용자 기기에만 저장됩니다.</p>
 <h3>2-4. 광고</h3>
-<p>앱은 무료 이용을 위해 Google AdMob 광고(하단 배너, 이용자가 직접 누르는 보상형 광고)를 표시합니다. AdMob은 광고 제공·측정·부정 방지를 위해 기기의 <strong>광고 ID</strong>, 광고 노출·클릭 정보, 기기·앱 진단 정보, IP 주소 등을 수집해 Google에 보낼 수 있습니다. 앱 개발자는 이 정보를 직접 받거나 저장하지 않습니다. 자세한 내용은 Google의 개인정보처리방침(<a href="https://policies.google.com/privacy">https://policies.google.com/privacy</a>)과 광고 기술 안내(<a href="https://policies.google.com/technologies/ads">https://policies.google.com/technologies/ads</a>)를 참고하세요. 이용자는 기기 설정에서 광고 ID를 재설정하거나 삭제할 수 있습니다. "광고 제거"를 구매한 이용자는 다음 실행부터 광고 SDK를 시작하지 않으므로 AdMob이 위 정보를 수집하지 않습니다. 이 앱은 현재 대한민국에서만 배포됩니다. 유럽(EEA·영국·스위스)으로 배포를 넓힐 때는 그 지역 이용자에게 맞춤 광고 동의 화면을 먼저 보여 주도록 이 방침을 개정합니다.</p>
+<p>앱은 무료 이용을 위해 Google AdMob 광고(하단 배너, 이용자가 직접 누르는 보상형 광고)를 표시합니다. AdMob은 광고 제공·측정·부정 방지를 위해 기기의 <strong>광고 ID</strong>, 광고 노출·클릭 정보, 기기·앱 진단 정보, IP 주소 등을 수집해 Google에 보낼 수 있습니다. 앱 개발자는 이 정보를 직접 받거나 저장하지 않습니다. 자세한 내용은 Google의 개인정보처리방침(<a href="https://policies.google.com/privacy">https://policies.google.com/privacy</a>)과 광고 기술 안내(<a href="https://policies.google.com/technologies/ads">https://policies.google.com/technologies/ads</a>)를 참고하세요. 이용자는 기기 설정에서 광고 ID를 재설정하거나 삭제할 수 있습니다. 프리미엄을 구독 중이거나, 예전에 "광고 제거"를 구매했거나, 개발자가 프리미엄을 부여한 계정으로 로그인한 이용자는 다음 실행부터 광고 SDK를 시작하지 않으므로 AdMob이 위 정보를 수집하지 않습니다. 이 앱은 현재 대한민국에서만 배포됩니다. 유럽(EEA·영국·스위스)으로 배포를 넓힐 때는 그 지역 이용자에게 맞춤 광고 동의 화면을 먼저 보여 주도록 이 방침을 개정합니다.</p>
 <h3>2-5. 결제</h3>
-<p>유료 상품("광고 제거")은 Google Play 결제로 처리됩니다. 결제 정보(카드 번호 등)는 Google이 처리하며 앱 개발자는 받지 않습니다. 앱은 구매 여부(광고 제거 권한)만 기기에 저장하고, 앱을 시작하거나 다시 열 때 Google Play에서 구매 내역을 확인해 재설치·환불을 반영합니다. 앱은 구매 정보를 별도 서버로 보내지 않습니다.</p>
+<p>유료 상품("프리미엄" 구독, 월간·연간 요금제)은 Google Play 결제로 처리됩니다. 프리미엄은 광고를 없애고 홈 화면 위젯과 "되돌아보기" 화면을 쓸 수 있게 합니다. 결제 정보(카드 번호 등)는 Google이 처리하며 앱 개발자는 받지 않습니다. 앱은 구독 여부와 표시용 정보(요금제, 자동 갱신 여부)만 기기에 저장하고, 앱을 시작하거나 다시 열 때 Google Play에서 구매 내역을 확인해 재설치·환불·구독 만료를 반영합니다. 앱은 구매 정보를 별도 서버로 보내지 않습니다. 예전의 일회성 "광고 제거" 상품은 더 이상 판매하지 않습니다. 이미 구매한 이용자는 같은 방법으로 구매 내역을 확인해 광고 제거를 유지합니다.</p>
+<h3>2-6. 프리미엄 허용 목록</h3>
+<p>개발자는 일부 계정에 구독 없이 프리미엄을 부여할 수 있습니다. 이를 확인하기 위해 앱은 로그인한 상태에서 앱을 열 때, 로그인한 직후, 구독 화면을 열 때 개발자가 게시한 허용 목록 파일(<a href="https://xxvion.github.io/calendar-privacy/premium.json">https://xxvion.github.io/calendar-privacy/premium.json</a>)을 내려받습니다.</p>
+<ul>
+  <li>이 파일에는 프리미엄을 부여한 계정의 이메일 주소를 SHA-256으로 변환한 값(해시)만 들어 있으며, 이메일 주소 원문은 들어 있지 않습니다.</li>
+  <li>앱은 로그인한 계정의 이메일 주소를 같은 방식으로 변환해 <strong>기기 안에서</strong> 목록과 비교합니다. 이메일 주소나 변환한 값을 기기 밖으로 보내지 않습니다.</li>
+  <li>기기에는 비교 결과(프리미엄 여부)와 마지막 확인 시각만 저장하며, 로그아웃하면 초기화됩니다.</li>
+  <li>이 파일은 GitHub Pages에 게시되어 있어, 내려받을 때 IP 주소 등 통신에 필요한 정보가 GitHub에 전달될 수 있습니다.</li>
+</ul>
 <h2>3. 앱이 요청하는 권한</h2>
 <div class="table"><table><thead><tr><th>권한</th><th>용도</th></tr></thead><tbody>
-<tr><td>인터넷 (<code>INTERNET</code>)</td><td>Google 로그인, Google Drive 동기화·백업</td></tr>
+<tr><td>인터넷 (<code>INTERNET</code>)</td><td>Google 로그인, Google Drive 동기화·백업, 광고 표시, 프리미엄 허용 목록 확인</td></tr>
 <tr><td>네트워크 상태 (<code>ACCESS_NETWORK_STATE</code>)</td><td>인터넷이 연결됐을 때 자동 동기화를 보내기 위해 연결 여부 확인</td></tr>
-<tr><td>알림 (<code>POST_NOTIFICATIONS</code>, Android 13 이상)</td><td>이용자가 설정한 일정 알림 표시. 처음 알림을 걸 때 허용을 묻습니다</td></tr>
-<tr><td>정확한 알람 (<code>USE_EXACT_ALARM</code>, Android 12에서는 <code>SCHEDULE_EXACT_ALARM</code>)</td><td>일정 알림을 정해진 시각에 울리기 위해</td></tr>
-<tr><td>부팅 완료 수신 (<code>RECEIVE_BOOT_COMPLETED</code>)</td><td>기기를 다시 켠 뒤 일정 알림을 다시 예약하기 위해</td></tr>
-<tr><td>Google Play 결제 (<code>com.android.vending.BILLING</code>)</td><td>"광고 제거" 구매. Google Play 결제 라이브러리가 추가합니다</td></tr>
+<tr><td>알림 (<code>POST_NOTIFICATIONS</code>, Android 13 이상)</td><td>이용자가 설정한 일정·TODO 알림과 하루 요약 알림 표시. 로그인한 뒤 또는 알림을 처음 걸 때 허용을 묻습니다</td></tr>
+<tr><td>정확한 알람 (<code>USE_EXACT_ALARM</code>, Android 12에서는 <code>SCHEDULE_EXACT_ALARM</code>)</td><td>알림을 정해진 시각에 울리기 위해</td></tr>
+<tr><td>부팅 완료 수신 (<code>RECEIVE_BOOT_COMPLETED</code>)</td><td>기기를 다시 켠 뒤 알림을 다시 예약하기 위해</td></tr>
+<tr><td>Google Play 결제 (<code>com.android.vending.BILLING</code>)</td><td>프리미엄 구독 결제. Google Play 결제 라이브러리가 추가합니다</td></tr>
+<tr><td>광고 ID (<code>com.google.android.gms.permission.AD_ID</code>)</td><td>광고 SDK가 광고 ID를 읽기 위해 추가합니다. 프리미엄을 구독 중이거나 예전에 "광고 제거"를 구매했거나 개발자가 프리미엄을 부여한 계정으로 로그인한 이용자는 다음 실행부터 광고 SDK를 시작하지 않습니다(2-4)</td></tr>
+<tr><td>기본 전화 상태 읽기 (<code>READ_BASIC_PHONE_STATE</code>)</td><td>광고 SDK가 추가합니다</td></tr>
+<tr><td>절전 해제 (<code>WAKE_LOCK</code>), 포그라운드 서비스 (<code>FOREGROUND_SERVICE</code>)</td><td>광고 SDK가 함께 가져오는 백그라운드 작업 라이브러리(WorkManager)가 추가합니다. 앱은 이 라이브러리를 직접 쓰지 않습니다</td></tr>
 </tbody></table></div>
 <ul>
   <li>기기에 Google 계정이 없을 때 "계정 추가" 시스템 화면을 열어 드립니다. 이는 별도 권한이 아니며, 앱이 계정 정보를 읽지 않습니다.</li>
+  <li>앱은 인터넷을 쓸 수 있는지 확인하기 위해 Google의 연결 확인 주소(<code>connectivitycheck.gstatic.com/generate_204</code>, <code>www.google.com/generate_204</code>)로 내용 없는 요청을 보낼 수 있습니다. 앱은 이 요청에 이용자 데이터나 계정 정보를 넣지 않습니다.</li>
   <li>위치, 연락처, 카메라, 마이크, 저장소 권한은 요청하지 않습니다.</li>
 </ul>
 <h2>4. 제3자 서비스</h2>
 <div class="table"><table><thead><tr><th>서비스</th><th>제공자</th><th>처리 내용</th></tr></thead><tbody>
-<tr><td>Google 로그인 (Credential Manager · Identity Services)</td><td>Google LLC</td><td>계정 확인</td></tr>
-<tr><td>Google Drive API</td><td>Google LLC</td><td>이용자 본인 Drive 앱 전용 폴더에 동기화·백업 파일 저장 (이용자가 켰을 때만)</td></tr>
+<tr><td>Google 로그인 (Google Identity Services · Credential Manager)</td><td>Google LLC</td><td>계정 확인</td></tr>
+<tr><td>Google Drive API</td><td>Google LLC</td><td>이용자 본인 Drive 앱 전용 폴더에 동기화·백업 파일 저장 (이용자가 실시간 동기화를 켰거나 백업·복원·초기화 전 백업을 할 때만)</td></tr>
 <tr><td>Google AdMob</td><td>Google LLC</td><td>광고 표시·측정 (광고 ID 등 수집)</td></tr>
-<tr><td>Google Play 결제</td><td>Google LLC</td><td>유료 상품(광고 제거) 결제, 구매 내역 확인</td></tr>
+<tr><td>Google Play 결제</td><td>Google LLC</td><td>유료 상품(프리미엄 구독) 결제, 구매 내역 확인</td></tr>
+<tr><td>GitHub Pages</td><td>GitHub, Inc.</td><td>프리미엄 허용 목록 파일 제공(2-6). 앱은 이 요청에 계정 정보를 넣지 않습니다</td></tr>
 </tbody></table></div>
 <p>앱은 위 서비스 외에 별도의 분석·충돌 보고 도구를 쓰지 않습니다.</p>
 <p>모든 통신은 HTTPS로 암호화됩니다.</p>
 <h2>5. 보관 기간과 삭제</h2>
 <div class="table"><table><thead><tr><th>정보</th><th>삭제 방법</th></tr></thead><tbody>
 <tr><td>기기의 계정 정보(이메일·이름)</td><td>앱에서 <strong>로그아웃</strong>하면 기기에서 지워집니다</td></tr>
-<tr><td>기기의 일정 데이터</td><td>로그아웃해도 기기에 남습니다. <strong>앱을 삭제</strong>하거나 기기 설정 › 앱 › forj. Calendar › 저장공간 › <strong>데이터 삭제</strong>로 지울 수 있습니다</td></tr>
+<tr><td>기기의 일정 데이터</td><td>로그아웃해도 기기에 남습니다. <strong>앱을 삭제</strong>하거나 기기 설정 › 앱 › 포지 캘린더 › 저장공간 › <strong>데이터 삭제</strong>로 지울 수 있습니다</td></tr>
 <tr><td>Google Drive의 동기화·백업 파일</td><td>이용자의 Google 계정에서 지울 수 있습니다: Google Drive(웹) › 설정 › <strong>앱 관리</strong> › forj. Calendar › <strong>숨겨진 앱 데이터 삭제</strong></td></tr>
-<tr><td>지운 일정의 삭제 기록</td><td>다른 기기에 삭제를 알리기 위해 지운 항목의 식별자와 시각만 최대 90일 보관 후 자동으로 지웁니다</td></tr>
+<tr><td>앱 안에서 지운 항목</td><td>앱 안에서 지운 항목(초기화로 지운 것 포함)은 화면에서 바로 사라지지만, 다른 기기에 삭제를 알리기 위해 기기의 앱 저장 공간에는 삭제 시각과 함께 보이지 않는 상태로 남습니다. 실시간 동기화가 성공한 뒤 하루에 한 번, 지운 지 90일이 지난 항목을 기기에서 완전히 지웁니다. 실시간 동기화를 쓰지 않으면 이 정리가 실행되지 않으며, 그때는 위의 앱 삭제나 데이터 삭제로 지울 수 있습니다. Google Drive의 동기화·백업 파일에는 지운 항목의 내용 없이 식별자와 삭제 시각만 들어가고, 동기화 파일에는 지운 지 90일이 지난 기록을 올리지 않습니다. 백업 파일과 초기화 전 백업 파일에도 백업한 시점에 기기에 남아 있던 삭제 기록(식별자와 삭제 시각만)이 들어가며, 다음 백업이 덮어쓸 때까지 남습니다</td></tr>
 </tbody></table></div>
 <ul>
-  <li>앱은 Android 자동 백업과 기기 간 데이터 이전을 사용하지 않습니다. 앱을 다시 설치하면 빈 상태로 시작하며, 이전 데이터는 이용자가 직접 "클라우드에서 복구"를 해야 돌아옵니다.</li>
-  <li>개발자 서버에 보관하는 정보가 없으므로, 개발자에게 별도로 삭제를 요청할 정보는 없습니다. 궁금한 점은 xxvion.studio@gmail.com로 문의해 주세요.</li>
+  <li>앱은 Android 자동 백업과 기기 간 데이터 이전을 사용하지 않습니다. 앱을 다시 설치하면 빈 상태로 시작하며, Google Drive에 저장해 둔 이전 데이터는 이용자가 로그인한 뒤 설정 › 데이터에서 "복원"을 하거나 "실시간 동기화"를 켜야 돌아옵니다.</li>
+  <li>개발자 서버에 보관하는 이용자 데이터가 없으므로, 개발자에게 별도로 삭제를 요청할 데이터는 없습니다. 다만 개발자가 프리미엄을 부여한 계정은 이메일 주소를 변환한 값이 허용 목록(2-6)에 들어 있으며, 목록에서 빼기를 원하면 아래 주소로 문의해 주세요. 궁금한 점은 xxvion.studio@gmail.com로 문의해 주세요.</li>
 </ul>
 <h2>6. 아동</h2>
 <p>이 앱은 만 14세 미만 아동(국외 이용자의 경우 만 13세 미만)을 대상으로 하지 않으며, 해당 연령의 개인정보를 의도적으로 수집하지 않습니다.</p>
 <h2>7. 이용자의 권리</h2>
-<p>이용자는 언제든지 앱 안에서 일정·할 일·인물·장소를 수정하거나 삭제할 수 있고, 동기화를 끄거나 로그아웃할 수 있습니다. 위 5절의 방법으로 기기와 Google Drive의 데이터를 모두 지울 수 있습니다.</p>
+<p>이용자는 언제든지 앱 안에서 일정·TODO·그룹·프로젝트를 수정하거나 삭제하고 저장된 장소를 삭제할 수 있으며, 실시간 동기화를 끄거나 로그아웃할 수 있습니다. 위 5절의 방법으로 기기와 Google Drive의 데이터를 모두 지울 수 있습니다.</p>
 <h2>8. 방침의 변경</h2>
-<p>이 방침이 바뀌면 앱 또는 이 페이지에 알리고, 시행일을 갱신합니다.</p>
+<p>이 방침이 바뀌면 앱 또는 이 페이지에 알리고, 시행일 또는 최종 개정일을 갱신합니다.</p>
 <hr>
 <div lang="en">
 <h1 id="en">Privacy Policy (English)</h1>
 <p><strong>forj. Calendar</strong> ("the App") respects your privacy. This policy explains what information the App handles, where it is stored, and how you can delete it.</p>
 <ul>
   <li>Effective date: 2026-11-11</li>
+  <li>Last updated: 2026-11-14</li>
   <li>Developer: XXVION Studio</li>
   <li>Contact: xxvion.studio@gmail.com</li>
 </ul>
 <h2>1. Summary</h2>
 <ul>
-  <li>The developer does <strong>not operate any server.</strong> Your calendar data is never sent to the developer.</li>
-  <li>What you enter (events, to-dos, etc.) is stored <strong>on your device</strong>, and, if you turn on sync or backup, only in the <strong>app-specific folder of your own Google Drive</strong>.</li>
+  <li>The developer does <strong>not operate any server</strong> that receives or stores your information. Your calendar data is never sent to the developer.</li>
+  <li>What you enter (events, TODOs, etc.) is stored <strong>on your device</strong>, and, if you turn on real-time sync or make a backup, only in the <strong>app-specific folder of your own Google Drive</strong>.</li>
   <li>The App cannot access any other files in your Google Drive (it requests the app-data folder scope only).</li>
 </ul>
 <h2>2. Information we handle</h2>
 <h3>2-1. Google account information (sign-in)</h3>
-<p>Through Google Sign-In (Android Credential Manager), the App receives:</p>
+<p>Through Google Sign-In (the Google account chooser of Google Play services; Android Credential Manager only when that chooser cannot be opened), the App receives:</p>
 <div class="table"><table><thead><tr><th>Item</th><th>Purpose</th><th>Stored</th></tr></thead><tbody>
-<tr><td>Email address</td><td>Identify the signed-in account, show it in Settings</td><td>On your device</td></tr>
+<tr><td>Email address</td><td>Identify the signed-in account, show it in Settings, check the Premium allow-list (2-6)</td><td>On your device</td></tr>
 <tr><td>Name (display name)</td><td>Show the account in Settings</td><td>On your device</td></tr>
 </tbody></table></div>
 <ul>
-  <li>The App does not receive your profile photo.</li>
-  <li>The authentication token issued by Google is used only on the device; it is not stored or sent to the developer.</li>
+  <li>If you change your display name on the Account screen, the changed name is also stored only on your device and is removed when you sign out.</li>
+  <li>The App does not use or store your profile photo.</li>
+  <li>The App does not use or store the sign-in authentication token (ID token). The Google Drive access token is issued after you give separate consent the first time you use real-time sync, backup or restore; it is used only to communicate with Google Drive and is not saved to device storage or sent to the developer.</li>
   <li>This information is not sent to the developer.</li>
 </ul>
 <h3>2-2. Content you enter</h3>
-<p>Events (title, date and time, repeat rule, memo, reminders, subtasks, completion), to-dos, groups (name, color), people you register (name only), and places you type (name).</p>
+<p>Events (title, date and time, repeat rule, place, memo, reminders, completion), TODOs (title, date and time, repeat rule, place, memo, reminder, completion), groups (name, color), projects (name, color, memo, period, archive and display options), and places you type (name).</p>
 <ul>
   <li>Stored in the App's private storage on your device.</li>
-  <li>If you turn on <strong>sync</strong> or <strong>backup</strong>, it is saved as files (one sync file, one backup file) in the app-data folder of your own Google Drive. These files also contain a random <strong>device identifier</strong> generated by the App to tell devices apart.</li>
+  <li>If you turn on <strong>real-time sync</strong> or make a <strong>backup</strong>, it is saved as files (one sync file, one backup file, and one backup-before-reset file created when you reset) in the app-data folder of your own Google Drive. These files also contain a random <strong>device identifier</strong> generated by the App to tell devices apart. App settings (2-3) and account information (2-1) are not included in these files.</li>
+  <li>If you registered people (names) in an earlier version, they may remain on your device and in the files above. The current version has no screen for entering people; you can delete them with the "People" item of Reset.</li>
+  <li>Event and TODO notifications and home-screen widgets show the titles and related details of the events and TODOs stored on your device on the device screen (notifications, home screen).</li>
   <li>The developer cannot access this content.</li>
 </ul>
 <h3>2-3. App settings</h3>
-<p>Start of week, theme, language, notification settings and ad-mission progress are stored only on your device.</p>
+<p>Start of week, time format, mode (light or dark), accent color, language, notification settings, display and input-field settings, widget settings, sync settings, and the ad-free time earned from rewarded ads with that day's view count are stored only on your device.</p>
 <h3>2-4. Ads</h3>
-<p>The App shows Google AdMob ads (a bottom banner and rewarded ads you choose to watch). To serve, measure and prevent fraud, AdMob may collect your device's <strong>advertising ID</strong>, ad impressions and clicks, device and diagnostic information and IP address, and send them to Google. The developer does not receive or store this information. See Google's Privacy Policy (<a href="https://policies.google.com/privacy">https://policies.google.com/privacy</a>) and How Google uses information from sites or apps that use its services (<a href="https://policies.google.com/technologies/ads">https://policies.google.com/technologies/ads</a>). You can reset or delete your advertising ID in your device settings. If you buy "Remove ads", the App stops starting the ads SDK from the next launch, so AdMob no longer collects this information.</p>
+<p>The App shows Google AdMob ads (a bottom banner and rewarded ads you choose to watch). To serve, measure and prevent fraud, AdMob may collect your device's <strong>advertising ID</strong>, ad impressions and clicks, device and diagnostic information and IP address, and send them to Google. The developer does not receive or store this information. See Google's Privacy Policy (<a href="https://policies.google.com/privacy">https://policies.google.com/privacy</a>) and How Google uses information from sites or apps that use its services (<a href="https://policies.google.com/technologies/ads">https://policies.google.com/technologies/ads</a>). You can reset or delete your advertising ID in your device settings. If you subscribe to Premium, bought "Remove ads" in the past, or are signed in with an account the developer has granted Premium, the App stops starting the ads SDK from the next launch, so AdMob no longer collects this information.</p>
 <h3>2-5. Payments</h3>
-<p>Purchases ("Remove ads") are processed by Google Play. Payment details are handled by Google and are not received by the developer. The App stores only whether you own the purchase (ad removal) on your device, and checks your purchases with Google Play when it starts or comes back to the foreground to reflect reinstalls and refunds. The App does not send purchase data to any server of its own.</p>
+<p>The paid product (the "Premium" subscription, monthly or yearly plan) is processed by Google Play. Premium removes ads and unlocks home-screen widgets and the "Review" screen. Payment details (card number, etc.) are handled by Google and are not received by the developer. The App stores only whether you are subscribed and display information (plan, auto-renewal status) on your device, and checks your purchases with Google Play when it starts or comes back to the foreground to reflect reinstalls, refunds and expired subscriptions. The App does not send purchase data to any server of its own. The earlier one-time "Remove ads" product is no longer sold. If you already bought it, the App checks the purchase the same way and keeps ads removed.</p>
+<h3>2-6. Premium allow-list</h3>
+<p>The developer can grant Premium to some accounts without a subscription. To check this, when you are signed in the App downloads the allow-list file published by the developer (<a href="https://xxvion.github.io/calendar-privacy/premium.json">https://xxvion.github.io/calendar-privacy/premium.json</a>) when the App is opened, right after you sign in, and when you open the subscription screen.</p>
+<ul>
+  <li>The file contains only values (hashes) produced by converting the email addresses of the granted accounts with SHA-256; it does not contain the email addresses themselves.</li>
+  <li>The App converts the email address of the signed-in account in the same way and compares it with the list <strong>on your device</strong>. Neither the email address nor the converted value is sent off the device.</li>
+  <li>Only the result (whether Premium is granted) and the time of the last check are stored on your device, and they are reset when you sign out.</li>
+  <li>The file is published on GitHub Pages, so information needed for the connection, such as your IP address, may be passed to GitHub when it is downloaded.</li>
+</ul>
 <h2>3. Permissions</h2>
 <div class="table"><table><thead><tr><th>Permission</th><th>Purpose</th></tr></thead><tbody>
-<tr><td>Internet</td><td>Google sign-in, Google Drive sync and backup</td></tr>
-<tr><td>Network state</td><td>Check connectivity so automatic sync is sent when online</td></tr>
-<tr><td>Notifications (Android 13+)</td><td>Show the event reminders you set; asked when you first set a reminder</td></tr>
-<tr><td>Exact alarms (<code>USE_EXACT_ALARM</code>; <code>SCHEDULE_EXACT_ALARM</code> on Android 12)</td><td>Deliver event reminders at the exact time</td></tr>
-<tr><td>Receive boot completed</td><td>Re-schedule reminders after the device restarts</td></tr>
-<tr><td>Google Play Billing (<code>com.android.vending.BILLING</code>)</td><td>Buy "Remove ads"; added by the Google Play Billing Library</td></tr>
+<tr><td>Internet (<code>INTERNET</code>)</td><td>Google sign-in, Google Drive sync and backup, showing ads, checking the Premium allow-list</td></tr>
+<tr><td>Network state (<code>ACCESS_NETWORK_STATE</code>)</td><td>Check connectivity so automatic sync is sent when online</td></tr>
+<tr><td>Notifications (<code>POST_NOTIFICATIONS</code>, Android 13+)</td><td>Show the event and TODO reminders you set and the daily summary notification; asked after you sign in or when you first set a reminder</td></tr>
+<tr><td>Exact alarms (<code>USE_EXACT_ALARM</code>; <code>SCHEDULE_EXACT_ALARM</code> on Android 12)</td><td>Deliver notifications at the exact time</td></tr>
+<tr><td>Receive boot completed (<code>RECEIVE_BOOT_COMPLETED</code>)</td><td>Re-schedule notifications after the device restarts</td></tr>
+<tr><td>Google Play Billing (<code>com.android.vending.BILLING</code>)</td><td>Pay for the Premium subscription; added by the Google Play Billing Library</td></tr>
+<tr><td>Advertising ID (<code>com.google.android.gms.permission.AD_ID</code>)</td><td>Added by the ads SDK to read the advertising ID. If you subscribe to Premium, bought "Remove ads" in the past, or are signed in with an account the developer has granted Premium, the App does not start the ads SDK from the next launch (2-4)</td></tr>
+<tr><td>Read basic phone state (<code>READ_BASIC_PHONE_STATE</code>)</td><td>Added by the ads SDK</td></tr>
+<tr><td>Wake lock (<code>WAKE_LOCK</code>), foreground service (<code>FOREGROUND_SERVICE</code>)</td><td>Added by the background-work library (WorkManager) that the ads SDK brings in. The App does not use this library directly</td></tr>
 </tbody></table></div>
-<p>The App may open the system "Add account" screen when no Google account is on the device; this is not a permission and the App does not read account data. The App does not request location, contacts, camera, microphone or storage permissions.</p>
+<p>The App may open the system "Add account" screen when no Google account is on the device; this is not a permission and the App does not read account data. To see whether the internet is reachable, the App may send a content-less request to Google's connectivity-check addresses (<code>connectivitycheck.gstatic.com/generate_204</code>, <code>www.google.com/generate_204</code>). The App puts no user data or account information in this request. The App does not request location, contacts, camera, microphone or storage permissions.</p>
 <h2>4. Third-party services</h2>
-<p>Google Sign-In (Credential Manager / Identity Services), Google Drive API (only when you turn on sync or backup), Google AdMob (ads; collects the advertising ID and related data), Google Play Billing (purchases and purchase checks). All provided by Google LLC. The App uses no other analytics or crash-reporting tools. The App is currently distributed in the Republic of Korea only; if distribution expands to the EEA, the UK or Switzerland, users there will be shown a personalized-ads consent screen first and this policy will be updated. All network traffic is encrypted with HTTPS.</p>
+<p>Google Sign-In (Google Identity Services / Credential Manager; account verification), Google Drive API (stores the sync and backup files in the app-data folder of your own Drive, only when you have turned on real-time sync or when you back up, restore or back up before a reset), Google AdMob (ads; collects the advertising ID and related data), Google Play Billing (payment for the Premium subscription and purchase checks). All provided by Google LLC. GitHub Pages, provided by GitHub, Inc., serves the Premium allow-list file (2-6); the App puts no account information in that request. The App uses no other analytics or crash-reporting tools. The App is currently distributed in the Republic of Korea only; if distribution expands to the EEA, the UK or Switzerland, users there will be shown a personalized-ads consent screen first and this policy will be updated. All network traffic is encrypted with HTTPS.</p>
 <h2>5. Retention and deletion</h2>
 <ul>
   <li>Account info on the device (email, name): removed when you <strong>sign out</strong>.</li>
   <li>Calendar data on the device: stays after sign-out; removed when you <strong>uninstall the App</strong> or clear its data (Settings › Apps › forj. Calendar › Storage › Clear data).</li>
   <li>Sync and backup files in Google Drive: delete them from your Google account — Google Drive (web) › Settings › <strong>Manage apps</strong> › forj. Calendar › <strong>Delete hidden app data</strong>.</li>
-  <li>Deletion records: to tell your other devices about a deletion, only the item's identifier and time are kept for up to 90 days, then removed automatically.</li>
-  <li>The App does not use Android Auto Backup or device-to-device transfer; a reinstall starts empty until you choose "Restore from cloud".</li>
-  <li>The developer stores no data on any server, so there is nothing to request deletion of from the developer. Questions: xxvion.studio@gmail.com</li>
+  <li>Items you delete in the App (including items erased by Reset): they disappear from the screen right away, but to tell your other devices about the deletion they remain in the App's storage on the device, hidden, together with the deletion time. Once a day after a successful real-time sync, the App permanently removes from the device the items deleted more than 90 days ago. If you do not use real-time sync, this cleanup does not run; in that case you can remove them by uninstalling the App or clearing its data as described above. In the sync and backup files in Google Drive, a deleted item is kept only as its identifier and deletion time, without its content, and records of deletions older than 90 days are not uploaded to the sync file. The backup file and the backup-before-reset file also contain the deletion records (identifier and deletion time only) that were still on the device when the backup was made, and they stay there until the next backup overwrites the file.</li>
+  <li>The App does not use Android Auto Backup or device-to-device transfer. A reinstall starts empty; earlier data that you saved to Google Drive comes back only after you sign in and choose "Restore" in Settings › Data or turn on "Real-time sync".</li>
+  <li>The developer stores no user data on any server, so there is no data to request deletion of from the developer. However, if the developer has granted Premium to your account, a converted value of your email address is in the allow-list (2-6); to have it removed from the list, contact the address below. Questions: xxvion.studio@gmail.com</li>
 </ul>
 <h2>6. Children</h2>
 <p>The App is not directed to children under 14 (under 13 for users outside Korea) and does not knowingly collect personal information from them.</p>
-<h2>7. Changes</h2>
-<p>If this policy changes, we will announce it in the App or on this page and update the effective date.</p>
+<h2>7. Your rights</h2>
+<p>You can edit or delete your events, TODOs, groups and projects and delete saved places in the App at any time, and you can turn off real-time sync or sign out. You can delete all data on your device and in Google Drive using the methods in section 5 above.</p>
+<h2>8. Changes</h2>
+<p>If this policy changes, we will announce it in the App or on this page and update the effective date or the last-updated date.</p>
+</div>
+<div lang="ja">
+<h1 id="ja">プライバシーポリシー（日本語）</h1>
+<p><strong>forj. Calendar</strong>（以下「本アプリ」）は、ユーザーのプライバシーを尊重します。本ポリシーでは、本アプリがどのような情報を取り扱い、どこに保存し、どのように削除できるかを説明します。</p>
+<ul>
+  <li>施行日：2026-11-11</li>
+  <li>最終更新日：2026-11-14</li>
+  <li>開発者：XXVION Studio</li>
+  <li>お問い合わせ：xxvion.studio@gmail.com</li>
+</ul>
+<h2>1. 概要</h2>
+<ul>
+  <li>開発者は、ユーザーの情報を受け取ったり保存したりする<strong>サーバーを一切運営していません。</strong> ユーザーのカレンダーデータが開発者に送信されることはありません。</li>
+  <li>入力した内容（予定、ToDo など）は<strong>お使いのデバイス</strong>に保存され、リアルタイム同期をオンにするかバックアップを作成した場合は、<strong>ご自身の Google Drive のアプリ専用フォルダ</strong>にのみ保存されます。</li>
+  <li>本アプリは、ご自身の Google Drive 内のほかのファイルにはアクセスできません（アプリデータフォルダのスコープのみを要求します）。</li>
+</ul>
+<h2>2. 取り扱う情報</h2>
+<h3>2-1. Google アカウント情報（ログイン）</h3>
+<p>Google Sign-In（Google Play services の Google アカウント選択画面。この画面を開けない場合に限り Android Credential Manager）を通じて、本アプリは次の情報を受け取ります。</p>
+<div class="table"><table><thead><tr><th>項目</th><th>目的</th><th>保存場所</th></tr></thead><tbody>
+<tr><td>メールアドレス</td><td>ログイン中のアカウントの識別、「設定」での表示、プレミアム許可リストの確認（2-6）</td><td>お使いのデバイス</td></tr>
+<tr><td>名前（表示名）</td><td>「設定」でのアカウントの表示</td><td>お使いのデバイス</td></tr>
+</tbody></table></div>
+<ul>
+  <li>「アカウント」画面で表示名を変更した場合、変更後の名前もお使いのデバイスにのみ保存され、ログアウトすると削除されます。</li>
+  <li>本アプリは、プロフィール写真を使用することも保存することもありません。</li>
+  <li>本アプリは、ログイン用の認証トークン（ID トークン）を使用することも保存することもありません。Google Drive のアクセストークンは、リアルタイム同期、バックアップ、または復元を初めて使用するときに、別途同意をいただいたうえで発行されます。このトークンは Google Drive との通信にのみ使用され、デバイスのストレージに保存されることも、開発者に送信されることもありません。</li>
+  <li>これらの情報は開発者に送信されません。</li>
+</ul>
+<h3>2-2. 入力した内容</h3>
+<p>予定（タイトル、日時、繰り返しルール、場所、メモ、通知、完了状態）、ToDo（タイトル、日時、繰り返しルール、場所、メモ、通知、完了状態）、グループ（名前、色）、プロジェクト（名前、色、メモ、期間、アーカイブと表示の設定）、入力した場所（名前）。</p>
+<ul>
+  <li>お使いのデバイス上の、本アプリ専用のストレージに保存されます。</li>
+  <li><strong>リアルタイム同期</strong>をオンにするか<strong>バックアップ</strong>を作成すると、ご自身の Google Drive のアプリデータフォルダにファイル（同期ファイル 1 つ、バックアップファイル 1 つ、初期化時に作成される初期化前バックアップファイル 1 つ）として保存されます。これらのファイルには、デバイスを区別するために本アプリが生成するランダムな<strong>デバイス識別子</strong>も含まれます。アプリの設定（2-3）とアカウント情報（2-1）は、これらのファイルに含まれません。</li>
+  <li>以前のバージョンで人物（名前）を登録していた場合、それらがお使いのデバイスと上記のファイルに残っていることがあります。現在のバージョンには人物を入力する画面はありません。「初期化」の「人物」項目で削除できます。</li>
+  <li>予定と ToDo の通知およびホーム画面ウィジェットは、お使いのデバイスに保存されている予定と ToDo のタイトルや関連する詳細を、デバイスの画面（通知、ホーム画面）に表示します。</li>
+  <li>開発者はこの内容にアクセスできません。</li>
+</ul>
+<h3>2-3. アプリの設定</h3>
+<p>週の開始日、時刻の表示形式、モード（ライトまたはダーク）、アクセントカラー、言語、通知設定、表示と入力項目の設定、ウィジェットの設定、同期の設定、およびリワード広告で獲得した広告非表示時間とその日の視聴回数は、お使いのデバイスにのみ保存されます。</p>
+<h3>2-4. 広告</h3>
+<p>本アプリは Google AdMob の広告（下部のバナーと、ユーザーが選んで視聴するリワード広告）を表示します。広告の配信、測定、不正防止のために、AdMob はデバイスの<strong>広告 ID</strong>、広告の表示とクリック、デバイス情報と診断情報、IP アドレスを収集し、Google に送信することがあります。開発者はこれらの情報を受け取ることも保存することもありません。Google のプライバシーポリシー (<a href="https://policies.google.com/privacy">https://policies.google.com/privacy</a>) および「Google のサービスを使用するサイトやアプリから収集した情報の Google による使用」 (<a href="https://policies.google.com/technologies/ads">https://policies.google.com/technologies/ads</a>) をご覧ください。広告 ID は、デバイスの設定でリセットまたは削除できます。プレミアムを定期購入している場合、過去に「広告の非表示」を購入した場合、または開発者がプレミアムを付与したアカウントでログインしている場合、本アプリは次回の起動から広告 SDK を開始しなくなるため、AdMob はこれらの情報を収集しなくなります。</p>
+<h3>2-5. 支払い</h3>
+<p>有料商品（「プレミアム」の定期購入、月額または年額プラン）は Google Play によって処理されます。プレミアムでは、広告が表示されなくなり、ホーム画面ウィジェットと「振り返り」画面を利用できるようになります。支払い情報（カード番号など）は Google が取り扱い、開発者が受け取ることはありません。本アプリは、定期購入の有無と表示用の情報（プラン、自動更新の状態）のみをデバイスに保存し、起動時またはフォアグラウンドに戻ったときに Google Play で購入を確認して、再インストール、払い戻し、定期購入の期限切れを反映します。本アプリが購入データを独自のサーバーに送信することはありません。以前の買い切り型の「広告の非表示」商品は、現在は販売していません。すでに購入済みの場合、本アプリは同じ方法で購入を確認し、広告が表示されない状態を維持します。</p>
+<h3>2-6. プレミアム許可リスト</h3>
+<p>開発者は、一部のアカウントに定期購入なしでプレミアムを付与できます。これを確認するため、ログインしている場合、本アプリは、アプリを開いたとき、ログインした直後、および定期購入画面を開いたときに、開発者が公開している許可リストファイル (<a href="https://xxvion.github.io/calendar-privacy/premium.json">https://xxvion.github.io/calendar-privacy/premium.json</a>) をダウンロードします。</p>
+<ul>
+  <li>このファイルには、付与対象アカウントのメールアドレスを SHA-256 で変換した値（ハッシュ）のみが含まれ、メールアドレスそのものは含まれません。</li>
+  <li>本アプリは、ログイン中のアカウントのメールアドレスを同じ方法で変換し、<strong>お使いのデバイス上で</strong>リストと照合します。メールアドレスも変換後の値も、デバイスの外に送信されることはありません。</li>
+  <li>デバイスに保存されるのは、結果（プレミアムが付与されているかどうか）と最後に確認した時刻のみで、ログアウトするとリセットされます。</li>
+  <li>このファイルは GitHub Pages で公開されているため、ダウンロードの際に、IP アドレスなど接続に必要な情報が GitHub に渡されることがあります。</li>
+</ul>
+<h2>3. 権限</h2>
+<div class="table"><table><thead><tr><th>権限</th><th>目的</th></tr></thead><tbody>
+<tr><td>インターネット（<code>INTERNET</code>）</td><td>Google ログイン、Google Drive の同期とバックアップ、広告の表示、プレミアム許可リストの確認</td></tr>
+<tr><td>ネットワーク状態（<code>ACCESS_NETWORK_STATE</code>）</td><td>オンラインのときに自動同期を送信できるよう、接続状況を確認</td></tr>
+<tr><td>通知（<code>POST_NOTIFICATIONS</code>、Android 13 以降）</td><td>設定した予定と ToDo の通知、および 1日のまとめ通知を表示。ログイン後、または最初に通知を設定するときに許可を求めます</td></tr>
+<tr><td>正確なアラーム（<code>USE_EXACT_ALARM</code>、Android 12 では <code>SCHEDULE_EXACT_ALARM</code>）</td><td>通知を正確な時刻に届ける</td></tr>
+<tr><td>起動完了の受信（<code>RECEIVE_BOOT_COMPLETED</code>）</td><td>デバイスの再起動後に通知を再スケジュール</td></tr>
+<tr><td>Google Play Billing（<code>com.android.vending.BILLING</code>）</td><td>プレミアムの定期購入の支払い。Google Play Billing Library によって追加されます</td></tr>
+<tr><td>広告 ID（<code>com.google.android.gms.permission.AD_ID</code>）</td><td>広告 SDK が広告 ID を読み取るために追加します。プレミアムを定期購入している場合、過去に「広告の非表示」を購入した場合、または開発者がプレミアムを付与したアカウントでログインしている場合、本アプリは次回の起動から広告 SDK を開始しません（2-4）</td></tr>
+<tr><td>基本的な電話状態の読み取り（<code>READ_BASIC_PHONE_STATE</code>）</td><td>広告 SDK によって追加されます</td></tr>
+<tr><td>ウェイクロック（<code>WAKE_LOCK</code>）、フォアグラウンド サービス（<code>FOREGROUND_SERVICE</code>）</td><td>広告 SDK が取り込むバックグラウンド処理ライブラリ（WorkManager）によって追加されます。本アプリはこのライブラリを直接使用しません</td></tr>
+</tbody></table></div>
+<p>デバイスに Google アカウントがない場合、本アプリはシステムの「アカウントを追加」画面を開くことがあります。これは権限ではなく、本アプリがアカウントデータを読み取ることはありません。インターネットに接続できるかどうかを確認するため、本アプリは Google の接続確認用アドレス（<code>connectivitycheck.gstatic.com/generate_204</code>、<code>www.google.com/generate_204</code>）に内容のないリクエストを送信することがあります。本アプリは、このリクエストにユーザーデータやアカウント情報を含めません。本アプリは、位置情報、連絡先、カメラ、マイク、ストレージの権限を要求しません。</p>
+<h2>4. 第三者サービス</h2>
+<p>Google Sign-In（Google Identity Services / Credential Manager。アカウントの確認）、Google Drive API（同期ファイルとバックアップファイルをご自身の Drive のアプリデータフォルダに保存。リアルタイム同期をオンにしている場合、またはバックアップ、復元、初期化前のバックアップを行う場合のみ）、Google AdMob（広告。広告 ID および関連データを収集）、Google Play Billing（プレミアムの定期購入の支払いと購入の確認）。いずれも Google LLC が提供しています。GitHub, Inc. が提供する GitHub Pages は、プレミアム許可リストファイル（2-6）を配信します。本アプリは、このリクエストにアカウント情報を含めません。本アプリは、これら以外の分析ツールやクラッシュレポートツールを使用していません。本アプリは現在、大韓民国でのみ配信されています。配信が EEA、英国、またはスイスに拡大される場合は、それらの地域のユーザーにパーソナライズド広告の同意画面を先に表示し、本ポリシーを更新します。すべてのネットワーク通信は HTTPS で暗号化されます。</p>
+<h2>5. 保存期間と削除</h2>
+<ul>
+  <li>デバイス上のアカウント情報（メールアドレス、名前）：<strong>ログアウト</strong>すると削除されます。</li>
+  <li>デバイス上のカレンダーデータ：ログアウト後も残ります。<strong>本アプリをアンインストール</strong>するか、データを削除（設定 › アプリ › forj. Calendar › ストレージ › データを削除）すると削除されます。</li>
+  <li>Google Drive 内の同期ファイルとバックアップファイル：ご自身の Google アカウントから削除してください：Google Drive（ウェブ）› 設定 › <strong>アプリの管理</strong> › forj. Calendar › <strong>非表示のアプリデータを削除</strong>（Delete hidden app data）。</li>
+  <li>本アプリ内で削除した項目（「初期化」で消去した項目を含む）：画面からはすぐに消えますが、ほかのデバイスに削除を伝えるため、削除時刻とともに、非表示の状態でデバイス上の本アプリのストレージに残ります。リアルタイム同期が成功した後、1 日に 1 回、本アプリは削除から 90 日を超えた項目をデバイスから完全に削除します。リアルタイム同期を使用していない場合、このクリーンアップは実行されません。その場合は、上記のとおり本アプリをアンインストールするかデータを削除することで削除できます。Google Drive 内の同期ファイルとバックアップファイルでは、削除した項目は内容を含まず、識別子と削除時刻のみが保持され、90 日を超えた削除の記録は同期ファイルにアップロードされません。バックアップファイルと初期化前バックアップファイルにも、バックアップ作成時にデバイスに残っていた削除の記録（識別子と削除時刻のみ）が含まれ、次のバックアップでファイルが上書きされるまで残ります。</li>
+  <li>本アプリは Android Auto Backup やデバイス間のデータ転送を使用しません。再インストールすると空の状態で始まります。Google Drive に保存していた以前のデータは、ログインしたうえで、設定 › データで「復元」を選ぶか「リアルタイム同期」をオンにした場合にのみ戻ります。</li>
+  <li>開発者はいかなるサーバーにもユーザーデータを保存していないため、開発者に削除を依頼するデータはありません。ただし、開発者がお使いのアカウントにプレミアムを付与している場合は、メールアドレスを変換した値が許可リスト（2-6）に含まれています。リストからの削除をご希望の場合は、下記のアドレスまでご連絡ください。ご質問：xxvion.studio@gmail.com</li>
+</ul>
+<h2>6. 子ども</h2>
+<p>本アプリは 14 歳未満（韓国国外のユーザーの場合は 13 歳未満）の子どもを対象としておらず、そうした子どもの個人情報を故意に収集することはありません。</p>
+<h2>7. ユーザーの権利</h2>
+<p>ユーザーは、本アプリ内で予定、ToDo、グループ、プロジェクトをいつでも編集または削除でき、保存した場所を削除できます。また、リアルタイム同期をオフにしたり、ログアウトしたりできます。上記第 5 節の方法で、デバイスと Google Drive 内のすべてのデータを削除できます。</p>
+<h2>8. 変更</h2>
+<p>本ポリシーが変更された場合は、本アプリまたはこのページでお知らせし、施行日または最終更新日を更新します。</p>
+</div>
+<div lang="zh-Hans">
+<h1 id="zh-Hans">隐私政策（简体中文）</h1>
+<p><strong>forj. Calendar</strong>（以下简称“本应用”）尊重你的隐私。本政策说明本应用处理哪些信息、这些信息存储在何处，以及如何删除这些信息。</p>
+<ul>
+  <li>生效日期：2026-11-11</li>
+  <li>最后更新日期：2026-11-14</li>
+  <li>开发者：XXVION Studio</li>
+  <li>联系方式：xxvion.studio@gmail.com</li>
+</ul>
+<h2>1. 摘要</h2>
+<ul>
+  <li>开发者<strong>不运营任何服务器</strong>来接收或存储你的信息。你的日历数据绝不会发送给开发者。</li>
+  <li>你输入的内容（日程、待办等）存储在<strong>你的设备上</strong>；如果开启实时同步或进行备份，则仅存储在<strong>你自己的 Google Drive 的应用专用文件夹</strong>中。</li>
+  <li>本应用无法访问你的 Google Drive 中的任何其他文件（仅请求应用数据文件夹的权限范围）。</li>
+</ul>
+<h2>2. 我们处理的信息</h2>
+<h3>2-1. Google 账号信息（登录）</h3>
+<p>通过 Google Sign-In（Google Play services 的 Google 账号选择窗口；仅在无法打开该窗口时使用 Android Credential Manager），本应用会收到：</p>
+<div class="table"><table><thead><tr><th>项目</th><th>用途</th><th>存储位置</th></tr></thead><tbody>
+<tr><td>电子邮件地址</td><td>识别已登录的账号、在“设置”中显示、核对高级版许可名单（2-6）</td><td>你的设备上</td></tr>
+<tr><td>姓名（显示名称）</td><td>在“设置”中显示账号</td><td>你的设备上</td></tr>
+</tbody></table></div>
+<ul>
+  <li>如果你在“账号”界面更改显示名称，更改后的名称同样仅存储在你的设备上，并在退出登录时移除。</li>
+  <li>本应用不使用也不存储你的个人资料照片。</li>
+  <li>本应用不使用也不存储登录用的身份验证令牌（ID 令牌）。Google Drive 访问令牌在你首次使用实时同步、备份或恢复时，经你另行同意后签发；该令牌仅用于与 Google Drive 通信，不会保存到设备存储空间，也不会发送给开发者。</li>
+  <li>这些信息不会发送给开发者。</li>
+</ul>
+<h3>2-2. 你输入的内容</h3>
+<p>日程（标题、日期和时间、重复规则、地点、备注、提醒、完成状态）、待办（标题、日期和时间、重复规则、地点、备注、提醒、完成状态）、分组（名称、颜色）、项目（名称、颜色、备注、期间、归档和显示选项），以及你输入的地点（名称）。</p>
+<ul>
+  <li>存储在你设备上本应用的私有存储空间中。</li>
+  <li>如果开启<strong>实时同步</strong>或进行<strong>备份</strong>，这些内容会以文件形式（一个同步文件、一个备份文件，以及重置时创建的一个重置前备份文件）保存在你自己的 Google Drive 的应用数据文件夹中。这些文件还包含本应用为区分设备而生成的随机<strong>设备标识符</strong>。应用设置（2-3）和账号信息（2-1）不包含在这些文件中。</li>
+  <li>如果你在早期版本中登记过人物（姓名），这些人物可能仍保留在你的设备和上述文件中。当前版本没有输入人物的界面；你可以通过“重置”中的“人物”项将其删除。</li>
+  <li>日程和待办的通知以及主屏幕小组件会在设备屏幕（通知、主屏幕）上显示存储在你设备上的日程和待办的标题及相关详情。</li>
+  <li>开发者无法访问这些内容。</li>
+</ul>
+<h3>2-3. 应用设置</h3>
+<p>每周起始日、时间显示格式、模式（浅色或深色）、强调色、语言、通知设置、显示和输入项设置、小组件设置、同步设置，以及通过激励广告获得的免广告时间和当天的观看次数，仅存储在你的设备上。</p>
+<h3>2-4. 广告</h3>
+<p>本应用会展示 Google AdMob 广告（底部横幅广告和你自行选择观看的激励广告）。为了投放广告、进行衡量和防范欺诈，AdMob 可能会收集你设备的<strong>广告 ID</strong>、广告展示和点击、设备和诊断信息以及 IP 地址，并将其发送给 Google。开发者不会接收或存储这些信息。请参阅 Google 的隐私权政策 (<a href="https://policies.google.com/privacy">https://policies.google.com/privacy</a>) 以及“Google 如何使用来自使用其服务的网站或应用的信息” (<a href="https://policies.google.com/technologies/ads">https://policies.google.com/technologies/ads</a>)。你可以在设备设置中重置或删除广告 ID。如果你订阅了高级版、过去购买过“去广告”，或使用开发者已授予高级版的账号登录，本应用将从下次启动起不再启动广告 SDK，因此 AdMob 不再收集这些信息。</p>
+<h3>2-5. 付款</h3>
+<p>付费商品（“高级版”订阅，月付或年付方案）由 Google Play 处理。高级版会移除广告，并解锁主屏幕小组件和“回顾”界面。付款详情（卡号等）由 Google 处理，开发者不会收到。本应用仅在你的设备上存储你是否已订阅以及用于显示的信息（方案、自动续订状态），并在启动或返回前台时向 Google Play 核对你的购买记录，以反映重新安装、退款和订阅到期的情况。本应用不会将购买数据发送到任何自有服务器。此前的一次性“去广告”商品已不再销售。如果你已经购买，本应用会以同样的方式核对该购买，并继续保持无广告。</p>
+<h3>2-6. 高级版许可名单</h3>
+<p>开发者可以不经订阅向部分账号授予高级版。为核对这一点，在你已登录的情况下，本应用会在打开应用时、你刚登录后以及你打开订阅界面时下载开发者发布的许可名单文件 (<a href="https://xxvion.github.io/calendar-privacy/premium.json">https://xxvion.github.io/calendar-privacy/premium.json</a>)。</p>
+<ul>
+  <li>该文件仅包含将获授账号的电子邮件地址用 SHA-256 转换后得到的值（哈希值），不包含电子邮件地址本身。</li>
+  <li>本应用以同样的方式转换已登录账号的电子邮件地址，并<strong>在你的设备上</strong>与名单进行比对。电子邮件地址和转换后的值都不会发送到设备之外。</li>
+  <li>你的设备上仅存储结果（是否已授予高级版）和上次核对的时间，退出登录时会被重置。</li>
+  <li>该文件发布在 GitHub Pages 上，因此下载时，连接所需的信息（例如你的 IP 地址）可能会传递给 GitHub。</li>
+</ul>
+<h2>3. 权限</h2>
+<div class="table"><table><thead><tr><th>权限</th><th>用途</th></tr></thead><tbody>
+<tr><td>互联网（<code>INTERNET</code>）</td><td>Google 登录、Google Drive 同步和备份、展示广告、核对高级版许可名单</td></tr>
+<tr><td>网络状态（<code>ACCESS_NETWORK_STATE</code>）</td><td>检查网络连接，以便在联网时发送自动同步</td></tr>
+<tr><td>通知（<code>POST_NOTIFICATIONS</code>，Android 13 及以上）</td><td>显示你设置的日程和待办提醒以及每日摘要通知；在你登录后或首次设置提醒时请求许可</td></tr>
+<tr><td>精确闹钟（<code>USE_EXACT_ALARM</code>；Android 12 上为 <code>SCHEDULE_EXACT_ALARM</code>）</td><td>在准确的时间发出通知</td></tr>
+<tr><td>接收开机完成广播（<code>RECEIVE_BOOT_COMPLETED</code>）</td><td>设备重启后重新安排通知</td></tr>
+<tr><td>Google Play Billing（<code>com.android.vending.BILLING</code>）</td><td>支付高级版订阅费用；由 Google Play Billing Library 添加</td></tr>
+<tr><td>广告 ID（<code>com.google.android.gms.permission.AD_ID</code>）</td><td>由广告 SDK 添加，用于读取广告 ID。如果你订阅了高级版、过去购买过“去广告”，或使用开发者已授予高级版的账号登录，本应用将从下次启动起不再启动广告 SDK（2-4）</td></tr>
+<tr><td>读取基本手机状态（<code>READ_BASIC_PHONE_STATE</code>）</td><td>由广告 SDK 添加</td></tr>
+<tr><td>唤醒锁定（<code>WAKE_LOCK</code>）、前台服务（<code>FOREGROUND_SERVICE</code>）</td><td>由广告 SDK 引入的后台任务库（WorkManager）添加。本应用不直接使用该库</td></tr>
+</tbody></table></div>
+<p>当设备上没有 Google 账号时，本应用可能会打开系统的“添加帐号”界面；这不是一项权限，本应用也不会读取账号数据。为了确认能否连接互联网，本应用可能会向 Google 的连接检查地址（<code>connectivitycheck.gstatic.com/generate_204</code>、<code>www.google.com/generate_204</code>）发送不含内容的请求。本应用不会在该请求中加入任何用户数据或账号信息。本应用不请求位置、通讯录、相机、麦克风或存储权限。</p>
+<h2>4. 第三方服务</h2>
+<p>Google Sign-In（Google Identity Services / Credential Manager；账号验证）、Google Drive API（将同步和备份文件存储在你自己的 Drive 的应用数据文件夹中，仅在你已开启实时同步或进行备份、恢复、重置前备份时）、Google AdMob（广告；收集广告 ID 及相关数据）、Google Play Billing（高级版订阅的付款和购买核对）。均由 Google LLC 提供。由 GitHub, Inc. 提供的 GitHub Pages 用于提供高级版许可名单文件（2-6）；本应用不会在该请求中加入账号信息。本应用不使用任何其他分析或崩溃报告工具。本应用目前仅在大韩民国分发；如果分发范围扩大到欧洲经济区、英国或瑞士，将先向当地用户显示个性化广告同意界面，并更新本政策。所有网络流量均通过 HTTPS 加密。</p>
+<h2>5. 保留和删除</h2>
+<ul>
+  <li>设备上的账号信息（电子邮件、姓名）：<strong>退出登录</strong>后即被移除。</li>
+  <li>设备上的日历数据：退出登录后仍会保留；<strong>卸载本应用</strong>或清除其数据（设置 › 应用 › forj. Calendar › 存储 › 清除数据）后即被移除。</li>
+  <li>Google Drive 中的同步和备份文件：请从你的 Google 账号中删除：Google Drive（网页版）› 设置 › <strong>管理应用</strong> › forj. Calendar › <strong>删除隐藏的应用数据</strong>（Delete hidden app data）。</li>
+  <li>你在本应用内删除的项目（包括通过“重置”清除的项目）：它们会立即从界面上消失，但为了将删除操作告知你的其他设备，它们会连同删除时间一起以隐藏状态保留在设备上本应用的存储空间中。实时同步成功后，本应用每天一次从设备上永久移除删除已超过 90 天的项目。如果你不使用实时同步，这项清理不会运行；这种情况下，你可以按上文所述卸载本应用或清除其数据来移除它们。在 Google Drive 的同步和备份文件中，已删除的项目仅保留其标识符和删除时间，不含其内容，并且超过 90 天的删除记录不会上传到同步文件。备份文件和重置前备份文件也包含进行备份时仍留在设备上的删除记录（仅标识符和删除时间），这些记录会一直保留到下一次备份覆盖该文件为止。</li>
+  <li>本应用不使用 Android Auto Backup 或设备间数据迁移。重新安装后会从空白状态开始；你保存到 Google Drive 的早期数据，只有在你登录并在设置 › 数据中选择“恢复”或开启“实时同步”后才会恢复。</li>
+  <li>开发者不在任何服务器上存储用户数据，因此没有可向开发者请求删除的数据。但是，如果开发者已向你的账号授予高级版，你的电子邮件地址的转换值会包含在许可名单（2-6）中；如需从名单中移除，请联系下方的地址。如有疑问：xxvion.studio@gmail.com</li>
+</ul>
+<h2>6. 儿童</h2>
+<p>本应用不面向未满 14 岁的儿童（韩国境外用户为未满 13 岁），也不会在知情的情况下收集其个人信息。</p>
+<h2>7. 你的权利</h2>
+<p>你可以随时在本应用内编辑或删除你的日程、待办、分组和项目，并删除已保存的地点，也可以关闭实时同步或退出登录。你可以使用上文第 5 节中的方法删除设备上和 Google Drive 中的所有数据。</p>
+<h2>8. 变更</h2>
+<p>如果本政策发生变更，我们将在本应用内或本页面上公告，并更新生效日期或最后更新日期。</p>
+</div>
+<div lang="zh-Hant">
+<h1 id="zh-Hant">隱私權政策（繁體中文）</h1>
+<p><strong>forj. Calendar</strong>（以下稱「本應用程式」）尊重你的隱私。本政策說明本應用程式處理哪些資訊、這些資訊儲存在何處，以及如何刪除這些資訊。</p>
+<ul>
+  <li>生效日期：2026-11-11</li>
+  <li>最後更新日期：2026-11-14</li>
+  <li>開發者：XXVION Studio</li>
+  <li>聯絡方式：xxvion.studio@gmail.com</li>
+</ul>
+<h2>1. 摘要</h2>
+<ul>
+  <li>開發者<strong>未營運任何伺服器</strong>來接收或儲存你的資訊。你的行事曆資料絕不會傳送給開發者。</li>
+  <li>你輸入的內容（行程、待辦等）儲存在<strong>你的裝置上</strong>；如果開啟即時同步或進行備份，則僅儲存在<strong>你自己的 Google Drive 的應用程式專用資料夾</strong>中。</li>
+  <li>本應用程式無法存取你的 Google Drive 中的任何其他檔案（僅要求應用程式資料資料夾的權限範圍）。</li>
+</ul>
+<h2>2. 我們處理的資訊</h2>
+<h3>2-1. Google 帳戶資訊（登入）</h3>
+<p>透過 Google Sign-In（Google Play services 的 Google 帳戶選擇視窗；僅在無法開啟該視窗時使用 Android Credential Manager），本應用程式會收到：</p>
+<div class="table"><table><thead><tr><th>項目</th><th>用途</th><th>儲存位置</th></tr></thead><tbody>
+<tr><td>電子郵件地址</td><td>識別已登入的帳戶、在「設定」中顯示、確認進階版許可名單（2-6）</td><td>你的裝置上</td></tr>
+<tr><td>姓名（顯示名稱）</td><td>在「設定」中顯示帳戶</td><td>你的裝置上</td></tr>
+</tbody></table></div>
+<ul>
+  <li>如果你在「帳戶」畫面變更顯示名稱，變更後的名稱同樣僅儲存在你的裝置上，並在登出時移除。</li>
+  <li>本應用程式不使用也不儲存你的個人資料相片。</li>
+  <li>本應用程式不使用也不儲存登入用的驗證權杖（ID 權杖）。Google Drive 存取權杖會在你首次使用即時同步、備份或還原時，經你另行同意後核發；該權杖僅用於與 Google Drive 通訊，不會儲存到裝置儲存空間，也不會傳送給開發者。</li>
+  <li>這些資訊不會傳送給開發者。</li>
+</ul>
+<h3>2-2. 你輸入的內容</h3>
+<p>行程（標題、日期和時間、重複規則、地點、備註、提醒、完成狀態）、待辦（標題、日期和時間、重複規則、地點、備註、提醒、完成狀態）、群組（名稱、顏色）、專案（名稱、顏色、備註、期間、封存和顯示選項），以及你輸入的地點（名稱）。</p>
+<ul>
+  <li>儲存在你裝置上本應用程式的私人儲存空間中。</li>
+  <li>如果開啟<strong>即時同步</strong>或進行<strong>備份</strong>，這些內容會以檔案形式（一個同步檔案、一個備份檔案，以及重設時建立的一個重設前備份檔案）儲存在你自己的 Google Drive 的應用程式資料資料夾中。這些檔案還包含本應用程式為區分裝置而產生的隨機<strong>裝置識別碼</strong>。應用程式設定（2-3）和帳戶資訊（2-1）不包含在這些檔案中。</li>
+  <li>如果你在舊版本中登錄過人物（姓名），這些人物可能仍保留在你的裝置和上述檔案中。目前的版本沒有輸入人物的畫面；你可以透過「重設」中的「人物」項目將其刪除。</li>
+  <li>行程和待辦的通知以及主畫面小工具會在裝置螢幕（通知、主畫面）上顯示儲存在你裝置上的行程和待辦的標題及相關詳細資料。</li>
+  <li>開發者無法存取這些內容。</li>
+</ul>
+<h3>2-3. 應用程式設定</h3>
+<p>每週起始日、時間顯示格式、模式（淺色或深色）、強調色、語言、通知設定、顯示和輸入欄位設定、小工具設定、同步設定，以及透過獎勵廣告獲得的免廣告時間和當天的觀看次數，僅儲存在你的裝置上。</p>
+<h3>2-4. 廣告</h3>
+<p>本應用程式會顯示 Google AdMob 廣告（底部橫幅廣告和你自行選擇觀看的獎勵廣告）。為了放送廣告、進行評估和防範詐欺，AdMob 可能會收集你裝置的<strong>廣告 ID</strong>、廣告曝光和點擊、裝置和診斷資訊以及 IP 位址，並將其傳送給 Google。開發者不會接收或儲存這些資訊。請參閱 Google 的隱私權政策 (<a href="https://policies.google.com/privacy">https://policies.google.com/privacy</a>) 以及「Google 如何使用來自採用其服務的網站或應用程式的資訊」 (<a href="https://policies.google.com/technologies/ads">https://policies.google.com/technologies/ads</a>)。你可以在裝置設定中重設或刪除廣告 ID。如果你訂閱了進階版、過去購買過「移除廣告」，或使用開發者已授予進階版的帳戶登入，本應用程式將從下次啟動起不再啟動廣告 SDK，因此 AdMob 不再收集這些資訊。</p>
+<h3>2-5. 付款</h3>
+<p>付費商品（「進階版」訂閱，月繳或年繳方案）由 Google Play 處理。進階版會移除廣告，並解鎖主畫面小工具和「回顧」畫面。付款詳細資料（卡號等）由 Google 處理，開發者不會收到。本應用程式僅在你的裝置上儲存你是否已訂閱以及用於顯示的資訊（方案、自動續訂狀態），並在啟動或回到前景時向 Google Play 確認你的購買記錄，以反映重新安裝、退款和訂閱到期的情形。本應用程式不會將購買資料傳送到任何自有伺服器。先前的一次性「移除廣告」商品已不再販售。如果你已經購買，本應用程式會以同樣的方式確認該購買，並繼續保持無廣告。</p>
+<h3>2-6. 進階版許可名單</h3>
+<p>開發者可以不經訂閱向部分帳戶授予進階版。為確認這一點，在你已登入的情況下，本應用程式會在開啟應用程式時、你剛登入後以及你開啟訂閱畫面時下載開發者發布的許可名單檔案 (<a href="https://xxvion.github.io/calendar-privacy/premium.json">https://xxvion.github.io/calendar-privacy/premium.json</a>)。</p>
+<ul>
+  <li>該檔案僅包含將獲授帳戶的電子郵件地址以 SHA-256 轉換後得到的值（雜湊值），不包含電子郵件地址本身。</li>
+  <li>本應用程式以同樣的方式轉換已登入帳戶的電子郵件地址，並<strong>在你的裝置上</strong>與名單進行比對。電子郵件地址和轉換後的值都不會傳送到裝置之外。</li>
+  <li>你的裝置上僅儲存結果（是否已授予進階版）和上次確認的時間，登出時會被重設。</li>
+  <li>該檔案發布在 GitHub Pages 上，因此下載時，連線所需的資訊（例如你的 IP 位址）可能會傳遞給 GitHub。</li>
+</ul>
+<h2>3. 權限</h2>
+<div class="table"><table><thead><tr><th>權限</th><th>用途</th></tr></thead><tbody>
+<tr><td>網際網路（<code>INTERNET</code>）</td><td>Google 登入、Google Drive 同步和備份、顯示廣告、確認進階版許可名單</td></tr>
+<tr><td>網路狀態（<code>ACCESS_NETWORK_STATE</code>）</td><td>檢查連線狀態，以便在連線時傳送自動同步</td></tr>
+<tr><td>通知（<code>POST_NOTIFICATIONS</code>，Android 13 以上）</td><td>顯示你設定的行程和待辦提醒以及每日摘要通知；在你登入後或首次設定提醒時要求許可</td></tr>
+<tr><td>精確鬧鐘（<code>USE_EXACT_ALARM</code>；Android 12 上為 <code>SCHEDULE_EXACT_ALARM</code>）</td><td>在準確的時間發出通知</td></tr>
+<tr><td>接收開機完成廣播（<code>RECEIVE_BOOT_COMPLETED</code>）</td><td>裝置重新啟動後重新排定通知</td></tr>
+<tr><td>Google Play Billing（<code>com.android.vending.BILLING</code>）</td><td>支付進階版訂閱費用；由 Google Play Billing Library 加入</td></tr>
+<tr><td>廣告 ID（<code>com.google.android.gms.permission.AD_ID</code>）</td><td>由廣告 SDK 加入，用於讀取廣告 ID。如果你訂閱了進階版、過去購買過「移除廣告」，或使用開發者已授予進階版的帳戶登入，本應用程式將從下次啟動起不再啟動廣告 SDK（2-4）</td></tr>
+<tr><td>讀取基本手機狀態（<code>READ_BASIC_PHONE_STATE</code>）</td><td>由廣告 SDK 加入</td></tr>
+<tr><td>喚醒鎖定（<code>WAKE_LOCK</code>）、前景服務（<code>FOREGROUND_SERVICE</code>）</td><td>由廣告 SDK 帶入的背景工作程式庫（WorkManager）加入。本應用程式不直接使用該程式庫</td></tr>
+</tbody></table></div>
+<p>當裝置上沒有 Google 帳戶時，本應用程式可能會開啟系統的「新增帳戶」畫面；這不是一項權限，本應用程式也不會讀取帳戶資料。為了確認能否連上網際網路，本應用程式可能會向 Google 的連線檢查位址（<code>connectivitycheck.gstatic.com/generate_204</code>、<code>www.google.com/generate_204</code>）傳送不含內容的要求。本應用程式不會在該要求中加入任何使用者資料或帳戶資訊。本應用程式不要求位置、聯絡人、相機、麥克風或儲存空間權限。</p>
+<h2>4. 第三方服務</h2>
+<p>Google Sign-In（Google Identity Services / Credential Manager；帳戶驗證）、Google Drive API（將同步和備份檔案儲存在你自己的 Drive 的應用程式資料資料夾中，僅在你已開啟即時同步或進行備份、還原、重設前備份時）、Google AdMob（廣告；收集廣告 ID 及相關資料）、Google Play Billing（進階版訂閱的付款和購買確認）。均由 Google LLC 提供。由 GitHub, Inc. 提供的 GitHub Pages 用於提供進階版許可名單檔案（2-6）；本應用程式不會在該要求中加入帳戶資訊。本應用程式不使用任何其他分析或當機回報工具。本應用程式目前僅在大韓民國發布；如果發布範圍擴大到歐洲經濟區、英國或瑞士，將先向當地使用者顯示個人化廣告同意畫面，並更新本政策。所有網路流量均透過 HTTPS 加密。</p>
+<h2>5. 保留和刪除</h2>
+<ul>
+  <li>裝置上的帳戶資訊（電子郵件、姓名）：<strong>登出</strong>後即會移除。</li>
+  <li>裝置上的行事曆資料：登出後仍會保留；<strong>解除安裝本應用程式</strong>或清除其資料（設定 › 應用程式 › forj. Calendar › 儲存空間 › 清除資料）後即會移除。</li>
+  <li>Google Drive 中的同步和備份檔案：請從你的 Google 帳戶中刪除：Google Drive（網頁版）› 設定 › <strong>管理應用程式</strong> › forj. Calendar › <strong>刪除隱藏的應用程式資料</strong>（Delete hidden app data）。</li>
+  <li>你在本應用程式內刪除的項目（包括透過「重設」清除的項目）：它們會立即從畫面上消失，但為了將刪除操作告知你的其他裝置，它們會連同刪除時間一起以隱藏狀態保留在裝置上本應用程式的儲存空間中。即時同步成功後，本應用程式每天一次從裝置上永久移除刪除已超過 90 天的項目。如果你不使用即時同步，這項清理不會執行；這種情況下，你可以依上文所述解除安裝本應用程式或清除其資料來移除它們。在 Google Drive 的同步和備份檔案中，已刪除的項目僅保留其識別碼和刪除時間，不含其內容，並且超過 90 天的刪除記錄不會上傳到同步檔案。備份檔案和重設前備份檔案也包含進行備份時仍留在裝置上的刪除記錄（僅識別碼和刪除時間），這些記錄會一直保留到下一次備份覆寫該檔案為止。</li>
+  <li>本應用程式不使用 Android Auto Backup 或裝置間資料轉移。重新安裝後會從空白狀態開始；你儲存到 Google Drive 的先前資料，只有在你登入並在設定 › 資料中選擇「還原」或開啟「即時同步」後才會恢復。</li>
+  <li>開發者不在任何伺服器上儲存使用者資料，因此沒有可向開發者要求刪除的資料。不過，如果開發者已向你的帳戶授予進階版，你的電子郵件地址的轉換值會包含在許可名單（2-6）中；如需從名單中移除，請聯絡下方的地址。如有疑問：xxvion.studio@gmail.com</li>
+</ul>
+<h2>6. 兒童</h2>
+<p>本應用程式不以未滿 14 歲的兒童（韓國境外使用者為未滿 13 歲）為對象，也不會在知情的情況下收集其個人資訊。</p>
+<h2>7. 你的權利</h2>
+<p>你可以隨時在本應用程式內編輯或刪除你的行程、待辦、群組和專案，並刪除已儲存的地點，也可以關閉即時同步或登出。你可以使用上文第 5 節中的方法刪除裝置上和 Google Drive 中的所有資料。</p>
+<h2>8. 變更</h2>
+<p>如果本政策有所變更，我們將在本應用程式內或本頁面上公告，並更新生效日期或最後更新日期。</p>
+</div>
+<div lang="es">
+<h1 id="es">Política de privacidad (Español)</h1>
+<p><strong>forj. Calendar</strong> (“la App”) respeta tu privacidad. Esta política explica qué información trata la App, dónde se almacena y cómo puedes eliminarla.</p>
+<ul>
+  <li>Fecha de entrada en vigor: 2026-11-11</li>
+  <li>Última actualización: 2026-11-14</li>
+  <li>Desarrollador: XXVION Studio</li>
+  <li>Contacto: xxvion.studio@gmail.com</li>
+</ul>
+<h2>1. Resumen</h2>
+<ul>
+  <li>El desarrollador <strong>no opera ningún servidor</strong> que reciba o almacene tu información. Tus datos de calendario nunca se envían al desarrollador.</li>
+  <li>Lo que introduces (eventos, tareas, etc.) se almacena <strong>en tu dispositivo</strong> y, si activas la sincronización en tiempo real o haces una copia de seguridad, únicamente en la <strong>carpeta específica de la app de tu propio Google Drive</strong>.</li>
+  <li>La App no puede acceder a ningún otro archivo de tu Google Drive (solo solicita el ámbito de la carpeta de datos de la app).</li>
+</ul>
+<h2>2. Información que tratamos</h2>
+<h3>2-1. Información de la cuenta de Google (inicio de sesión)</h3>
+<p>A través de Google Sign-In (el selector de cuentas de Google de Google Play services; Android Credential Manager solo cuando ese selector no se puede abrir), la App recibe:</p>
+<div class="table"><table><thead><tr><th>Dato</th><th>Finalidad</th><th>Almacenamiento</th></tr></thead><tbody>
+<tr><td>Dirección de correo electrónico</td><td>Identificar la cuenta con la que se ha iniciado sesión, mostrarla en Ajustes y comprobar la lista de permitidos de Premium (2-6)</td><td>En tu dispositivo</td></tr>
+<tr><td>Nombre (nombre visible)</td><td>Mostrar la cuenta en Ajustes</td><td>En tu dispositivo</td></tr>
+</tbody></table></div>
+<ul>
+  <li>Si cambias tu nombre visible en la pantalla Cuenta, el nombre cambiado también se almacena únicamente en tu dispositivo y se elimina cuando cierras sesión.</li>
+  <li>La App no usa ni almacena tu foto de perfil.</li>
+  <li>La App no usa ni almacena el token de autenticación del inicio de sesión (token de ID). El token de acceso a Google Drive se emite después de que des tu consentimiento por separado la primera vez que usas la sincronización en tiempo real, la copia de seguridad o la restauración; se usa únicamente para comunicarse con Google Drive y no se guarda en el almacenamiento del dispositivo ni se envía al desarrollador.</li>
+  <li>Esta información no se envía al desarrollador.</li>
+</ul>
+<h3>2-2. Contenido que introduces</h3>
+<p>Eventos (título, fecha y hora, regla de repetición, lugar, nota, recordatorios, estado de finalización), tareas (título, fecha y hora, regla de repetición, lugar, nota, recordatorio, estado de finalización), grupos (nombre, color), proyectos (nombre, color, nota, período, opciones de archivo y de visualización) y lugares que escribes (nombre).</p>
+<ul>
+  <li>Se almacena en el almacenamiento privado de la App en tu dispositivo.</li>
+  <li>Si activas la <strong>sincronización en tiempo real</strong> o haces una <strong>copia de seguridad</strong>, se guarda en forma de archivos (un archivo de sincronización, un archivo de copia de seguridad y un archivo de copia de seguridad previa al restablecimiento que se crea cuando restableces) en la carpeta de datos de la app de tu propio Google Drive. Estos archivos también contienen un <strong>identificador de dispositivo</strong> aleatorio que la App genera para distinguir los dispositivos. Los ajustes de la app (2-3) y la información de la cuenta (2-1) no se incluyen en estos archivos.</li>
+  <li>Si registraste personas (nombres) en una versión anterior, es posible que permanezcan en tu dispositivo y en los archivos anteriores. La versión actual no tiene ninguna pantalla para introducir personas; puedes eliminarlas con el elemento “Personas” de Restablecer.</li>
+  <li>Las notificaciones de eventos y tareas y los widgets de la pantalla de inicio muestran en la pantalla del dispositivo (notificaciones, pantalla de inicio) los títulos y los detalles relacionados de los eventos y las tareas almacenados en tu dispositivo.</li>
+  <li>El desarrollador no puede acceder a este contenido.</li>
+</ul>
+<h3>2-3. Ajustes de la app</h3>
+<p>El inicio de la semana, el formato de hora, el modo (claro u oscuro), el color de acento, el idioma, los ajustes de notificaciones, los ajustes de visualización y de campos de entrada, los ajustes de los widgets, los ajustes de sincronización, y el tiempo sin anuncios obtenido con los anuncios bonificados junto con el número de visualizaciones de ese día se almacenan únicamente en tu dispositivo.</p>
+<h3>2-4. Anuncios</h3>
+<p>La App muestra anuncios de Google AdMob (un banner inferior y anuncios bonificados que tú decides ver). Para publicar anuncios, medirlos y prevenir el fraude, AdMob puede recopilar el <strong>ID de publicidad</strong> de tu dispositivo, las impresiones y los clics de los anuncios, información del dispositivo y de diagnóstico y la dirección IP, y enviarlos a Google. El desarrollador no recibe ni almacena esta información. Consulta la Política de Privacidad de Google (<a href="https://policies.google.com/privacy">https://policies.google.com/privacy</a>) y Cómo utiliza Google la información de sitios web o aplicaciones que utilizan sus servicios (<a href="https://policies.google.com/technologies/ads">https://policies.google.com/technologies/ads</a>). Puedes restablecer o eliminar tu ID de publicidad en los ajustes de tu dispositivo. Si te suscribes a Premium, compraste “Sin anuncios” en el pasado o has iniciado sesión con una cuenta a la que el desarrollador ha concedido Premium, la App deja de iniciar el SDK de anuncios a partir del siguiente inicio, por lo que AdMob ya no recopila esta información.</p>
+<h3>2-5. Pagos</h3>
+<p>El producto de pago (la suscripción “Premium”, plan mensual o anual) se procesa a través de Google Play. Premium elimina los anuncios y desbloquea los widgets de la pantalla de inicio y la pantalla “Retrospectiva”. Google gestiona los datos de pago (número de tarjeta, etc.) y el desarrollador no los recibe. La App solo almacena en tu dispositivo si tienes una suscripción y la información para mostrar (plan, estado de la renovación automática), y comprueba tus compras con Google Play cuando se inicia o vuelve a primer plano para reflejar las reinstalaciones, los reembolsos y las suscripciones caducadas. La App no envía datos de compra a ningún servidor propio. El anterior producto de pago único “Sin anuncios” ya no se vende. Si ya lo compraste, la App comprueba la compra de la misma manera y mantiene los anuncios eliminados.</p>
+<h3>2-6. Lista de permitidos de Premium</h3>
+<p>El desarrollador puede conceder Premium a algunas cuentas sin suscripción. Para comprobarlo, cuando has iniciado sesión, la App descarga el archivo de la lista de permitidos publicado por el desarrollador (<a href="https://xxvion.github.io/calendar-privacy/premium.json">https://xxvion.github.io/calendar-privacy/premium.json</a>) cuando se abre la App, justo después de que inicies sesión y cuando abres la pantalla de suscripción.</p>
+<ul>
+  <li>El archivo contiene únicamente valores (hashes) obtenidos al convertir con SHA-256 las direcciones de correo electrónico de las cuentas a las que se ha concedido Premium; no contiene las direcciones de correo electrónico en sí.</li>
+  <li>La App convierte de la misma manera la dirección de correo electrónico de la cuenta con la que se ha iniciado sesión y la compara con la lista <strong>en tu dispositivo</strong>. Ni la dirección de correo electrónico ni el valor convertido se envían fuera del dispositivo.</li>
+  <li>En tu dispositivo solo se almacenan el resultado (si se ha concedido Premium) y la hora de la última comprobación, y se restablecen cuando cierras sesión.</li>
+  <li>El archivo está publicado en GitHub Pages, por lo que la información necesaria para la conexión, como tu dirección IP, puede transmitirse a GitHub cuando se descarga.</li>
+</ul>
+<h2>3. Permisos</h2>
+<div class="table"><table><thead><tr><th>Permiso</th><th>Finalidad</th></tr></thead><tbody>
+<tr><td>Internet (<code>INTERNET</code>)</td><td>Inicio de sesión con Google, sincronización y copia de seguridad en Google Drive, mostrar anuncios, comprobar la lista de permitidos de Premium</td></tr>
+<tr><td>Estado de la red (<code>ACCESS_NETWORK_STATE</code>)</td><td>Comprobar la conectividad para enviar la sincronización automática cuando haya conexión</td></tr>
+<tr><td>Notificaciones (<code>POST_NOTIFICATIONS</code>, Android 13 o superior)</td><td>Mostrar los recordatorios de eventos y tareas que configuras y la notificación del resumen diario; se solicita después de que inicies sesión o la primera vez que configuras un recordatorio</td></tr>
+<tr><td>Alarmas exactas (<code>USE_EXACT_ALARM</code>; <code>SCHEDULE_EXACT_ALARM</code> en Android 12)</td><td>Entregar las notificaciones a la hora exacta</td></tr>
+<tr><td>Recibir el aviso de arranque completado (<code>RECEIVE_BOOT_COMPLETED</code>)</td><td>Volver a programar las notificaciones después de reiniciar el dispositivo</td></tr>
+<tr><td>Google Play Billing (<code>com.android.vending.BILLING</code>)</td><td>Pagar la suscripción Premium; lo añade la Google Play Billing Library</td></tr>
+<tr><td>ID de publicidad (<code>com.google.android.gms.permission.AD_ID</code>)</td><td>Lo añade el SDK de anuncios para leer el ID de publicidad. Si te suscribes a Premium, compraste “Sin anuncios” en el pasado o has iniciado sesión con una cuenta a la que el desarrollador ha concedido Premium, la App no inicia el SDK de anuncios a partir del siguiente inicio (2-4)</td></tr>
+<tr><td>Leer el estado básico del teléfono (<code>READ_BASIC_PHONE_STATE</code>)</td><td>Lo añade el SDK de anuncios</td></tr>
+<tr><td>Bloqueo de activación (<code>WAKE_LOCK</code>), servicio en primer plano (<code>FOREGROUND_SERVICE</code>)</td><td>Los añade la biblioteca de trabajo en segundo plano (WorkManager) que incorpora el SDK de anuncios. La App no usa esta biblioteca directamente</td></tr>
+</tbody></table></div>
+<p>La App puede abrir la pantalla del sistema “Añadir cuenta” cuando no hay ninguna cuenta de Google en el dispositivo; esto no es un permiso y la App no lee datos de la cuenta. Para comprobar si hay acceso a Internet, la App puede enviar una solicitud sin contenido a las direcciones de comprobación de conectividad de Google (<code>connectivitycheck.gstatic.com/generate_204</code>, <code>www.google.com/generate_204</code>). La App no incluye datos del usuario ni información de la cuenta en esta solicitud. La App no solicita permisos de ubicación, contactos, cámara, micrófono ni almacenamiento.</p>
+<h2>4. Servicios de terceros</h2>
+<p>Google Sign-In (Google Identity Services / Credential Manager; verificación de la cuenta), Google Drive API (almacena los archivos de sincronización y de copia de seguridad en la carpeta de datos de la app de tu propio Drive, solo cuando has activado la sincronización en tiempo real o cuando haces una copia de seguridad, restauras o haces una copia de seguridad antes de un restablecimiento), Google AdMob (anuncios; recopila el ID de publicidad y datos relacionados), Google Play Billing (pago de la suscripción Premium y comprobación de compras). Todos proporcionados por Google LLC. GitHub Pages, proporcionado por GitHub, Inc., sirve el archivo de la lista de permitidos de Premium (2-6); la App no incluye información de la cuenta en esa solicitud. La App no utiliza ninguna otra herramienta de analítica ni de informes de fallos. Actualmente, la App se distribuye únicamente en la República de Corea; si la distribución se amplía al EEE, al Reino Unido o a Suiza, a los usuarios de esos territorios se les mostrará primero una pantalla de consentimiento de anuncios personalizados y esta política se actualizará. Todo el tráfico de red está cifrado con HTTPS.</p>
+<h2>5. Conservación y eliminación</h2>
+<ul>
+  <li>Información de la cuenta en el dispositivo (correo electrónico, nombre): se elimina cuando <strong>cierras sesión</strong>.</li>
+  <li>Datos de calendario en el dispositivo: permanecen después de cerrar sesión; se eliminan cuando <strong>desinstalas la App</strong> o borras sus datos (Ajustes › Aplicaciones › forj. Calendar › Almacenamiento › Borrar datos).</li>
+  <li>Archivos de sincronización y de copia de seguridad en Google Drive: elimínalos desde tu cuenta de Google — Google Drive (web) › Configuración › <strong>Gestionar aplicaciones</strong> › forj. Calendar › <strong>Eliminar datos de aplicaciones ocultos</strong> (Delete hidden app data).</li>
+  <li>Elementos que eliminas en la App (incluidos los borrados con Restablecer): desaparecen de la pantalla de inmediato, pero, para informar a tus otros dispositivos de la eliminación, permanecen ocultos en el almacenamiento de la App en el dispositivo, junto con la hora de eliminación. Una vez al día, tras una sincronización en tiempo real correcta, la App elimina definitivamente del dispositivo los elementos eliminados hace más de 90 días. Si no usas la sincronización en tiempo real, esta limpieza no se ejecuta; en ese caso, puedes eliminarlos desinstalando la App o borrando sus datos como se describe más arriba. En los archivos de sincronización y de copia de seguridad de Google Drive, un elemento eliminado se conserva únicamente como su identificador y su hora de eliminación, sin su contenido, y los registros de eliminaciones de hace más de 90 días no se suben al archivo de sincronización. El archivo de copia de seguridad y el archivo de copia de seguridad previa al restablecimiento también contienen los registros de eliminación (solo el identificador y la hora de eliminación) que seguían en el dispositivo cuando se hizo la copia de seguridad, y permanecen allí hasta que la siguiente copia de seguridad sobrescribe el archivo.</li>
+  <li>La App no utiliza Android Auto Backup ni la transferencia de dispositivo a dispositivo. Tras una reinstalación, empieza vacía; los datos anteriores que guardaste en Google Drive solo vuelven después de que inicies sesión y elijas “Restaurar” en Ajustes › Datos o actives “Sincronización en tiempo real”.</li>
+  <li>El desarrollador no almacena datos de usuario en ningún servidor, por lo que no hay datos cuya eliminación se pueda solicitar al desarrollador. No obstante, si el desarrollador ha concedido Premium a tu cuenta, un valor convertido de tu dirección de correo electrónico figura en la lista de permitidos (2-6); para que se elimine de la lista, escribe a la dirección que aparece más abajo. Preguntas: xxvion.studio@gmail.com</li>
+</ul>
+<h2>6. Niños</h2>
+<p>La App no está dirigida a niños menores de 14 años (menores de 13 años en el caso de usuarios fuera de Corea) y no recopila a sabiendas información personal de ellos.</p>
+<h2>7. Tus derechos</h2>
+<p>Puedes editar o eliminar tus eventos, tareas, grupos y proyectos y eliminar los lugares guardados en la App en cualquier momento, y puedes desactivar la sincronización en tiempo real o cerrar sesión. Puedes eliminar todos los datos de tu dispositivo y de Google Drive con los métodos de la sección 5 anterior.</p>
+<h2>8. Cambios</h2>
+<p>Si esta política cambia, lo anunciaremos en la App o en esta página y actualizaremos la fecha de entrada en vigor o la fecha de la última actualización.</p>
+</div>
+<div lang="de">
+<h1 id="de">Datenschutzerklärung (Deutsch)</h1>
+<p><strong>forj. Calendar</strong> („die App“) respektiert deine Privatsphäre. Diese Datenschutzerklärung erläutert, welche Informationen die App verarbeitet, wo sie gespeichert werden und wie du sie löschen kannst.</p>
+<ul>
+  <li>Datum des Inkrafttretens: 2026-11-11</li>
+  <li>Zuletzt aktualisiert: 2026-11-14</li>
+  <li>Entwickler: XXVION Studio</li>
+  <li>Kontakt: xxvion.studio@gmail.com</li>
+</ul>
+<h2>1. Zusammenfassung</h2>
+<ul>
+  <li>Der Entwickler <strong>betreibt keinen Server</strong>, der deine Informationen empfängt oder speichert. Deine Kalenderdaten werden niemals an den Entwickler gesendet.</li>
+  <li>Was du eingibst (Termine, To-dos usw.), wird <strong>auf deinem Gerät</strong> gespeichert und, wenn du die Echtzeit-Synchronisierung aktivierst oder eine Sicherung erstellst, ausschließlich im <strong>App-spezifischen Ordner deines eigenen Google Drive</strong>.</li>
+  <li>Die App kann auf keine anderen Dateien in deinem Google Drive zugreifen (sie fordert ausschließlich den Zugriffsbereich für den App-Datenordner an).</li>
+</ul>
+<h2>2. Informationen, die wir verarbeiten</h2>
+<h3>2-1. Google-Kontoinformationen (Anmeldung)</h3>
+<p>Über Google Sign-In (die Google-Kontoauswahl von Google Play services; Android Credential Manager nur, wenn sich diese Auswahl nicht öffnen lässt) erhält die App:</p>
+<div class="table"><table><thead><tr><th>Angabe</th><th>Zweck</th><th>Speicherort</th></tr></thead><tbody>
+<tr><td>E-Mail-Adresse</td><td>Das angemeldete Konto identifizieren, es in den Einstellungen anzeigen, die Premium-Freigabeliste prüfen (2-6)</td><td>Auf deinem Gerät</td></tr>
+<tr><td>Name (Anzeigename)</td><td>Das Konto in den Einstellungen anzeigen</td><td>Auf deinem Gerät</td></tr>
+</tbody></table></div>
+<ul>
+  <li>Wenn du deinen Anzeigenamen auf dem Bildschirm „Konto“ änderst, wird auch der geänderte Name nur auf deinem Gerät gespeichert und beim Abmelden entfernt.</li>
+  <li>Die App verwendet oder speichert dein Profilbild nicht.</li>
+  <li>Die App verwendet oder speichert das Authentifizierungstoken der Anmeldung (ID-Token) nicht. Das Zugriffstoken für Google Drive wird ausgestellt, nachdem du gesondert eingewilligt hast, wenn du die Echtzeit-Synchronisierung, die Sicherung oder die Wiederherstellung zum ersten Mal verwendest; es wird nur zur Kommunikation mit Google Drive verwendet und weder im Gerätespeicher gespeichert noch an den Entwickler gesendet.</li>
+  <li>Diese Informationen werden nicht an den Entwickler gesendet.</li>
+</ul>
+<h3>2-2. Inhalte, die du eingibst</h3>
+<p>Termine (Titel, Datum und Uhrzeit, Wiederholungsregel, Ort, Notiz, Erinnerungen, Erledigt-Status), To-dos (Titel, Datum und Uhrzeit, Wiederholungsregel, Ort, Notiz, Erinnerung, Erledigt-Status), Gruppen (Name, Farbe), Projekte (Name, Farbe, Notiz, Zeitraum, Archivierungs- und Anzeigeoptionen) und Orte, die du eingibst (Name).</p>
+<ul>
+  <li>Werden im privaten Speicher der App auf deinem Gerät gespeichert.</li>
+  <li>Wenn du die <strong>Echtzeit-Synchronisierung</strong> aktivierst oder eine <strong>Sicherung</strong> erstellst, werden sie als Dateien (eine Synchronisierungsdatei, eine Sicherungsdatei und eine Sicherungsdatei vor dem Zurücksetzen, die beim Zurücksetzen erstellt wird) im App-Datenordner deines eigenen Google Drive gespeichert. Diese Dateien enthalten außerdem eine zufällige <strong>Gerätekennung</strong>, die die App erzeugt, um Geräte voneinander zu unterscheiden. App-Einstellungen (2-3) und Kontoinformationen (2-1) sind in diesen Dateien nicht enthalten.</li>
+  <li>Wenn du in einer früheren Version Personen (Namen) angelegt hast, können sie auf deinem Gerät und in den oben genannten Dateien verbleiben. Die aktuelle Version hat keinen Bildschirm zum Eingeben von Personen; du kannst sie mit dem Eintrag „Personen“ unter „Zurücksetzen“ löschen.</li>
+  <li>Termin- und To-do-Benachrichtigungen sowie Widgets auf dem Startbildschirm zeigen die Titel und zugehörigen Details der auf deinem Gerät gespeicherten Termine und To-dos auf dem Bildschirm des Geräts an (Benachrichtigungen, Startbildschirm).</li>
+  <li>Der Entwickler kann nicht auf diese Inhalte zugreifen.</li>
+</ul>
+<h3>2-3. App-Einstellungen</h3>
+<p>Wochenbeginn, Zeitformat, Modus (hell oder dunkel), Akzentfarbe, Sprache, Benachrichtigungseinstellungen, Anzeige- und Eingabefeldeinstellungen, Widget-Einstellungen, Synchronisierungseinstellungen sowie die mit Anzeigen mit Prämie verdiente werbefreie Zeit und die Anzahl der an diesem Tag angesehenen Anzeigen werden nur auf deinem Gerät gespeichert.</p>
+<h3>2-4. Werbung</h3>
+<p>Die App zeigt Werbung von Google AdMob (ein Banner am unteren Rand und Anzeigen mit Prämie, die du auf eigenen Wunsch ansiehst). Um Anzeigen auszuliefern, zu messen und Betrug zu verhindern, kann AdMob die <strong>Werbe-ID</strong> deines Geräts, Anzeigenimpressionen und -klicks, Geräte- und Diagnoseinformationen sowie die IP-Adresse erheben und an Google senden. Der Entwickler erhält oder speichert diese Informationen nicht. Siehe die Datenschutzerklärung von Google (<a href="https://policies.google.com/privacy">https://policies.google.com/privacy</a>) und „Wie Google Informationen von Websites oder Apps verwendet, die seine Dienste nutzen“ (<a href="https://policies.google.com/technologies/ads">https://policies.google.com/technologies/ads</a>). Du kannst deine Werbe-ID in den Einstellungen deines Geräts zurücksetzen oder löschen. Wenn du Premium abonnierst, früher „Werbefrei“ gekauft hast oder mit einem Konto angemeldet bist, dem der Entwickler Premium gewährt hat, startet die App das Werbe-SDK ab dem nächsten Start nicht mehr, sodass AdMob diese Informationen nicht mehr erhebt.</p>
+<h3>2-5. Zahlungen</h3>
+<p>Das kostenpflichtige Produkt (das „Premium“-Abo, Monats- oder Jahrestarif) wird von Google Play abgewickelt. Premium entfernt die Werbung und schaltet Widgets auf dem Startbildschirm und den Bildschirm „Rückblick“ frei. Zahlungsdaten (Kartennummer usw.) werden von Google verarbeitet und gehen dem Entwickler nicht zu. Die App speichert auf deinem Gerät nur, ob du ein Abo hast, und Anzeigeinformationen (Tarif, Status der automatischen Verlängerung) und gleicht deine Käufe beim Start oder bei der Rückkehr in den Vordergrund mit Google Play ab, um Neuinstallationen, Erstattungen und abgelaufene Abos zu berücksichtigen. Die App sendet keine Kaufdaten an einen eigenen Server. Das frühere Einmalkauf-Produkt „Werbefrei“ wird nicht mehr verkauft. Wenn du es bereits gekauft hast, prüft die App den Kauf auf dieselbe Weise und lässt die Werbung entfernt.</p>
+<h3>2-6. Premium-Freigabeliste</h3>
+<p>Der Entwickler kann einigen Konten Premium ohne Abo gewähren. Um dies zu prüfen, lädt die App, wenn du angemeldet bist, die vom Entwickler veröffentlichte Datei mit der Freigabeliste (<a href="https://xxvion.github.io/calendar-privacy/premium.json">https://xxvion.github.io/calendar-privacy/premium.json</a>) herunter, wenn die App geöffnet wird, direkt nach deiner Anmeldung und wenn du den Abo-Bildschirm öffnest.</p>
+<ul>
+  <li>Die Datei enthält ausschließlich Werte (Hashes), die durch Umwandlung der E-Mail-Adressen der freigegebenen Konten mit SHA-256 entstehen; die E-Mail-Adressen selbst enthält sie nicht.</li>
+  <li>Die App wandelt die E-Mail-Adresse des angemeldeten Kontos auf dieselbe Weise um und vergleicht sie <strong>auf deinem Gerät</strong> mit der Liste. Weder die E-Mail-Adresse noch der umgewandelte Wert werden vom Gerät weggesendet.</li>
+  <li>Auf deinem Gerät werden nur das Ergebnis (ob Premium gewährt ist) und der Zeitpunkt der letzten Prüfung gespeichert; beim Abmelden werden sie zurückgesetzt.</li>
+  <li>Die Datei ist auf GitHub Pages veröffentlicht, sodass beim Herunterladen für die Verbindung erforderliche Informationen wie deine IP-Adresse an GitHub übermittelt werden können.</li>
+</ul>
+<h2>3. Berechtigungen</h2>
+<div class="table"><table><thead><tr><th>Berechtigung</th><th>Zweck</th></tr></thead><tbody>
+<tr><td>Internet (<code>INTERNET</code>)</td><td>Google-Anmeldung, Synchronisierung und Sicherung mit Google Drive, Anzeigen von Werbung, Prüfen der Premium-Freigabeliste</td></tr>
+<tr><td>Netzwerkstatus (<code>ACCESS_NETWORK_STATE</code>)</td><td>Die Verbindung prüfen, damit die automatische Synchronisierung gesendet wird, sobald das Gerät online ist</td></tr>
+<tr><td>Benachrichtigungen (<code>POST_NOTIFICATIONS</code>, ab Android 13)</td><td>Die von dir eingestellten Termin- und To-do-Erinnerungen und die Benachrichtigung „Tägliche Zusammenfassung“ anzeigen; wird abgefragt, nachdem du dich angemeldet hast oder wenn du zum ersten Mal eine Erinnerung einstellst</td></tr>
+<tr><td>Exakte Alarme (<code>USE_EXACT_ALARM</code>; unter Android 12 <code>SCHEDULE_EXACT_ALARM</code>)</td><td>Benachrichtigungen zur exakten Zeit zustellen</td></tr>
+<tr><td>Abschluss des Gerätestarts empfangen (<code>RECEIVE_BOOT_COMPLETED</code>)</td><td>Benachrichtigungen nach einem Neustart des Geräts neu planen</td></tr>
+<tr><td>Google Play Billing (<code>com.android.vending.BILLING</code>)</td><td>Das Premium-Abo bezahlen; wird von der Google Play Billing Library hinzugefügt</td></tr>
+<tr><td>Werbe-ID (<code>com.google.android.gms.permission.AD_ID</code>)</td><td>Wird vom Werbe-SDK hinzugefügt, um die Werbe-ID zu lesen. Wenn du Premium abonnierst, früher „Werbefrei“ gekauft hast oder mit einem Konto angemeldet bist, dem der Entwickler Premium gewährt hat, startet die App das Werbe-SDK ab dem nächsten Start nicht (2-4)</td></tr>
+<tr><td>Grundlegenden Telefonstatus lesen (<code>READ_BASIC_PHONE_STATE</code>)</td><td>Wird vom Werbe-SDK hinzugefügt</td></tr>
+<tr><td>Wakelock (<code>WAKE_LOCK</code>), Dienst im Vordergrund (<code>FOREGROUND_SERVICE</code>)</td><td>Werden von der Bibliothek für Hintergrundarbeit (WorkManager) hinzugefügt, die das Werbe-SDK mitbringt. Die App verwendet diese Bibliothek nicht direkt</td></tr>
+</tbody></table></div>
+<p>Die App kann den Systembildschirm „Konto hinzufügen“ öffnen, wenn auf dem Gerät kein Google-Konto vorhanden ist; dies ist keine Berechtigung, und die App liest keine Kontodaten. Um festzustellen, ob das Internet erreichbar ist, kann die App eine Anfrage ohne Inhalt an die Adressen von Google zur Verbindungsprüfung senden (<code>connectivitycheck.gstatic.com/generate_204</code>, <code>www.google.com/generate_204</code>). Die App fügt dieser Anfrage keine Nutzerdaten oder Kontoinformationen hinzu. Die App fordert keine Berechtigungen für Standort, Kontakte, Kamera, Mikrofon oder Speicher an.</p>
+<h2>4. Dienste von Drittanbietern</h2>
+<p>Google Sign-In (Google Identity Services / Credential Manager; Kontobestätigung), Google Drive API (speichert die Synchronisierungs- und Sicherungsdateien im App-Datenordner deines eigenen Drive, nur wenn du die Echtzeit-Synchronisierung aktiviert hast oder wenn du sicherst, wiederherstellst oder vor dem Zurücksetzen sicherst), Google AdMob (Werbung; erhebt die Werbe-ID und zugehörige Daten), Google Play Billing (Zahlung für das Premium-Abo und Kaufprüfungen). Alle werden von Google LLC bereitgestellt. GitHub Pages, bereitgestellt von GitHub, Inc., liefert die Datei mit der Premium-Freigabeliste aus (2-6); die App fügt dieser Anfrage keine Kontoinformationen hinzu. Die App verwendet keine weiteren Analyse- oder Absturzberichtstools. Die App wird derzeit nur in der Republik Korea vertrieben; wird der Vertrieb auf den EWR, das Vereinigte Königreich oder die Schweiz ausgeweitet, wird den Nutzern dort zuerst ein Einwilligungsbildschirm für personalisierte Werbung angezeigt und diese Datenschutzerklärung wird aktualisiert. Der gesamte Netzwerkverkehr ist mit HTTPS verschlüsselt.</p>
+<h2>5. Aufbewahrung und Löschung</h2>
+<ul>
+  <li>Kontoinformationen auf dem Gerät (E-Mail-Adresse, Name): werden entfernt, wenn du dich <strong>abmeldest</strong>.</li>
+  <li>Kalenderdaten auf dem Gerät: bleiben nach dem Abmelden erhalten; werden entfernt, wenn du <strong>die App deinstallierst</strong> oder ihre Daten löschst (Einstellungen › Apps › forj. Calendar › Speicher › Daten löschen).</li>
+  <li>Synchronisierungs- und Sicherungsdateien in Google Drive: Lösche sie über dein Google-Konto – Google Drive (Web) › Einstellungen › <strong>Apps verwalten</strong> › forj. Calendar › <strong>Verborgene App-Daten löschen</strong> (Delete hidden app data).</li>
+  <li>Elemente, die du in der App löschst (einschließlich der durch „Zurücksetzen“ gelöschten): Sie verschwinden sofort vom Bildschirm, bleiben aber, um deine anderen Geräte über die Löschung zu informieren, zusammen mit dem Löschzeitpunkt ausgeblendet im Speicher der App auf dem Gerät. Einmal täglich nach einer erfolgreichen Echtzeit-Synchronisierung entfernt die App die Elemente, die vor mehr als 90 Tagen gelöscht wurden, endgültig vom Gerät. Wenn du die Echtzeit-Synchronisierung nicht verwendest, läuft diese Bereinigung nicht; in diesem Fall kannst du sie entfernen, indem du die App deinstallierst oder ihre Daten löschst, wie oben beschrieben. In den Synchronisierungs- und Sicherungsdateien in Google Drive wird ein gelöschtes Element nur als seine Kennung und sein Löschzeitpunkt aufbewahrt, ohne seinen Inhalt, und Einträge über Löschungen, die älter als 90 Tage sind, werden nicht in die Synchronisierungsdatei hochgeladen. Die Sicherungsdatei und die Sicherungsdatei vor dem Zurücksetzen enthalten ebenfalls die Löscheinträge (nur Kennung und Löschzeitpunkt), die sich beim Erstellen der Sicherung noch auf dem Gerät befanden, und sie bleiben dort, bis die nächste Sicherung die Datei überschreibt.</li>
+  <li>Die App verwendet weder Android Auto Backup noch die Übertragung von Gerät zu Gerät. Nach einer Neuinstallation startet sie leer; frühere Daten, die du in Google Drive gespeichert hast, kommen erst zurück, nachdem du dich angemeldet und unter Einstellungen › Daten „Wiederherstellen“ gewählt oder „Echtzeit-Synchronisierung“ aktiviert hast.</li>
+  <li>Der Entwickler speichert keine Nutzerdaten auf einem Server, daher gibt es keine Daten, deren Löschung du beim Entwickler beantragen könntest. Wenn der Entwickler deinem Konto jedoch Premium gewährt hat, steht ein umgewandelter Wert deiner E-Mail-Adresse in der Freigabeliste (2-6); wenn du möchtest, dass er aus der Liste entfernt wird, wende dich an die unten stehende Adresse. Fragen: xxvion.studio@gmail.com</li>
+</ul>
+<h2>6. Kinder</h2>
+<p>Die App richtet sich nicht an Kinder unter 14 Jahren (unter 13 Jahren bei Nutzern außerhalb Koreas) und erhebt nicht wissentlich personenbezogene Daten von ihnen.</p>
+<h2>7. Deine Rechte</h2>
+<p>Du kannst deine Termine, To-dos, Gruppen und Projekte in der App jederzeit bearbeiten oder löschen und gespeicherte Orte löschen, und du kannst die Echtzeit-Synchronisierung deaktivieren oder dich abmelden. Mit den oben in Abschnitt 5 beschriebenen Methoden kannst du alle Daten auf deinem Gerät und in Google Drive löschen.</p>
+<h2>8. Änderungen</h2>
+<p>Wenn sich diese Datenschutzerklärung ändert, geben wir dies in der App oder auf dieser Seite bekannt und aktualisieren das Datum des Inkrafttretens oder das Datum der letzten Aktualisierung.</p>
+</div>
+<div lang="fr">
+<h1 id="fr">Politique de confidentialité (Français)</h1>
+<p><strong>forj. Calendar</strong> (« l'Application ») respecte votre vie privée. La présente politique explique quelles informations l'Application traite, où elles sont stockées et comment vous pouvez les supprimer.</p>
+<ul>
+  <li>Date d'entrée en vigueur : 2026-11-11</li>
+  <li>Dernière mise à jour : 2026-11-14</li>
+  <li>Développeur : XXVION Studio</li>
+  <li>Contact : xxvion.studio@gmail.com</li>
+</ul>
+<h2>1. Résumé</h2>
+<ul>
+  <li>Le développeur <strong>n'exploite aucun serveur</strong> qui reçoive ou stocke vos informations. Vos données de calendrier ne sont jamais envoyées au développeur.</li>
+  <li>Ce que vous saisissez (événements, tâches, etc.) est stocké <strong>sur votre appareil</strong> et, si vous activez la synchronisation en temps réel ou effectuez une sauvegarde, uniquement dans le <strong>dossier propre à l'application de votre propre Google Drive</strong>.</li>
+  <li>L'Application ne peut accéder à aucun autre fichier de votre Google Drive (elle ne demande que l'autorisation d'accès au dossier de données de l'application).</li>
+</ul>
+<h2>2. Informations que nous traitons</h2>
+<h3>2-1. Informations du compte Google (connexion)</h3>
+<p>Par l'intermédiaire de Google Sign-In (le sélecteur de compte Google de Google Play services ; Android Credential Manager uniquement lorsque ce sélecteur ne peut pas être ouvert), l'Application reçoit :</p>
+<div class="table"><table><thead><tr><th>Élément</th><th>Finalité</th><th>Stockage</th></tr></thead><tbody>
+<tr><td>Adresse e-mail</td><td>Identifier le compte connecté, l'afficher dans les Paramètres, vérifier la liste d'autorisation Premium (2-6)</td><td>Sur votre appareil</td></tr>
+<tr><td>Nom (nom affiché)</td><td>Afficher le compte dans les Paramètres</td><td>Sur votre appareil</td></tr>
+</tbody></table></div>
+<ul>
+  <li>Si vous modifiez votre nom affiché sur l'écran Compte, le nom modifié est lui aussi stocké uniquement sur votre appareil et supprimé lorsque vous vous déconnectez.</li>
+  <li>L'Application n'utilise ni ne stocke votre photo de profil.</li>
+  <li>L'Application n'utilise ni ne stocke le jeton d'authentification de connexion (jeton d'identité). Le jeton d'accès à Google Drive est émis après que vous avez donné un consentement distinct, la première fois que vous utilisez la synchronisation en temps réel, la sauvegarde ou la restauration ; il sert uniquement à communiquer avec Google Drive et n'est ni enregistré dans le stockage de l'appareil ni envoyé au développeur.</li>
+  <li>Ces informations ne sont pas envoyées au développeur.</li>
+</ul>
+<h3>2-2. Contenu que vous saisissez</h3>
+<p>Événements (titre, date et heure, règle de répétition, lieu, note, rappels, état d'achèvement), tâches (titre, date et heure, règle de répétition, lieu, note, rappel, état d'achèvement), groupes (nom, couleur), projets (nom, couleur, note, période, options d'archivage et d'affichage) et lieux que vous saisissez (nom).</p>
+<ul>
+  <li>Stocké dans l'espace de stockage privé de l'Application sur votre appareil.</li>
+  <li>Si vous activez la <strong>synchronisation en temps réel</strong> ou effectuez une <strong>sauvegarde</strong>, il est enregistré sous forme de fichiers (un fichier de synchronisation, un fichier de sauvegarde et un fichier de sauvegarde avant réinitialisation créé lorsque vous réinitialisez) dans le dossier de données de l'application de votre propre Google Drive. Ces fichiers contiennent également un <strong>identifiant d'appareil</strong> aléatoire généré par l'Application pour distinguer les appareils. Les paramètres de l'application (2-3) et les informations du compte (2-1) ne sont pas inclus dans ces fichiers.</li>
+  <li>Si vous avez enregistré des personnes (noms) dans une version antérieure, elles peuvent subsister sur votre appareil et dans les fichiers ci-dessus. La version actuelle ne comporte aucun écran de saisie de personnes ; vous pouvez les supprimer avec l'élément « Personnes » de Réinitialiser.</li>
+  <li>Les notifications d'événements et de tâches ainsi que les widgets de l'écran d'accueil affichent sur l'écran de l'appareil (notifications, écran d'accueil) les titres et les détails associés des événements et des tâches stockés sur votre appareil.</li>
+  <li>Le développeur ne peut pas accéder à ce contenu.</li>
+</ul>
+<h3>2-3. Paramètres de l'application</h3>
+<p>Le début de semaine, le format de l'heure, le mode (clair ou sombre), la couleur d'accentuation, la langue, les paramètres de notification, les paramètres d'affichage et de champs de saisie, les paramètres des widgets, les paramètres de synchronisation, ainsi que le temps sans publicité obtenu grâce aux annonces avec récompense et le nombre de visionnages du jour sont stockés uniquement sur votre appareil.</p>
+<h3>2-4. Publicités</h3>
+<p>L'Application affiche des publicités Google AdMob (une bannière en bas de l'écran et des annonces avec récompense que vous choisissez de regarder). Pour diffuser les annonces, les mesurer et prévenir la fraude, AdMob peut collecter l'<strong>identifiant publicitaire</strong> de votre appareil, les impressions et les clics publicitaires, des informations sur l'appareil et de diagnostic ainsi que l'adresse IP, et les envoyer à Google. Le développeur ne reçoit ni ne stocke ces informations. Consultez les Règles de confidentialité de Google (<a href="https://policies.google.com/privacy">https://policies.google.com/privacy</a>) et Comment Google utilise les informations provenant de sites ou d'applications qui utilisent ses services (<a href="https://policies.google.com/technologies/ads">https://policies.google.com/technologies/ads</a>). Vous pouvez réinitialiser ou supprimer votre identifiant publicitaire dans les paramètres de votre appareil. Si vous êtes abonné à Premium, si vous avez acheté « Sans publicité » par le passé ou si vous êtes connecté avec un compte auquel le développeur a accordé Premium, l'Application ne démarre plus le SDK publicitaire à partir du lancement suivant, de sorte qu'AdMob ne collecte plus ces informations.</p>
+<h3>2-5. Paiements</h3>
+<p>Le produit payant (l'abonnement « Premium », formule mensuelle ou annuelle) est traité par Google Play. Premium supprime les publicités et débloque les widgets de l'écran d'accueil et l'écran « Bilan ». Les informations de paiement (numéro de carte, etc.) sont gérées par Google et ne sont pas reçues par le développeur. L'Application enregistre uniquement sur votre appareil le fait que vous êtes abonné ou non et les informations d'affichage (formule, état du renouvellement automatique), et vérifie vos achats auprès de Google Play lorsqu'elle démarre ou revient au premier plan, afin de tenir compte des réinstallations, des remboursements et des abonnements expirés. L'Application n'envoie aucune donnée d'achat à un serveur qui lui serait propre. L'ancien produit à achat unique « Sans publicité » n'est plus vendu. Si vous l'avez déjà acheté, l'Application vérifie l'achat de la même manière et maintient la suppression des publicités.</p>
+<h3>2-6. Liste d'autorisation Premium</h3>
+<p>Le développeur peut accorder Premium à certains comptes sans abonnement. Pour le vérifier, lorsque vous êtes connecté, l'Application télécharge le fichier de liste d'autorisation publié par le développeur (<a href="https://xxvion.github.io/calendar-privacy/premium.json">https://xxvion.github.io/calendar-privacy/premium.json</a>) à l'ouverture de l'Application, juste après votre connexion et lorsque vous ouvrez l'écran d'abonnement.</p>
+<ul>
+  <li>Le fichier contient uniquement des valeurs (hachages) obtenues en convertissant avec SHA-256 les adresses e-mail des comptes bénéficiaires ; il ne contient pas les adresses e-mail elles-mêmes.</li>
+  <li>L'Application convertit de la même manière l'adresse e-mail du compte connecté et la compare à la liste <strong>sur votre appareil</strong>. Ni l'adresse e-mail ni la valeur convertie ne sont envoyées hors de l'appareil.</li>
+  <li>Seuls le résultat (Premium accordé ou non) et l'heure de la dernière vérification sont stockés sur votre appareil, et ils sont réinitialisés lorsque vous vous déconnectez.</li>
+  <li>Le fichier est publié sur GitHub Pages ; les informations nécessaires à la connexion, telles que votre adresse IP, peuvent donc être transmises à GitHub lors du téléchargement.</li>
+</ul>
+<h2>3. Autorisations</h2>
+<div class="table"><table><thead><tr><th>Autorisation</th><th>Finalité</th></tr></thead><tbody>
+<tr><td>Internet (<code>INTERNET</code>)</td><td>Connexion Google, synchronisation et sauvegarde Google Drive, affichage des publicités, vérification de la liste d'autorisation Premium</td></tr>
+<tr><td>État du réseau (<code>ACCESS_NETWORK_STATE</code>)</td><td>Vérifier la connectivité afin que la synchronisation automatique soit envoyée une fois en ligne</td></tr>
+<tr><td>Notifications (<code>POST_NOTIFICATIONS</code>, Android 13 et versions ultérieures)</td><td>Afficher les rappels d'événements et de tâches que vous définissez ainsi que la notification du résumé quotidien ; demandée après votre connexion ou lorsque vous définissez un rappel pour la première fois</td></tr>
+<tr><td>Alarmes exactes (<code>USE_EXACT_ALARM</code> ; <code>SCHEDULE_EXACT_ALARM</code> sous Android 12)</td><td>Délivrer les notifications à l'heure exacte</td></tr>
+<tr><td>Réception de la fin du démarrage (<code>RECEIVE_BOOT_COMPLETED</code>)</td><td>Reprogrammer les notifications après le redémarrage de l'appareil</td></tr>
+<tr><td>Google Play Billing (<code>com.android.vending.BILLING</code>)</td><td>Payer l'abonnement Premium ; ajoutée par la Google Play Billing Library</td></tr>
+<tr><td>Identifiant publicitaire (<code>com.google.android.gms.permission.AD_ID</code>)</td><td>Ajoutée par le SDK publicitaire pour lire l'identifiant publicitaire. Si vous êtes abonné à Premium, si vous avez acheté « Sans publicité » par le passé ou si vous êtes connecté avec un compte auquel le développeur a accordé Premium, l'Application ne démarre pas le SDK publicitaire à partir du lancement suivant (2-4)</td></tr>
+<tr><td>Lire l'état de base du téléphone (<code>READ_BASIC_PHONE_STATE</code>)</td><td>Ajoutée par le SDK publicitaire</td></tr>
+<tr><td>Maintien de l'éveil (<code>WAKE_LOCK</code>), service de premier plan (<code>FOREGROUND_SERVICE</code>)</td><td>Ajoutées par la bibliothèque de tâches en arrière-plan (WorkManager) qu'apporte le SDK publicitaire. L'Application n'utilise pas directement cette bibliothèque</td></tr>
+</tbody></table></div>
+<p>L'Application peut ouvrir l'écran système « Ajouter un compte » lorsqu'aucun compte Google n'est présent sur l'appareil ; il ne s'agit pas d'une autorisation et l'Application ne lit pas les données du compte. Pour savoir si Internet est accessible, l'Application peut envoyer une requête sans contenu aux adresses de vérification de connectivité de Google (<code>connectivitycheck.gstatic.com/generate_204</code>, <code>www.google.com/generate_204</code>). L'Application n'inclut aucune donnée utilisateur ni information de compte dans cette requête. L'Application ne demande pas d'autorisation d'accès à la localisation, aux contacts, à l'appareil photo, au micro ni au stockage.</p>
+<h2>4. Services tiers</h2>
+<p>Google Sign-In (Google Identity Services / Credential Manager ; vérification du compte), Google Drive API (stocke les fichiers de synchronisation et de sauvegarde dans le dossier de données de l'application de votre propre Drive, uniquement lorsque vous avez activé la synchronisation en temps réel ou lorsque vous sauvegardez, restaurez ou sauvegardez avant une réinitialisation), Google AdMob (publicités ; collecte l'identifiant publicitaire et des données associées), Google Play Billing (paiement de l'abonnement Premium et vérification des achats). Tous sont fournis par Google LLC. GitHub Pages, fourni par GitHub, Inc., diffuse le fichier de liste d'autorisation Premium (2-6) ; l'Application n'inclut aucune information de compte dans cette requête. L'Application n'utilise aucun autre outil d'analyse ni de rapport de plantage. L'Application est actuellement distribuée uniquement en République de Corée ; si la distribution s'étend à l'EEE, au Royaume-Uni ou à la Suisse, un écran de consentement aux annonces personnalisées sera d'abord présenté aux utilisateurs de ces territoires et la présente politique sera mise à jour. L'ensemble du trafic réseau est chiffré avec HTTPS.</p>
+<h2>5. Conservation et suppression</h2>
+<ul>
+  <li>Informations du compte sur l'appareil (e-mail, nom) : supprimées lorsque vous vous <strong>déconnectez</strong>.</li>
+  <li>Données de calendrier sur l'appareil : conservées après la déconnexion ; supprimées lorsque vous <strong>désinstallez l'Application</strong> ou effacez ses données (Paramètres › Applications › forj. Calendar › Stockage › Effacer les données).</li>
+  <li>Fichiers de synchronisation et de sauvegarde dans Google Drive : supprimez-les depuis votre compte Google — Google Drive (Web) › Paramètres › <strong>Gérer les applications</strong> › forj. Calendar › <strong>Supprimer les données d'applications masquées</strong> (Delete hidden app data).</li>
+  <li>Éléments que vous supprimez dans l'Application (y compris ceux effacés par Réinitialiser) : ils disparaissent immédiatement de l'écran, mais, afin d'informer vos autres appareils de la suppression, ils restent masqués dans le stockage de l'Application sur l'appareil, avec l'heure de suppression. Une fois par jour, après une synchronisation en temps réel réussie, l'Application supprime définitivement de l'appareil les éléments supprimés depuis plus de 90 jours. Si vous n'utilisez pas la synchronisation en temps réel, ce nettoyage ne s'exécute pas ; dans ce cas, vous pouvez les supprimer en désinstallant l'Application ou en effaçant ses données, comme décrit ci-dessus. Dans les fichiers de synchronisation et de sauvegarde de Google Drive, un élément supprimé n'est conservé que sous la forme de son identifiant et de son heure de suppression, sans son contenu, et les enregistrements de suppressions datant de plus de 90 jours ne sont pas importés dans le fichier de synchronisation. Le fichier de sauvegarde et le fichier de sauvegarde avant réinitialisation contiennent également les enregistrements de suppression (identifiant et heure de suppression uniquement) qui se trouvaient encore sur l'appareil au moment de la sauvegarde, et ils y restent jusqu'à ce que la sauvegarde suivante écrase le fichier.</li>
+  <li>L'Application n'utilise ni Android Auto Backup ni le transfert d'appareil à appareil. Après une réinstallation, elle démarre vide ; les données antérieures que vous avez enregistrées dans Google Drive ne reviennent qu'après vous être connecté et avoir choisi « Restaurer » dans Paramètres › Données ou activé « Synchronisation en temps réel ».</li>
+  <li>Le développeur ne stocke aucune donnée utilisateur sur un quelconque serveur ; il n'y a donc aucune donnée dont vous puissiez demander la suppression au développeur. Toutefois, si le développeur a accordé Premium à votre compte, une valeur convertie de votre adresse e-mail figure dans la liste d'autorisation (2-6) ; pour la faire retirer de la liste, écrivez à l'adresse ci-dessous. Questions : xxvion.studio@gmail.com</li>
+</ul>
+<h2>6. Enfants</h2>
+<p>L'Application ne s'adresse pas aux enfants de moins de 14 ans (moins de 13 ans pour les utilisateurs hors de Corée) et ne collecte pas sciemment d'informations personnelles les concernant.</p>
+<h2>7. Vos droits</h2>
+<p>Vous pouvez à tout moment modifier ou supprimer vos événements, tâches, groupes et projets et supprimer les lieux enregistrés dans l'Application, et vous pouvez désactiver la synchronisation en temps réel ou vous déconnecter. Vous pouvez supprimer toutes les données de votre appareil et de Google Drive à l'aide des méthodes de la section 5 ci-dessus.</p>
+<h2>8. Modifications</h2>
+<p>Si la présente politique est modifiée, nous l'annoncerons dans l'Application ou sur cette page et mettrons à jour la date d'entrée en vigueur ou la date de dernière mise à jour.</p>
+</div>
+<div lang="pt-BR">
+<h1 id="pt-BR">Política de privacidade (Português do Brasil)</h1>
+<p><strong>forj. Calendar</strong> (“o App”) respeita a sua privacidade. Esta política explica quais informações o App trata, onde elas ficam armazenadas e como você pode excluí-las.</p>
+<ul>
+  <li>Data de vigência: 2026-11-11</li>
+  <li>Última atualização: 2026-11-14</li>
+  <li>Desenvolvedor: XXVION Studio</li>
+  <li>Contato: xxvion.studio@gmail.com</li>
+</ul>
+<h2>1. Resumo</h2>
+<ul>
+  <li>O desenvolvedor <strong>não opera nenhum servidor</strong> que receba ou armazene as suas informações. Seus dados de calendário nunca são enviados ao desenvolvedor.</li>
+  <li>O que você insere (eventos, tarefas etc.) fica armazenado <strong>no seu dispositivo</strong> e, se você ativar a sincronização em tempo real ou fizer um backup, somente na <strong>pasta específica do app no seu próprio Google Drive</strong>.</li>
+  <li>O App não pode acessar nenhum outro arquivo do seu Google Drive (ele solicita somente o escopo da pasta de dados do app).</li>
+</ul>
+<h2>2. Informações que tratamos</h2>
+<h3>2-1. Informações da Conta do Google (login)</h3>
+<p>Por meio do Google Sign-In (o seletor de Contas do Google do Google Play services; o Android Credential Manager somente quando esse seletor não pode ser aberto), o App recebe:</p>
+<div class="table"><table><thead><tr><th>Item</th><th>Finalidade</th><th>Armazenamento</th></tr></thead><tbody>
+<tr><td>Endereço de e-mail</td><td>Identificar a conta conectada, exibi-la nos Ajustes e verificar a lista de permissão do Premium (2-6)</td><td>No seu dispositivo</td></tr>
+<tr><td>Nome (nome de exibição)</td><td>Exibir a conta nos Ajustes</td><td>No seu dispositivo</td></tr>
+</tbody></table></div>
+<ul>
+  <li>Se você alterar o seu nome de exibição na tela Conta, o nome alterado também fica armazenado somente no seu dispositivo e é removido quando você sai da conta.</li>
+  <li>O App não usa nem armazena a sua foto do perfil.</li>
+  <li>O App não usa nem armazena o token de autenticação do login (token de ID). O token de acesso ao Google Drive é emitido depois que você dá um consentimento separado, na primeira vez em que usa a sincronização em tempo real, o backup ou a restauração; ele é usado somente para a comunicação com o Google Drive e não é salvo no armazenamento do dispositivo nem enviado ao desenvolvedor.</li>
+  <li>Essas informações não são enviadas ao desenvolvedor.</li>
+</ul>
+<h3>2-2. Conteúdo que você insere</h3>
+<p>Eventos (título, data e horário, regra de repetição, local, nota, lembretes, status de conclusão), tarefas (título, data e horário, regra de repetição, local, nota, lembrete, status de conclusão), grupos (nome, cor), projetos (nome, cor, nota, período, opções de arquivamento e de exibição) e locais que você digita (nome).</p>
+<ul>
+  <li>Fica armazenado no armazenamento privado do App no seu dispositivo.</li>
+  <li>Se você ativar a <strong>sincronização em tempo real</strong> ou fizer um <strong>backup</strong>, ele é salvo como arquivos (um arquivo de sincronização, um arquivo de backup e um arquivo de backup anterior à redefinição, criado quando você redefine) na pasta de dados do app no seu próprio Google Drive. Esses arquivos também contêm um <strong>identificador de dispositivo</strong> aleatório gerado pelo App para diferenciar os dispositivos. Os ajustes do app (2-3) e as informações da conta (2-1) não são incluídos nesses arquivos.</li>
+  <li>Se você cadastrou pessoas (nomes) em uma versão anterior, elas podem permanecer no seu dispositivo e nos arquivos acima. A versão atual não tem nenhuma tela para inserir pessoas; você pode excluí-las com o item “Pessoas” de Redefinir.</li>
+  <li>As notificações de eventos e tarefas e os widgets da tela inicial exibem na tela do dispositivo (notificações, tela inicial) os títulos e os detalhes relacionados dos eventos e das tarefas armazenados no seu dispositivo.</li>
+  <li>O desenvolvedor não pode acessar esse conteúdo.</li>
+</ul>
+<h3>2-3. Ajustes do app</h3>
+<p>O início da semana, o formato de hora, o modo (claro ou escuro), a cor de destaque, o idioma, os ajustes de notificações, os ajustes de exibição e de campos de entrada, os ajustes dos widgets, os ajustes de sincronização, e o tempo sem anúncios obtido com os anúncios premiados junto com o número de visualizações daquele dia ficam armazenados somente no seu dispositivo.</p>
+<h3>2-4. Anúncios</h3>
+<p>O App exibe anúncios do Google AdMob (um banner na parte inferior e anúncios premiados que você escolhe assistir). Para veicular anúncios, medi-los e prevenir fraudes, o AdMob pode coletar o <strong>ID de publicidade</strong> do seu dispositivo, impressões e cliques em anúncios, informações do dispositivo e de diagnóstico e o endereço IP, e enviá-los ao Google. O desenvolvedor não recebe nem armazena essas informações. Consulte a Política de Privacidade do Google (<a href="https://policies.google.com/privacy">https://policies.google.com/privacy</a>) e Como o Google usa informações de sites ou apps que utilizam os serviços dele (<a href="https://policies.google.com/technologies/ads">https://policies.google.com/technologies/ads</a>). Você pode redefinir ou excluir o seu ID de publicidade nas configurações do seu dispositivo. Se você assinar o Premium, tiver comprado “Sem anúncios” no passado ou estiver conectado com uma conta à qual o desenvolvedor concedeu o Premium, o App deixa de iniciar o SDK de anúncios a partir da próxima inicialização, de modo que o AdMob não coleta mais essas informações.</p>
+<h3>2-5. Pagamentos</h3>
+<p>O produto pago (a assinatura “Premium”, plano mensal ou anual) é processado pelo Google Play. O Premium remove os anúncios e desbloqueia os widgets da tela inicial e a tela “Retrospectiva”. Os dados de pagamento (número do cartão etc.) são tratados pelo Google e não são recebidos pelo desenvolvedor. O App armazena no seu dispositivo somente se você tem uma assinatura e as informações de exibição (plano, status da renovação automática), e verifica as suas compras no Google Play quando é iniciado ou volta ao primeiro plano, para refletir reinstalações, reembolsos e assinaturas expiradas. O App não envia dados de compra a nenhum servidor próprio. O antigo produto de compra única “Sem anúncios” não é mais vendido. Se você já o comprou, o App verifica a compra da mesma forma e mantém os anúncios removidos.</p>
+<h3>2-6. Lista de permissão do Premium</h3>
+<p>O desenvolvedor pode conceder o Premium a algumas contas sem assinatura. Para verificar isso, quando você está conectado, o App baixa o arquivo da lista de permissão publicado pelo desenvolvedor (<a href="https://xxvion.github.io/calendar-privacy/premium.json">https://xxvion.github.io/calendar-privacy/premium.json</a>) quando o App é aberto, logo depois que você faz login e quando você abre a tela de assinatura.</p>
+<ul>
+  <li>O arquivo contém somente valores (hashes) produzidos pela conversão, com SHA-256, dos endereços de e-mail das contas que receberam o Premium; ele não contém os endereços de e-mail em si.</li>
+  <li>O App converte da mesma forma o endereço de e-mail da conta conectada e o compara com a lista <strong>no seu dispositivo</strong>. Nem o endereço de e-mail nem o valor convertido são enviados para fora do dispositivo.</li>
+  <li>Somente o resultado (se o Premium foi concedido) e o horário da última verificação ficam armazenados no seu dispositivo, e eles são redefinidos quando você sai da conta.</li>
+  <li>O arquivo é publicado no GitHub Pages; por isso, as informações necessárias para a conexão, como o seu endereço IP, podem ser transmitidas ao GitHub quando ele é baixado.</li>
+</ul>
+<h2>3. Permissões</h2>
+<div class="table"><table><thead><tr><th>Permissão</th><th>Finalidade</th></tr></thead><tbody>
+<tr><td>Internet (<code>INTERNET</code>)</td><td>Login do Google, sincronização e backup no Google Drive, exibição de anúncios, verificação da lista de permissão do Premium</td></tr>
+<tr><td>Estado da rede (<code>ACCESS_NETWORK_STATE</code>)</td><td>Verificar a conectividade para que a sincronização automática seja enviada quando houver conexão</td></tr>
+<tr><td>Notificações (<code>POST_NOTIFICATIONS</code>, Android 13 ou superior)</td><td>Exibir os lembretes de eventos e tarefas que você define e a notificação do resumo diário; solicitada depois que você faz login ou quando você define um lembrete pela primeira vez</td></tr>
+<tr><td>Alarmes exatos (<code>USE_EXACT_ALARM</code>; <code>SCHEDULE_EXACT_ALARM</code> no Android 12)</td><td>Entregar as notificações no horário exato</td></tr>
+<tr><td>Receber a conclusão da inicialização (<code>RECEIVE_BOOT_COMPLETED</code>)</td><td>Reprogramar as notificações depois que o dispositivo é reiniciado</td></tr>
+<tr><td>Google Play Billing (<code>com.android.vending.BILLING</code>)</td><td>Pagar a assinatura Premium; adicionada pela Google Play Billing Library</td></tr>
+<tr><td>ID de publicidade (<code>com.google.android.gms.permission.AD_ID</code>)</td><td>Adicionada pelo SDK de anúncios para ler o ID de publicidade. Se você assinar o Premium, tiver comprado “Sem anúncios” no passado ou estiver conectado com uma conta à qual o desenvolvedor concedeu o Premium, o App não inicia o SDK de anúncios a partir da próxima inicialização (2-4)</td></tr>
+<tr><td>Ler o estado básico do telefone (<code>READ_BASIC_PHONE_STATE</code>)</td><td>Adicionada pelo SDK de anúncios</td></tr>
+<tr><td>Wake lock (<code>WAKE_LOCK</code>), serviço em primeiro plano (<code>FOREGROUND_SERVICE</code>)</td><td>Adicionadas pela biblioteca de trabalho em segundo plano (WorkManager) que o SDK de anúncios traz consigo. O App não usa essa biblioteca diretamente</td></tr>
+</tbody></table></div>
+<p>O App pode abrir a tela do sistema “Adicionar conta” quando não há nenhuma Conta do Google no dispositivo; isso não é uma permissão e o App não lê dados da conta. Para saber se a Internet está acessível, o App pode enviar uma solicitação sem conteúdo aos endereços de verificação de conectividade do Google (<code>connectivitycheck.gstatic.com/generate_204</code>, <code>www.google.com/generate_204</code>). O App não coloca dados do usuário nem informações da conta nessa solicitação. O App não solicita permissões de localização, contatos, câmera, microfone ou armazenamento.</p>
+<h2>4. Serviços de terceiros</h2>
+<p>Google Sign-In (Google Identity Services / Credential Manager; verificação da conta), Google Drive API (armazena os arquivos de sincronização e de backup na pasta de dados do app no seu próprio Drive, somente quando você ativou a sincronização em tempo real ou quando faz backup, restaura ou faz backup antes de uma redefinição), Google AdMob (anúncios; coleta o ID de publicidade e dados relacionados), Google Play Billing (pagamento da assinatura Premium e verificação de compras). Todos fornecidos pela Google LLC. O GitHub Pages, fornecido pela GitHub, Inc., disponibiliza o arquivo da lista de permissão do Premium (2-6); o App não coloca informações da conta nessa solicitação. O App não usa nenhuma outra ferramenta de análise ou de relatório de falhas. Atualmente, o App é distribuído somente na República da Coreia; se a distribuição for ampliada para o EEE, o Reino Unido ou a Suíça, os usuários desses locais verão primeiro uma tela de consentimento para anúncios personalizados e esta política será atualizada. Todo o tráfego de rede é criptografado com HTTPS.</p>
+<h2>5. Retenção e exclusão</h2>
+<ul>
+  <li>Informações da conta no dispositivo (e-mail, nome): removidas quando você <strong>sai da conta</strong>.</li>
+  <li>Dados de calendário no dispositivo: permanecem depois que você sai da conta; removidos quando você <strong>desinstala o App</strong> ou limpa os dados dele (Configurações › Apps › forj. Calendar › Armazenamento › Limpar dados).</li>
+  <li>Arquivos de sincronização e de backup no Google Drive: exclua-os na sua Conta do Google — Google Drive (Web) › Configurações › <strong>Gerenciar aplicativos</strong> › forj. Calendar › <strong>Excluir dados ocultos de apps</strong> (Delete hidden app data).</li>
+  <li>Itens que você exclui no App (incluindo os apagados por Redefinir): eles desaparecem da tela na hora, mas, para informar os seus outros dispositivos sobre a exclusão, permanecem ocultos no armazenamento do App no dispositivo, junto com o horário da exclusão. Uma vez por dia, após uma sincronização em tempo real bem-sucedida, o App remove definitivamente do dispositivo os itens excluídos há mais de 90 dias. Se você não usa a sincronização em tempo real, essa limpeza não é executada; nesse caso, você pode removê-los desinstalando o App ou limpando os dados dele, como descrito acima. Nos arquivos de sincronização e de backup no Google Drive, um item excluído é mantido somente como o seu identificador e o horário da exclusão, sem o seu conteúdo, e os registros de exclusões com mais de 90 dias não são enviados ao arquivo de sincronização. O arquivo de backup e o arquivo de backup anterior à redefinição também contêm os registros de exclusão (somente o identificador e o horário da exclusão) que ainda estavam no dispositivo quando o backup foi feito, e eles permanecem ali até que o próximo backup substitua o arquivo.</li>
+  <li>O App não usa o Android Auto Backup nem a transferência de dispositivo para dispositivo. Após uma reinstalação, ele começa vazio; os dados anteriores que você salvou no Google Drive só voltam depois que você faz login e escolhe “Restaurar” em Ajustes › Dados ou ativa “Sincronização em tempo real”.</li>
+  <li>O desenvolvedor não armazena dados de usuários em nenhum servidor, portanto não há dados cuja exclusão possa ser solicitada ao desenvolvedor. No entanto, se o desenvolvedor concedeu o Premium à sua conta, um valor convertido do seu endereço de e-mail está na lista de permissão (2-6); para que ele seja removido da lista, entre em contato pelo endereço abaixo. Dúvidas: xxvion.studio@gmail.com</li>
+</ul>
+<h2>6. Crianças</h2>
+<p>O App não é direcionado a crianças menores de 14 anos (menores de 13 anos para usuários fora da Coreia) e não coleta intencionalmente informações pessoais delas.</p>
+<h2>7. Seus direitos</h2>
+<p>Você pode editar ou excluir os seus eventos, tarefas, grupos e projetos e excluir os locais salvos no App a qualquer momento, e pode desativar a sincronização em tempo real ou sair da conta. Você pode excluir todos os dados do seu dispositivo e do Google Drive usando os métodos da seção 5 acima.</p>
+<h2>8. Alterações</h2>
+<p>Se esta política for alterada, avisaremos no App ou nesta página e atualizaremos a data de vigência ou a data da última atualização.</p>
 </div>
 </main>
 </body>
