@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>돌멩이 차기 데이터 삭제 · Data Deletion</title>
+<style>
+  :root { --bg: #f2f4f6; --card: #ffffff; --text: #191f28; --sub: #6b7684; --line: #e5e8eb; --brand: #9a6a3a; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #101013; --card: #1c1c21; --text: #eceef0; --sub: #9aa0a8; --line: #2f2f37; --brand: #d2a374; }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 15px/1.7 -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", "Segoe UI", sans-serif; }
+  main { max-width: 760px; margin: 0 auto; padding: 32px 16px 64px; }
+  header { margin-bottom: 20px; }
+  .app { color: var(--brand); font-weight: 800; font-size: 22px; letter-spacing: -0.3px; }
+  h1 { font-size: 26px; margin: 4px 0 8px; letter-spacing: -0.4px; }
+  .meta { color: var(--sub); font-size: 13px; }
+  nav { margin: 16px 0 8px; display: flex; gap: 8px; }
+  nav a { padding: 6px 14px; border-radius: 999px; background: var(--card); color: var(--text); text-decoration: none; font-size: 14px; border: 1px solid var(--line); }
+  section.lang { background: var(--card); border-radius: 20px; padding: 8px 22px 22px; margin-top: 16px; }
+  h2 { font-size: 18px; margin: 26px 0 8px; }
+  h2:first-child { margin-top: 18px; }
+  ol, ul { padding-left: 20px; margin: 6px 0; }
+  li { margin: 6px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 8px 0; font-size: 14px; }
+  th, td { text-align: left; padding: 8px 6px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { color: var(--sub); font-weight: 600; }
+  a { color: var(--brand); }
+  .note { color: var(--sub); font-size: 13px; }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <div class="app">돌멩이 차기</div>
+    <h1>계정·데이터 삭제 안내 · Data Deletion</h1>
+    <div class="meta">앱 돌멩이 차기 · 개발자 XXVION · 2026-11-11</div>
+    <nav><a href="#ko">한국어</a><a href="#en">English</a></nav>
+  </header>
+
+  <section class="lang" id="ko" lang="ko">
+    <h2>데이터를 지우는 방법</h2>
+    <p>돌멩이 차기는 <strong>회원가입과 계정이 없고</strong>, 걸음 수와 게임 기록은 휴대폰 안에만 저장됩니다. 개발자 서버에 보관되는 계정이나 데이터가 없으므로, 아래 방법으로 이용자가 직접 바로 지울 수 있습니다.</p>
+    <ol>
+      <li><strong>기기에 저장된 데이터 지우기:</strong> 휴대폰의 <strong>설정 › 애플리케이션 › 돌멩이 차기 › 저장공간 › 데이터 삭제</strong>를 누르거나 앱을 삭제하세요. 다듬은 돌, 마을, 통계, 설정이 즉시 삭제됩니다.</li>
+      <li><strong>걸음 읽기 권한 거두기:</strong> <strong>Health Connect › 앱 권한 › 돌멩이 차기</strong>에서 걸음 읽기를 끄면 앱은 더 이상 걸음을 읽지 않습니다. Health Connect에 있는 걸음 기록 자체는 앱이 만든 것이 아니며, Health Connect 앱에서 따로 관리·삭제할 수 있습니다.</li>
+      <li><strong>Google 계정 백업 지우기:</strong> 기기의 Android 백업을 켜 두었다면 앱 데이터가 이용자의 Google 계정에 백업되어 있을 수 있습니다. <strong>Google One(또는 설정 › Google › 백업)</strong>에서 기기 백업을 관리·삭제할 수 있습니다.</li>
+      <li><strong>개발자에게 보낸 정보 삭제 요청:</strong> <a href="mailto:xxvion.studio@gmail.com?subject=%5B%EB%8F%8C%EB%A9%A9%EC%9D%B4%20%EC%B0%A8%EA%B8%B0%5D%20%EB%8D%B0%EC%9D%B4%ED%84%B0%20%EC%82%AD%EC%A0%9C%20%EC%9A%94%EC%B2%AD">xxvion.studio@gmail.com</a>으로 제목을 <strong>“[돌멩이 차기] 데이터 삭제 요청”</strong>으로 해서 메일을 보내 주세요. 문의할 때 쓴 이메일 주소로 보내 주시면 본인 확인 후 30일 안에 삭제하고 회신합니다.</li>
+    </ol>
+
+    <h2>삭제되는 데이터와 보관되는 데이터</h2>
+    <table>
+      <tr><th>데이터</th><th>처리</th></tr>
+      <tr><td>걸음 수 기록, 게임 기록(돌·마을·상점·통계·친구 코드), 앱 설정</td><td>기기에만 저장되며, 데이터 삭제 또는 앱 삭제 시 즉시 삭제됩니다. 개발자 서버에는 보관하지 않습니다.</td></tr>
+      <tr><td>Android 백업에 포함된 앱 데이터</td><td>이용자의 Google 계정에 Google이 보관합니다. 위 3번 방법으로 삭제할 수 있으며, 개발자는 접근할 수 없습니다.</td></tr>
+      <tr><td>문의 메일(이메일 주소, 내용)</td><td>요청 후 30일 안에 삭제합니다. 요청이 없어도 문의 처리 후 1년이 지나면 삭제합니다.</td></tr>
+    </table>
+    <p class="note">자세한 내용은 <a href="../privacy/">개인정보처리방침</a>을 참고하세요.</p>
+  </section>
+
+  <section class="lang" id="en" lang="en">
+    <h2>How to delete your data</h2>
+    <p>돌멩이 차기 has <strong>no accounts or sign-in</strong>, and your step counts and game records are stored only on your phone. We keep no account or data on our servers, so you can delete everything yourself, immediately, as follows.</p>
+    <ol>
+      <li><strong>Delete data on your device:</strong> Go to <strong>Settings › Apps › 돌멩이 차기 › Storage › Clear data</strong>, or uninstall the app. Your stones, village, statistics and settings are deleted immediately.</li>
+      <li><strong>Revoke step access:</strong> Turn off step reading in <strong>Health Connect › App permissions › 돌멩이 차기</strong> and the app will stop reading steps. The step records in Health Connect are not created by this app; you can manage or delete them in the Health Connect app.</li>
+      <li><strong>Delete Google account backups:</strong> If Android backup is turned on, the app’s data may be backed up to your Google account. You can manage or delete device backups in <strong>Google One (or Settings › Google › Backup)</strong>.</li>
+      <li><strong>Ask us to delete information you sent us:</strong> Email <a href="mailto:xxvion.studio@gmail.com?subject=%5B%EB%8F%8C%EB%A9%A9%EC%9D%B4%20%EC%B0%A8%EA%B8%B0%5D%20Data%20deletion%20request">xxvion.studio@gmail.com</a> with the subject <strong>“[돌멩이 차기] Data deletion request”</strong> from the address you used to contact us. We will verify the request and delete the data within 30 days, then reply to confirm.</li>
+    </ol>
+
+    <h2>What is deleted and what is kept</h2>
+    <table>
+      <tr><th>Data</th><th>What happens</th></tr>
+      <tr><td>Step records, game records (stones, village, shop, statistics, friend code) and app settings</td><td>Stored only on your device and deleted immediately when you clear the app’s data or uninstall it. We do not keep them on any server.</td></tr>
+      <tr><td>App data included in Android backup</td><td>Kept by Google in your Google account. You can delete it as described in step 3; we have no access to it.</td></tr>
+      <tr><td>Support emails (email address, message)</td><td>Deleted within 30 days of your request. Without a request, deleted one year after the inquiry is resolved.</td></tr>
+    </table>
+    <p class="note">See the <a href="../privacy/#en">Privacy Policy</a> for details.</p>
+  </section>
+</main>
+</body>
+</html>
